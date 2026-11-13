@@ -1,0 +1,27 @@
+{
+  "team_number": "T0066",
+  "group_lead": {
+    "name": "Sarthak Gupta",
+    "enrollment_no": "2501010408",
+    "github": "sarthak-gupta-229"
+  },
+  "members": [
+    {
+      "name": "Shresth Juyal",
+      "enrollment_no": "2501010436",
+      "github": "Shresth-14"
+    },
+    {
+      "name": "Yuvansh Juneja",
+      "enrollment_no": "2501010537",
+      "github": "Yuvanshj"
+    },
+    {
+      "name": "Yashaswi Gusain",
+      "enrollment_no": "2501010524",
+      "github": "gusainyashaswi"
+    }
+  ],
+  "postgres_version": "",
+  "laptop_used_for_benchmarks": ""
+}
