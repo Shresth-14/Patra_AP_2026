@@ -1,0 +1,245 @@
+---
+title: Patra relational ER diagram
+---
+erDiagram
+    %% Mermaid crow's-foot notation. Nullable fields are marked in comments.
+    %% Composite PKs are identified on each participating column.
+
+    USERS ||--o{ REFRESH_TOKENS : owns
+    USERS ||--o{ MEMBERSHIPS : joins
+    ORGANIZATIONS ||--o{ MEMBERSHIPS : has
+    ROLES ||--o{ MEMBERSHIPS : grants
+    ORGANIZATIONS o|--o{ ROLES : scopes
+    ROLES ||--o{ ROLE_PERMISSIONS : receives
+    PERMISSIONS ||--o{ ROLE_PERMISSIONS : grants
+
+    ORGANIZATIONS ||--o{ MAIL_TRANSPORTS : configures
+    MAIL_TRANSPORTS ||--o{ DOMAINS : verifies
+    ORGANIZATIONS ||--o{ DOMAINS : owns
+    DOMAINS ||--o{ SENDER_IDENTITIES : authorizes
+    ORGANIZATIONS ||--o{ SENDER_IDENTITIES : scopes
+
+    ORGANIZATIONS ||--o{ CONTACTS : owns
+    CONTACTS ||--o{ CONTACT_CUSTOM_FIELDS : has
+    ORGANIZATIONS ||--o{ LISTS : owns
+    LISTS ||--o{ LIST_CONTACTS : contains
+    CONTACTS ||--o{ LIST_CONTACTS : belongs_to
+    ORGANIZATIONS ||--o{ SUPPRESSIONS : records
+
+    ORGANIZATIONS ||--o{ TEMPLATES : owns
+    TEMPLATES ||--o{ TEMPLATE_VERSIONS : publishes
+    TEMPLATE_VERSIONS ||--o{ TEMPLATE_VERSION_VARIABLES : declares
+
+    ORGANIZATIONS ||--o{ CAMPAIGNS : owns
+    TEMPLATE_VERSIONS ||--o{ CAMPAIGNS : uses
+    SENDER_IDENTITIES ||--o{ CAMPAIGNS : sends_from
+    LISTS ||--o{ CAMPAIGNS : targets
+    USERS o|--o{ CAMPAIGNS : creates
+    CAMPAIGNS ||--o{ CAMPAIGN_RECIPIENTS : queues
+    CONTACTS ||--o{ CAMPAIGN_RECIPIENTS : receives
+    ORGANIZATIONS ||--o{ CAMPAIGN_RECIPIENTS : scopes
+
+    ORGANIZATIONS ||--o{ AUDIT_LOGS : records
+    USERS o|--o{ AUDIT_LOGS : acts
+
+    USERS {
+        uuid user_id PK
+        varchar email UK
+        text name "nullable"
+        text password_hash
+        text avatar_url
+        boolean is_platform_admin
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    REFRESH_TOKENS {
+        uuid refresh_token_id PK
+        uuid user_id FK
+        text token_hash UK
+        timestamptz expires_at
+        timestamptz revoked_at "nullable"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    ORGANIZATIONS {
+        uuid organization_id PK
+        text name
+        varchar slug UK
+        varchar timezone
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    ROLES {
+        uuid role_id PK
+        uuid organization_id FK "nullable for global roles"
+        varchar name
+        text description "nullable"
+        boolean is_system
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    PERMISSIONS {
+        varchar permission_code PK
+    }
+    ROLE_PERMISSIONS {
+        uuid role_id PK, FK
+        varchar permission_code PK, FK
+    }
+    MEMBERSHIPS {
+        uuid user_id PK, FK
+        uuid organization_id PK, FK
+        uuid role_id FK
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    MAIL_TRANSPORTS {
+        uuid transport_id PK
+        uuid organization_id FK
+        varchar name
+        varchar transport_type
+        text credentials_encrypted
+        numeric rate_per_second
+        integer daily_limit "nullable"
+        boolean is_default
+        varchar status
+        timestamptz last_tested_at "nullable"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    DOMAINS {
+        uuid domain_id PK
+        uuid organization_id FK
+        uuid transport_id FK
+        varchar domain_name
+        boolean is_verified
+        text provider_domain_id "nullable"
+        jsonb dns_records "nullable"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    SENDER_IDENTITIES {
+        uuid sender_identity_id PK
+        uuid organization_id FK
+        uuid domain_id FK
+        varchar display_name
+        varchar from_email
+        varchar reply_to "nullable"
+        boolean is_default
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    CONTACTS {
+        uuid contact_id PK
+        uuid organization_id FK
+        varchar email
+        text name "nullable"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    CONTACT_CUSTOM_FIELDS {
+        uuid contact_id PK, FK
+        varchar field_key PK
+        text field_value
+    }
+    LISTS {
+        uuid list_id PK
+        uuid organization_id FK
+        varchar name
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    LIST_CONTACTS {
+        uuid list_id PK, FK
+        uuid contact_id PK, FK
+    }
+    SUPPRESSIONS {
+        uuid suppression_id PK
+        uuid organization_id FK
+        varchar email
+        varchar reason
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    TEMPLATES {
+        uuid template_id PK
+        uuid organization_id FK
+        varchar name
+        varchar status
+        jsonb draft_blocks "nullable opaque editor document"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    TEMPLATE_VERSIONS {
+        uuid template_version_id PK
+        uuid template_id FK
+        uuid organization_id FK "copied for tenant-scoped access"
+        integer version_number
+        text subject
+        text preview_text "nullable"
+        jsonb blocks
+        text html
+        text plain_text
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    TEMPLATE_VERSION_VARIABLES {
+        uuid template_version_id PK, FK
+        varchar variable_name PK
+    }
+    CAMPAIGNS {
+        uuid campaign_id PK
+        uuid organization_id FK "tenant scope"
+        varchar name
+        varchar status
+        varchar priority
+        uuid template_version_id FK
+        uuid sender_identity_id FK
+        uuid list_id FK
+        uuid created_by_id FK "nullable"
+        timestamptz scheduled_at "nullable"
+        timestamptz started_at "nullable"
+        timestamptz completed_at "nullable"
+        integer total_recipients
+        integer sent_count
+        integer delivered_count
+        integer bounced_count
+        integer failed_count
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    CAMPAIGN_RECIPIENTS {
+        uuid recipient_id PK
+        uuid organization_id FK "copied for tenant-scoped access"
+        uuid campaign_id FK
+        uuid contact_id FK
+        varchar email "send-time snapshot"
+        varchar status
+        text provider_message_id "nullable"
+        text error "nullable"
+        timestamptz sent_at "nullable"
+        timestamptz delivered_at "nullable"
+        timestamptz bounced_at "nullable"
+        timestamptz opened_at "nullable"
+        timestamptz clicked_at "nullable"
+        timestamptz created_at
+        timestamptz updated_at
+    }
+    WEBHOOK_EVENTS {
+        uuid webhook_event_id PK
+        varchar provider
+        varchar provider_event_id UK
+        varchar event_type
+        jsonb payload "nullable opaque event document"
+        timestamptz received_at
+    }
+    AUDIT_LOGS {
+        uuid audit_log_id PK
+        uuid organization_id FK
+        uuid user_id FK "nullable"
+        varchar action
+        varchar target_type
+        text target_id "nullable polymorphic reference"
+        jsonb metadata "nullable opaque document"
+        timestamptz created_at
+        timestamptz updated_at
+    }

@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1940" height="1820" viewBox="0 0 1940 1820">
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#667085"/></marker>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#101828" flood-opacity="0.12"/></filter>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill:#1d2939; }
+    .title { font-size:26px; font-weight:700; } .sub { font-size:14px; fill:#475467; }
+    .group { font-size:14px; font-weight:700; fill:#344054; letter-spacing:.7px; }
+    .edge { fill:none; stroke:#98a2b3; stroke-width:1.35; opacity:.68; marker-end:url(#arrow); }
+    .card { fill:#ffffff; stroke:#98a2b3; stroke-width:1; rx:8; filter:url(#shadow); }
+    .head { fill:#eaf2ff; stroke:#98a2b3; stroke-width:1; }
+    .name { font-size:14px; font-weight:700; fill:#173b70; } .attr { font-size:11px; }
+    .cardinality { font-size:10px; font-weight:700; fill:#475467; paint-order:stroke; stroke:white; stroke-width:3px; stroke-linejoin:round; }
+    .legend { font-size:12px; fill:#344054; }
+  </style>
+</defs>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<text class="title" x="35" y="42">Patra — Relational ER Diagram</text>
+<text class="sub" x="35" y="68">PostgreSQL target · UUID primary keys · crow's-foot relationships · composite tenant foreign keys enforce same-organization references</text>
+<text class="sub" x="35" y="91">JSONB is reserved for editor block snapshots and opaque provider/audit payloads; repeating permissions, fields, list membership, and template variables are separate relations.</text>
+
+<text class="group" x="35" y="92">IDENTITY &amp; ACCESS</text>
+<text class="group" x="505" y="92">SENDING INFRASTRUCTURE</text>
+<text class="group" x="975" y="92">AUDIENCE &amp; TEMPLATES</text>
+<text class="group" x="1445" y="92">CAMPAIGNS &amp; AUDIT</text>
+<path class="edge" d="M35,207.5 H23 V1110.5 H35"/>
+<text class="cardinality" x="21" y="655.0">1:N</text>
+<path class="edge" d="M35,207.5 H23 V937.5 H35"/>
+<text class="cardinality" x="21" y="568.5">1:N</text>
+<path class="edge" d="M35,398.5 H23 V937.5 H35"/>
+<text class="cardinality" x="21" y="664.0">1:N</text>
+<path class="edge" d="M35,580.5 H23 V937.5 H35"/>
+<text class="cardinality" x="21" y="755.0">1:N</text>
+<path class="edge" d="M35,398.5 H23 V580.5 H35"/>
+<text class="cardinality" x="21" y="485.5">0..1:N</text>
+<path class="edge" d="M35,580.5 H23 V809.5 H35"/>
+<text class="cardinality" x="21" y="691.0">1:N</text>
+<path class="edge" d="M35,717.5 H23 V809.5 H35"/>
+<text class="cardinality" x="21" y="759.5">1:N</text>
+<path class="edge" d="M455,398.5 H480.0 V243.5 H505"/>
+<text class="cardinality" x="480.0" y="317.0">1:N</text>
+<path class="edge" d="M505,243.5 H493 V497.5 H505"/>
+<text class="cardinality" x="491" y="366.5">1:N</text>
+<path class="edge" d="M455,398.5 H480.0 V497.5 H505"/>
+<text class="cardinality" x="480.0" y="444.0">1:N</text>
+<path class="edge" d="M505,497.5 H493 V724.5 H505"/>
+<text class="cardinality" x="491" y="607.0">1:N</text>
+<path class="edge" d="M455,398.5 H480.0 V724.5 H505"/>
+<text class="cardinality" x="480.0" y="557.5">1:N</text>
+<path class="edge" d="M455,398.5 H715.0 V189.5 H975"/>
+<text class="cardinality" x="715.0" y="290.0">1:N</text>
+<path class="edge" d="M975,189.5 H963 V335.5 H975"/>
+<text class="cardinality" x="961" y="258.5">1:N</text>
+<path class="edge" d="M455,398.5 H715.0 V472.5 H975"/>
+<text class="cardinality" x="715.0" y="431.5">1:N</text>
+<path class="edge" d="M975,472.5 H963 V600.5 H975"/>
+<text class="cardinality" x="961" y="532.5">1:N</text>
+<path class="edge" d="M975,189.5 H963 V600.5 H975"/>
+<text class="cardinality" x="961" y="391.0">1:N</text>
+<path class="edge" d="M455,398.5 H715.0 V737.5 H975"/>
+<text class="cardinality" x="715.0" y="564.0">1:N</text>
+<path class="edge" d="M455,398.5 H715.0 V919.5 H975"/>
+<text class="cardinality" x="715.0" y="655.0">1:N</text>
+<path class="edge" d="M975,919.5 H963 V1146.5 H975"/>
+<text class="cardinality" x="961" y="1029.0">1:N</text>
+<path class="edge" d="M975,1146.5 H963 V1328.5 H975"/>
+<text class="cardinality" x="961" y="1233.5">1:N</text>
+<path class="edge" d="M455,398.5 H950.0 V261.5 H1445"/>
+<text class="cardinality" x="950.0" y="326.0">1:N</text>
+<path class="edge" d="M1395,1146.5 H1420.0 V261.5 H1445"/>
+<text class="cardinality" x="1420.0" y="700.0">1:N</text>
+<path class="edge" d="M925,724.5 H1185.0 V261.5 H1445"/>
+<text class="cardinality" x="1185.0" y="489.0">1:N</text>
+<path class="edge" d="M1395,472.5 H1420.0 V261.5 H1445"/>
+<text class="cardinality" x="1420.0" y="363.0">1:N</text>
+<path class="edge" d="M455,207.5 H950.0 V261.5 H1445"/>
+<text class="cardinality" x="950.0" y="230.5">0..1:N</text>
+<path class="edge" d="M1445,261.5 H1433 V551.5 H1445"/>
+<text class="cardinality" x="1431" y="402.5">1:N</text>
+<path class="edge" d="M1395,189.5 H1420.0 V551.5 H1445"/>
+<text class="cardinality" x="1420.0" y="366.5">1:N</text>
+<path class="edge" d="M455,398.5 H950.0 V551.5 H1445"/>
+<text class="cardinality" x="950.0" y="471.0">1:N</text>
+<path class="edge" d="M455,398.5 H950.0 V960.5 H1445"/>
+<text class="cardinality" x="950.0" y="675.5">1:N</text>
+<path class="edge" d="M455,207.5 H950.0 V960.5 H1445"/>
+<text class="cardinality" x="950.0" y="580.0">0..1:N</text>
+<rect class="card" x="35" y="112" width="420" height="191"/>
+<path class="head" d="M43,112 H447 Q455,112 455,120 V149 H35 V120 Q35,112 43,112 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="136">USERS</text>
+<text class="attr" x="47" y="166">PK  user_id · UUID</text>
+<text class="attr" x="47" y="184">UK  email · VARCHAR(254)</text>
+<text class="attr" x="47" y="202">name · TEXT · nullable</text>
+<text class="attr" x="47" y="220">password_hash · TEXT</text>
+<text class="attr" x="47" y="238">avatar_url · TEXT</text>
+<text class="attr" x="47" y="256">is_platform_admin · BOOLEAN</text>
+<text class="attr" x="47" y="274">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="47" y="292">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="35" y="321" width="420" height="155"/>
+<path class="head" d="M43,321 H447 Q455,321 455,329 V358 H35 V329 Q35,321 43,321 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="345">ORGANIZATIONS</text>
+<text class="attr" x="47" y="375">PK  organization_id · UUID</text>
+<text class="attr" x="47" y="393">UK  slug · VARCHAR(80)</text>
+<text class="attr" x="47" y="411">name · TEXT</text>
+<text class="attr" x="47" y="429">timezone · VARCHAR(64)</text>
+<text class="attr" x="47" y="447">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="47" y="465">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="35" y="494" width="420" height="173"/>
+<path class="head" d="M43,494 H447 Q455,494 455,502 V531 H35 V502 Q35,494 43,494 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="518">ROLES</text>
+<text class="attr" x="47" y="548">PK  role_id · UUID</text>
+<text class="attr" x="47" y="566">FK  organization_id · nullable</text>
+<text class="attr" x="47" y="584">name · VARCHAR(80)</text>
+<text class="attr" x="47" y="602">description · nullable</text>
+<text class="attr" x="47" y="620">is_system · BOOLEAN</text>
+<text class="attr" x="47" y="638">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="47" y="656">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="35" y="685" width="420" height="65"/>
+<path class="head" d="M43,685 H447 Q455,685 455,693 V722 H35 V693 Q35,685 43,685 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="709">PERMISSIONS</text>
+<text class="attr" x="47" y="739">PK  permission_code · VARCHAR(100)</text>
+<rect class="card" x="35" y="768" width="420" height="83"/>
+<path class="head" d="M43,768 H447 Q455,768 455,776 V805 H35 V776 Q35,768 43,768 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="792">ROLE_PERMISSIONS</text>
+<text class="attr" x="47" y="822">PK/FK  role_id · UUID</text>
+<text class="attr" x="47" y="840">PK/FK  permission_code · VARCHAR(100)</text>
+<rect class="card" x="35" y="869" width="420" height="137"/>
+<path class="head" d="M43,869 H447 Q455,869 455,877 V906 H35 V877 Q35,869 43,869 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="893">MEMBERSHIPS</text>
+<text class="attr" x="47" y="923">PK/FK  user_id · UUID</text>
+<text class="attr" x="47" y="941">PK/FK  organization_id · UUID</text>
+<text class="attr" x="47" y="959">FK  role_id · UUID</text>
+<text class="attr" x="47" y="977">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="47" y="995">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="35" y="1024" width="420" height="173"/>
+<path class="head" d="M43,1024 H447 Q455,1024 455,1032 V1061 H35 V1032 Q35,1024 43,1024 Z" fill="#eaf2ff"/>
+<text class="name" x="47" y="1048">REFRESH_TOKENS</text>
+<text class="attr" x="47" y="1078">PK  refresh_token_id · UUID</text>
+<text class="attr" x="47" y="1096">FK  user_id · UUID</text>
+<text class="attr" x="47" y="1114">UK  token_hash · TEXT</text>
+<text class="attr" x="47" y="1132">expires_at · TIMESTAMPTZ</text>
+<text class="attr" x="47" y="1150">revoked_at · nullable</text>
+<text class="attr" x="47" y="1168">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="47" y="1186">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="505" y="112" width="420" height="263"/>
+<path class="head" d="M513,112 H917 Q925,112 925,120 V149 H505 V120 Q505,112 513,112 Z" fill="#e8f7f1"/>
+<text class="name" x="517" y="136">MAIL_TRANSPORTS</text>
+<text class="attr" x="517" y="166">PK  transport_id · UUID</text>
+<text class="attr" x="517" y="184">FK  organization_id · UUID</text>
+<text class="attr" x="517" y="202">name · VARCHAR(100)</text>
+<text class="attr" x="517" y="220">transport_type · RESEND/SMTP/SES</text>
+<text class="attr" x="517" y="238">credentials_encrypted · TEXT</text>
+<text class="attr" x="517" y="256">rate_per_second · NUMERIC</text>
+<text class="attr" x="517" y="274">daily_limit · nullable</text>
+<text class="attr" x="517" y="292">is_default · BOOLEAN</text>
+<text class="attr" x="517" y="310">status · enum-like text</text>
+<text class="attr" x="517" y="328">last_tested_at · nullable</text>
+<text class="attr" x="517" y="346">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="517" y="364">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="505" y="393" width="420" height="209"/>
+<path class="head" d="M513,393 H917 Q925,393 925,401 V430 H505 V401 Q505,393 513,393 Z" fill="#e8f7f1"/>
+<text class="name" x="517" y="417">DOMAINS</text>
+<text class="attr" x="517" y="447">PK  domain_id · UUID</text>
+<text class="attr" x="517" y="465">FK  organization_id · UUID</text>
+<text class="attr" x="517" y="483">FK  transport_id · UUID</text>
+<text class="attr" x="517" y="501">domain_name · VARCHAR(253)</text>
+<text class="attr" x="517" y="519">is_verified · BOOLEAN</text>
+<text class="attr" x="517" y="537">provider_domain_id · nullable</text>
+<text class="attr" x="517" y="555">dns_records · JSONB nullable</text>
+<text class="attr" x="517" y="573">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="517" y="591">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="505" y="620" width="420" height="209"/>
+<path class="head" d="M513,620 H917 Q925,620 925,628 V657 H505 V628 Q505,620 513,620 Z" fill="#e8f7f1"/>
+<text class="name" x="517" y="644">SENDER_IDENTITIES</text>
+<text class="attr" x="517" y="674">PK  sender_identity_id · UUID</text>
+<text class="attr" x="517" y="692">FK  organization_id · UUID</text>
+<text class="attr" x="517" y="710">FK  domain_id · UUID</text>
+<text class="attr" x="517" y="728">display_name · VARCHAR(150)</text>
+<text class="attr" x="517" y="746">from_email · VARCHAR(254)</text>
+<text class="attr" x="517" y="764">reply_to · nullable</text>
+<text class="attr" x="517" y="782">is_default · BOOLEAN</text>
+<text class="attr" x="517" y="800">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="517" y="818">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="975" y="112" width="420" height="155"/>
+<path class="head" d="M983,112 H1387 Q1395,112 1395,120 V149 H975 V120 Q975,112 983,112 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="136">CONTACTS</text>
+<text class="attr" x="987" y="166">PK  contact_id · UUID</text>
+<text class="attr" x="987" y="184">FK  organization_id · UUID</text>
+<text class="attr" x="987" y="202">email · VARCHAR(254)</text>
+<text class="attr" x="987" y="220">name · nullable</text>
+<text class="attr" x="987" y="238">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="987" y="256">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="975" y="285" width="420" height="101"/>
+<path class="head" d="M983,285 H1387 Q1395,285 1395,293 V322 H975 V293 Q975,285 983,285 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="309">CONTACT_CUSTOM_FIELDS</text>
+<text class="attr" x="987" y="339">PK/FK  contact_id · UUID</text>
+<text class="attr" x="987" y="357">PK  field_key · VARCHAR(150)</text>
+<text class="attr" x="987" y="375">field_value · TEXT</text>
+<rect class="card" x="975" y="404" width="420" height="137"/>
+<path class="head" d="M983,404 H1387 Q1395,404 1395,412 V441 H975 V412 Q975,404 983,404 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="428">LISTS</text>
+<text class="attr" x="987" y="458">PK  list_id · UUID</text>
+<text class="attr" x="987" y="476">FK  organization_id · UUID</text>
+<text class="attr" x="987" y="494">name · VARCHAR(150)</text>
+<text class="attr" x="987" y="512">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="987" y="530">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="975" y="559" width="420" height="83"/>
+<path class="head" d="M983,559 H1387 Q1395,559 1395,567 V596 H975 V567 Q975,559 983,559 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="583">LIST_CONTACTS</text>
+<text class="attr" x="987" y="613">PK/FK  list_id · UUID</text>
+<text class="attr" x="987" y="631">PK/FK  contact_id · UUID</text>
+<rect class="card" x="975" y="660" width="420" height="155"/>
+<path class="head" d="M983,660 H1387 Q1395,660 1395,668 V697 H975 V668 Q975,660 983,660 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="684">SUPPRESSIONS</text>
+<text class="attr" x="987" y="714">PK  suppression_id · UUID</text>
+<text class="attr" x="987" y="732">FK  organization_id · UUID</text>
+<text class="attr" x="987" y="750">email · VARCHAR(254)</text>
+<text class="attr" x="987" y="768">reason · enum-like text</text>
+<text class="attr" x="987" y="786">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="987" y="804">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="975" y="833" width="420" height="173"/>
+<path class="head" d="M983,833 H1387 Q1395,833 1395,841 V870 H975 V841 Q975,833 983,833 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="857">TEMPLATES</text>
+<text class="attr" x="987" y="887">PK  template_id · UUID</text>
+<text class="attr" x="987" y="905">FK  organization_id · UUID</text>
+<text class="attr" x="987" y="923">name · VARCHAR(150)</text>
+<text class="attr" x="987" y="941">status · DRAFT/PUBLISHED/ARCHIVED</text>
+<text class="attr" x="987" y="959">draft_blocks · JSONB nullable</text>
+<text class="attr" x="987" y="977">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="987" y="995">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="975" y="1024" width="420" height="245"/>
+<path class="head" d="M983,1024 H1387 Q1395,1024 1395,1032 V1061 H975 V1032 Q975,1024 983,1024 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="1048">TEMPLATE_VERSIONS</text>
+<text class="attr" x="987" y="1078">PK  template_version_id · UUID</text>
+<text class="attr" x="987" y="1096">FK  template_id · UUID</text>
+<text class="attr" x="987" y="1114">FK  organization_id · UUID (scoping copy)</text>
+<text class="attr" x="987" y="1132">version_number · INTEGER</text>
+<text class="attr" x="987" y="1150">subject · TEXT</text>
+<text class="attr" x="987" y="1168">preview_text · nullable</text>
+<text class="attr" x="987" y="1186">blocks · JSONB</text>
+<text class="attr" x="987" y="1204">html · TEXT</text>
+<text class="attr" x="987" y="1222">plain_text · TEXT</text>
+<text class="attr" x="987" y="1240">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="987" y="1258">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="975" y="1287" width="420" height="83"/>
+<path class="head" d="M983,1287 H1387 Q1395,1287 1395,1295 V1324 H975 V1295 Q975,1287 983,1287 Z" fill="#fff4e5"/>
+<text class="name" x="987" y="1311">TEMPLATE_VERSION_VARIABLES</text>
+<text class="attr" x="987" y="1341">PK/FK  template_version_id · UUID</text>
+<text class="attr" x="987" y="1359">PK  variable_name · VARCHAR(150)</text>
+<rect class="card" x="1445" y="112" width="420" height="299"/>
+<path class="head" d="M1453,112 H1857 Q1865,112 1865,120 V149 H1445 V120 Q1445,112 1453,112 Z" fill="#f3edff"/>
+<text class="name" x="1457" y="136">CAMPAIGNS</text>
+<text class="attr" x="1457" y="166">PK  campaign_id · UUID</text>
+<text class="attr" x="1457" y="184">FK  organization_id · UUID (tenant scope)</text>
+<text class="attr" x="1457" y="202">name · VARCHAR(150)</text>
+<text class="attr" x="1457" y="220">status · campaign status</text>
+<text class="attr" x="1457" y="238">priority · NORMAL/URGENT</text>
+<text class="attr" x="1457" y="256">FK  template_version_id · UUID</text>
+<text class="attr" x="1457" y="274">FK  sender_identity_id · UUID</text>
+<text class="attr" x="1457" y="292">FK  list_id · UUID</text>
+<text class="attr" x="1457" y="310">created_by_id · nullable FK user</text>
+<text class="attr" x="1457" y="328">scheduled/started/completed_at · nullable</text>
+<text class="attr" x="1457" y="346">total_recipients · INTEGER</text>
+<text class="attr" x="1457" y="364">sent/delivered/bounced/failed_count · INTEGER</text>
+<text class="attr" x="1457" y="382">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="1457" y="400">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="1445" y="429" width="420" height="245"/>
+<path class="head" d="M1453,429 H1857 Q1865,429 1865,437 V466 H1445 V437 Q1445,429 1453,429 Z" fill="#f3edff"/>
+<text class="name" x="1457" y="453">CAMPAIGN_RECIPIENTS</text>
+<text class="attr" x="1457" y="483">PK  recipient_id · UUID</text>
+<text class="attr" x="1457" y="501">FK  organization_id · UUID (scoping copy)</text>
+<text class="attr" x="1457" y="519">FK  campaign_id · UUID</text>
+<text class="attr" x="1457" y="537">FK  contact_id · UUID</text>
+<text class="attr" x="1457" y="555">email · send-time snapshot</text>
+<text class="attr" x="1457" y="573">status · recipient status</text>
+<text class="attr" x="1457" y="591">provider_message_id · nullable</text>
+<text class="attr" x="1457" y="609">error · nullable</text>
+<text class="attr" x="1457" y="627">sent/delivered/bounced/opened/clicked_at · nullable</text>
+<text class="attr" x="1457" y="645">created_at · TIMESTAMPTZ</text>
+<text class="attr" x="1457" y="663">updated_at · TIMESTAMPTZ</text>
+<rect class="card" x="1445" y="692" width="420" height="155"/>
+<path class="head" d="M1453,692 H1857 Q1865,692 1865,700 V729 H1445 V700 Q1445,692 1453,692 Z" fill="#f3edff"/>
+<text class="name" x="1457" y="716">WEBHOOK_EVENTS</text>
+<text class="attr" x="1457" y="746">PK  webhook_event_id · UUID</text>
+<text class="attr" x="1457" y="764">UK  provider_event_id · VARCHAR(255)</text>
+<text class="attr" x="1457" y="782">provider · VARCHAR(40)</text>
+<text class="attr" x="1457" y="800">event_type · VARCHAR(100)</text>
+<text class="attr" x="1457" y="818">payload · JSONB nullable</text>
+<text class="attr" x="1457" y="836">received_at · TIMESTAMPTZ</text>
+<rect class="card" x="1445" y="865" width="420" height="191"/>
+<path class="head" d="M1453,865 H1857 Q1865,865 1865,873 V902 H1445 V873 Q1445,865 1453,865 Z" fill="#f3edff"/>
+<text class="name" x="1457" y="889">AUDIT_LOGS</text>
+<text class="attr" x="1457" y="919">PK  audit_log_id · UUID</text>
+<text class="attr" x="1457" y="937">FK  organization_id · UUID</text>
+<text class="attr" x="1457" y="955">FK  user_id · nullable</text>
+<text class="attr" x="1457" y="973">action · VARCHAR(100)</text>
+<text class="attr" x="1457" y="991">target_type · VARCHAR(100)</text>
+<text class="attr" x="1457" y="1009">target_id · nullable polymorphic ref</text>
+<text class="attr" x="1457" y="1027">metadata · JSONB nullable</text>
+<text class="attr" x="1457" y="1045">created_at/updated_at · TIMESTAMPTZ</text>
+<line x1="35" y1="1762" x2="1905" y2="1762" stroke="#d0d5dd"/>
+<text class="legend" x="35" y="1781">PK primary key · FK foreign key · UK unique candidate key · 1:N one-to-many · 0..1:N optional parent to many children · tenant copies are documented in 01_normalization.md</text>
+</svg>
