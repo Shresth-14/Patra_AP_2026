@@ -1,0 +1,33 @@
+=== W6 run 1 ===
+Insert on memberships  (cost=0.00..0.01 rows=0 width=0) (actual time=0.085..0.085 rows=0.00 loops=1)
+  Buffers: shared hit=39
+  ->  Result  (cost=0.00..0.01 rows=1 width=64) (actual time=0.000..0.000 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=7
+Planning Time: 0.027 ms
+Trigger for constraint memberships_user_id_fkey: time=0.223 calls=1
+Trigger for constraint memberships_organization_id_fkey: time=0.115 calls=1
+Trigger for constraint memberships_role_id_fkey: time=0.099 calls=1
+Execution Time: 0.539 ms
+=== W6 run 2 ===
+Insert on memberships  (cost=0.00..0.01 rows=0 width=0) (actual time=0.078..0.078 rows=0.00 loops=1)
+  Buffers: shared hit=39
+  ->  Result  (cost=0.00..0.01 rows=1 width=64) (actual time=0.000..0.001 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=7
+Planning Time: 0.030 ms
+Trigger for constraint memberships_user_id_fkey: time=0.221 calls=1
+Trigger for constraint memberships_organization_id_fkey: time=0.096 calls=1
+Trigger for constraint memberships_role_id_fkey: time=0.088 calls=1
+Execution Time: 0.501 ms
+=== W6 run 3 ===
+Insert on memberships  (cost=0.00..0.01 rows=0 width=0) (actual time=0.077..0.077 rows=0.00 loops=1)
+  Buffers: shared hit=39
+  ->  Result  (cost=0.00..0.01 rows=1 width=64) (actual time=0.000..0.001 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=7
+Planning Time: 0.028 ms
+Trigger for constraint memberships_user_id_fkey: time=0.216 calls=1
+Trigger for constraint memberships_organization_id_fkey: time=0.098 calls=1
+Trigger for constraint memberships_role_id_fkey: time=0.093 calls=1
+Execution Time: 0.501 ms

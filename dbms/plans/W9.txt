@@ -1,0 +1,24 @@
+=== W9 run 1 ===
+Insert on role_permissions  (cost=0.00..0.01 rows=0 width=0) (actual time=0.096..0.096 rows=0.00 loops=1)
+  Buffers: shared hit=43
+  ->  Result  (cost=0.00..0.01 rows=1 width=234) (actual time=0.002..0.002 rows=1.00 loops=1)
+Planning Time: 0.031 ms
+Trigger for constraint role_permissions_role_id_fkey: time=0.240 calls=1
+Trigger for constraint role_permissions_permission_code_fkey: time=0.095 calls=1
+Execution Time: 0.442 ms
+=== W9 run 2 ===
+Insert on role_permissions  (cost=0.00..0.01 rows=0 width=0) (actual time=0.088..0.088 rows=0.00 loops=1)
+  Buffers: shared hit=43
+  ->  Result  (cost=0.00..0.01 rows=1 width=234) (actual time=0.001..0.002 rows=1.00 loops=1)
+Planning Time: 0.030 ms
+Trigger for constraint role_permissions_role_id_fkey: time=0.224 calls=1
+Trigger for constraint role_permissions_permission_code_fkey: time=0.092 calls=1
+Execution Time: 0.414 ms
+=== W9 run 3 ===
+Insert on role_permissions  (cost=0.00..0.01 rows=0 width=0) (actual time=0.080..0.080 rows=0.00 loops=1)
+  Buffers: shared hit=43
+  ->  Result  (cost=0.00..0.01 rows=1 width=234) (actual time=0.001..0.001 rows=1.00 loops=1)
+Planning Time: 0.028 ms
+Trigger for constraint role_permissions_role_id_fkey: time=0.213 calls=1
+Trigger for constraint role_permissions_permission_code_fkey: time=0.091 calls=1
+Execution Time: 0.392 ms

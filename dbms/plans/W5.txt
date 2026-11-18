@@ -1,0 +1,24 @@
+=== W5 run 1 ===
+Insert on organizations  (cost=0.00..0.02 rows=0 width=0) (actual time=0.120..0.120 rows=0.00 loops=1)
+  Buffers: shared hit=61
+  ->  Result  (cost=0.00..0.02 rows=1 width=388) (actual time=0.008..0.008 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.039 ms
+Execution Time: 0.134 ms
+=== W5 run 2 ===
+Insert on organizations  (cost=0.00..0.02 rows=0 width=0) (actual time=0.115..0.116 rows=0.00 loops=1)
+  Buffers: shared hit=61
+  ->  Result  (cost=0.00..0.02 rows=1 width=388) (actual time=0.007..0.007 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.038 ms
+Execution Time: 0.128 ms
+=== W5 run 3 ===
+Insert on organizations  (cost=0.00..0.02 rows=0 width=0) (actual time=0.116..0.116 rows=0.00 loops=1)
+  Buffers: shared hit=61
+  ->  Result  (cost=0.00..0.02 rows=1 width=388) (actual time=0.009..0.010 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.041 ms
+Execution Time: 0.130 ms

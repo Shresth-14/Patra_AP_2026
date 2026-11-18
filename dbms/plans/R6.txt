@@ -1,0 +1,75 @@
+=== R6 run 1 ===
+Hash Join  (cost=9.84..18.04 rows=15 width=84) (actual time=0.030..0.047 rows=15.00 loops=1)
+  Hash Cond: (m.role_id = r.role_id)
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=7.94..16.10 rows=15 width=69) (actual time=0.017..0.032 rows=15.00 loops=1)
+        Hash Cond: (u.user_id = m.user_id)
+        Buffers: shared hit=9
+        ->  Seq Scan on users u  (cost=0.00..7.50 rows=250 width=45) (actual time=0.001..0.010 rows=250.00 loops=1)
+              Buffers: shared hit=5
+        ->  Hash  (cost=7.75..7.75 rows=15 width=40) (actual time=0.012..0.012 rows=15.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 10kB
+              Buffers: shared hit=4
+              ->  Seq Scan on memberships m  (cost=0.00..7.75 rows=15 width=40) (actual time=0.002..0.010 rows=15.00 loops=1)
+                    Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                    Rows Removed by Filter: 285
+                    Buffers: shared hit=4
+  ->  Hash  (cost=1.40..1.40 rows=40 width=31) (actual time=0.009..0.009 rows=40.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 11kB
+        Buffers: shared hit=1
+        ->  Seq Scan on roles r  (cost=0.00..1.40 rows=40 width=31) (actual time=0.003..0.005 rows=40.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=297
+Planning Time: 0.429 ms
+Execution Time: 0.070 ms
+=== R6 run 2 ===
+Hash Join  (cost=9.84..18.04 rows=15 width=84) (actual time=0.028..0.045 rows=15.00 loops=1)
+  Hash Cond: (m.role_id = r.role_id)
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=7.94..16.10 rows=15 width=69) (actual time=0.016..0.031 rows=15.00 loops=1)
+        Hash Cond: (u.user_id = m.user_id)
+        Buffers: shared hit=9
+        ->  Seq Scan on users u  (cost=0.00..7.50 rows=250 width=45) (actual time=0.001..0.008 rows=250.00 loops=1)
+              Buffers: shared hit=5
+        ->  Hash  (cost=7.75..7.75 rows=15 width=40) (actual time=0.011..0.012 rows=15.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 10kB
+              Buffers: shared hit=4
+              ->  Seq Scan on memberships m  (cost=0.00..7.75 rows=15 width=40) (actual time=0.002..0.010 rows=15.00 loops=1)
+                    Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                    Rows Removed by Filter: 285
+                    Buffers: shared hit=4
+  ->  Hash  (cost=1.40..1.40 rows=40 width=31) (actual time=0.008..0.009 rows=40.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 11kB
+        Buffers: shared hit=1
+        ->  Seq Scan on roles r  (cost=0.00..1.40 rows=40 width=31) (actual time=0.003..0.004 rows=40.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=297
+Planning Time: 0.409 ms
+Execution Time: 0.069 ms
+=== R6 run 3 ===
+Hash Join  (cost=9.84..18.04 rows=15 width=84) (actual time=0.028..0.045 rows=15.00 loops=1)
+  Hash Cond: (m.role_id = r.role_id)
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=7.94..16.10 rows=15 width=69) (actual time=0.015..0.031 rows=15.00 loops=1)
+        Hash Cond: (u.user_id = m.user_id)
+        Buffers: shared hit=9
+        ->  Seq Scan on users u  (cost=0.00..7.50 rows=250 width=45) (actual time=0.001..0.008 rows=250.00 loops=1)
+              Buffers: shared hit=5
+        ->  Hash  (cost=7.75..7.75 rows=15 width=40) (actual time=0.011..0.011 rows=15.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 10kB
+              Buffers: shared hit=4
+              ->  Seq Scan on memberships m  (cost=0.00..7.75 rows=15 width=40) (actual time=0.002..0.009 rows=15.00 loops=1)
+                    Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                    Rows Removed by Filter: 285
+                    Buffers: shared hit=4
+  ->  Hash  (cost=1.40..1.40 rows=40 width=31) (actual time=0.009..0.009 rows=40.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 11kB
+        Buffers: shared hit=1
+        ->  Seq Scan on roles r  (cost=0.00..1.40 rows=40 width=31) (actual time=0.003..0.004 rows=40.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=297
+Planning Time: 0.422 ms
+Execution Time: 0.070 ms

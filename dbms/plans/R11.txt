@@ -1,0 +1,63 @@
+=== R11 run 1 ===
+Sort  (cost=2.94..2.94 rows=3 width=77) (actual time=0.026..0.027 rows=3.00 loops=1)
+  Sort Key: d.domain_name
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=5
+  ->  Hash Join  (cost=1.48..2.91 rows=3 width=77) (actual time=0.012..0.013 rows=3.00 loops=1)
+        Hash Cond: (mt.transport_id = d.transport_id)
+        Buffers: shared hit=2
+        ->  Seq Scan on mail_transports mt  (cost=0.00..1.25 rows=25 width=38) (actual time=0.001..0.002 rows=25.00 loops=1)
+              Buffers: shared hit=1
+        ->  Hash  (cost=1.44..1.44 rows=3 width=71) (actual time=0.007..0.007 rows=3.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=1
+              ->  Seq Scan on domains d  (cost=0.00..1.44 rows=3 width=71) (actual time=0.004..0.005 rows=3.00 loops=1)
+                    Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                    Rows Removed by Filter: 32
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=281
+Planning Time: 0.372 ms
+Execution Time: 0.048 ms
+=== R11 run 2 ===
+Sort  (cost=2.94..2.94 rows=3 width=77) (actual time=0.026..0.026 rows=3.00 loops=1)
+  Sort Key: d.domain_name
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=5
+  ->  Hash Join  (cost=1.48..2.91 rows=3 width=77) (actual time=0.012..0.014 rows=3.00 loops=1)
+        Hash Cond: (mt.transport_id = d.transport_id)
+        Buffers: shared hit=2
+        ->  Seq Scan on mail_transports mt  (cost=0.00..1.25 rows=25 width=38) (actual time=0.001..0.002 rows=25.00 loops=1)
+              Buffers: shared hit=1
+        ->  Hash  (cost=1.44..1.44 rows=3 width=71) (actual time=0.007..0.007 rows=3.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=1
+              ->  Seq Scan on domains d  (cost=0.00..1.44 rows=3 width=71) (actual time=0.004..0.005 rows=3.00 loops=1)
+                    Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                    Rows Removed by Filter: 32
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=281
+Planning Time: 0.330 ms
+Execution Time: 0.050 ms
+=== R11 run 3 ===
+Sort  (cost=2.94..2.94 rows=3 width=77) (actual time=0.025..0.026 rows=3.00 loops=1)
+  Sort Key: d.domain_name
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=5
+  ->  Hash Join  (cost=1.48..2.91 rows=3 width=77) (actual time=0.011..0.013 rows=3.00 loops=1)
+        Hash Cond: (mt.transport_id = d.transport_id)
+        Buffers: shared hit=2
+        ->  Seq Scan on mail_transports mt  (cost=0.00..1.25 rows=25 width=38) (actual time=0.001..0.002 rows=25.00 loops=1)
+              Buffers: shared hit=1
+        ->  Hash  (cost=1.44..1.44 rows=3 width=71) (actual time=0.007..0.007 rows=3.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=1
+              ->  Seq Scan on domains d  (cost=0.00..1.44 rows=3 width=71) (actual time=0.004..0.005 rows=3.00 loops=1)
+                    Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                    Rows Removed by Filter: 32
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=281
+Planning Time: 0.339 ms
+Execution Time: 0.047 ms

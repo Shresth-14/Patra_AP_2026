@@ -1,0 +1,36 @@
+=== W15 run 1 ===
+Insert on contact_custom_fields  (cost=0.00..0.01 rows=0 width=0) (actual time=0.136..0.136 rows=0.00 loops=1)
+  Conflict Resolution: UPDATE
+  Conflict Arbiter Indexes: contact_custom_fields_pkey
+  Tuples Inserted: 0
+  Conflicting Tuples: 1
+  Buffers: shared hit=36
+  ->  Result  (cost=0.00..0.01 rows=1 width=366) (actual time=0.002..0.002 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=38
+Planning Time: 0.055 ms
+Execution Time: 0.179 ms
+=== W15 run 2 ===
+Insert on contact_custom_fields  (cost=0.00..0.01 rows=0 width=0) (actual time=0.139..0.140 rows=0.00 loops=1)
+  Conflict Resolution: UPDATE
+  Conflict Arbiter Indexes: contact_custom_fields_pkey
+  Tuples Inserted: 0
+  Conflicting Tuples: 1
+  Buffers: shared hit=37
+  ->  Result  (cost=0.00..0.01 rows=1 width=366) (actual time=0.002..0.002 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=38
+Planning Time: 0.053 ms
+Execution Time: 0.203 ms
+=== W15 run 3 ===
+Insert on contact_custom_fields  (cost=0.00..0.01 rows=0 width=0) (actual time=0.115..0.115 rows=0.00 loops=1)
+  Conflict Resolution: UPDATE
+  Conflict Arbiter Indexes: contact_custom_fields_pkey
+  Tuples Inserted: 0
+  Conflicting Tuples: 1
+  Buffers: shared hit=37
+  ->  Result  (cost=0.00..0.01 rows=1 width=366) (actual time=0.001..0.001 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=38
+Planning Time: 0.052 ms
+Execution Time: 0.155 ms

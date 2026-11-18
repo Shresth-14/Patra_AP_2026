@@ -1,0 +1,72 @@
+=== R17 run 1 ===
+Limit  (cost=1179.73..1179.85 rows=50 width=63) (actual time=2.624..2.627 rows=50.00 loops=1)
+  Buffers: shared hit=429
+  ->  Sort  (cost=1179.73..1192.29 rows=5025 width=63) (actual time=2.623..2.624 rows=50.00 loops=1)
+        Sort Key: c.email
+        Sort Method: top-N heapsort  Memory: 32kB
+        Buffers: shared hit=429
+        ->  Hash Join  (cost=307.17..1012.80 rows=5025 width=63) (actual time=0.409..2.191 rows=5000.00 loops=1)
+              Hash Cond: (c.contact_id = lc.contact_id)
+              Buffers: shared hit=426
+              ->  Seq Scan on contacts c  (cost=0.00..640.00 rows=25000 width=63) (actual time=0.002..0.634 rows=25000.00 loops=1)
+                    Buffers: shared hit=390
+              ->  Hash  (cost=244.35..244.35 rows=5025 width=16) (actual time=0.399..0.399 rows=5000.00 loops=1)
+                    Buckets: 8192  Batches: 1  Memory Usage: 299kB
+                    Buffers: shared hit=36
+                    ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..244.35 rows=5025 width=16) (actual time=0.025..0.215 rows=5000.00 loops=1)
+                          Index Cond: (list_id = '00000000-0000-0000-0000-000000000009'::uuid)
+                          Heap Fetches: 240
+                          Index Searches: 1
+                          Buffers: shared hit=36
+Planning:
+  Buffers: shared hit=259
+Planning Time: 0.372 ms
+Execution Time: 2.646 ms
+=== R17 run 2 ===
+Limit  (cost=1179.73..1179.85 rows=50 width=63) (actual time=2.534..2.537 rows=50.00 loops=1)
+  Buffers: shared hit=429
+  ->  Sort  (cost=1179.73..1192.29 rows=5025 width=63) (actual time=2.533..2.534 rows=50.00 loops=1)
+        Sort Key: c.email
+        Sort Method: top-N heapsort  Memory: 32kB
+        Buffers: shared hit=429
+        ->  Hash Join  (cost=307.17..1012.80 rows=5025 width=63) (actual time=0.436..2.133 rows=5000.00 loops=1)
+              Hash Cond: (c.contact_id = lc.contact_id)
+              Buffers: shared hit=426
+              ->  Seq Scan on contacts c  (cost=0.00..640.00 rows=25000 width=63) (actual time=0.002..0.614 rows=25000.00 loops=1)
+                    Buffers: shared hit=390
+              ->  Hash  (cost=244.35..244.35 rows=5025 width=16) (actual time=0.426..0.426 rows=5000.00 loops=1)
+                    Buckets: 8192  Batches: 1  Memory Usage: 299kB
+                    Buffers: shared hit=36
+                    ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..244.35 rows=5025 width=16) (actual time=0.023..0.216 rows=5000.00 loops=1)
+                          Index Cond: (list_id = '00000000-0000-0000-0000-000000000009'::uuid)
+                          Heap Fetches: 240
+                          Index Searches: 1
+                          Buffers: shared hit=36
+Planning:
+  Buffers: shared hit=259
+Planning Time: 0.345 ms
+Execution Time: 2.555 ms
+=== R17 run 3 ===
+Limit  (cost=1179.73..1179.85 rows=50 width=63) (actual time=2.553..2.556 rows=50.00 loops=1)
+  Buffers: shared hit=429
+  ->  Sort  (cost=1179.73..1192.29 rows=5025 width=63) (actual time=2.552..2.554 rows=50.00 loops=1)
+        Sort Key: c.email
+        Sort Method: top-N heapsort  Memory: 32kB
+        Buffers: shared hit=429
+        ->  Hash Join  (cost=307.17..1012.80 rows=5025 width=63) (actual time=0.413..2.134 rows=5000.00 loops=1)
+              Hash Cond: (c.contact_id = lc.contact_id)
+              Buffers: shared hit=426
+              ->  Seq Scan on contacts c  (cost=0.00..640.00 rows=25000 width=63) (actual time=0.002..0.598 rows=25000.00 loops=1)
+                    Buffers: shared hit=390
+              ->  Hash  (cost=244.35..244.35 rows=5025 width=16) (actual time=0.403..0.404 rows=5000.00 loops=1)
+                    Buckets: 8192  Batches: 1  Memory Usage: 299kB
+                    Buffers: shared hit=36
+                    ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..244.35 rows=5025 width=16) (actual time=0.023..0.220 rows=5000.00 loops=1)
+                          Index Cond: (list_id = '00000000-0000-0000-0000-000000000009'::uuid)
+                          Heap Fetches: 240
+                          Index Searches: 1
+                          Buffers: shared hit=36
+Planning:
+  Buffers: shared hit=259
+Planning Time: 0.339 ms
+Execution Time: 2.572 ms

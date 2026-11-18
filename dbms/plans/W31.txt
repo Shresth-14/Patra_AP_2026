@@ -1,0 +1,33 @@
+=== W31 run 1 ===
+Update on campaign_recipients  (cost=0.00..2799.54 rows=0 width=0) (actual time=3.415..3.415 rows=0.00 loops=1)
+  Buffers: shared hit=1851
+  ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=1 width=72) (actual time=0.009..3.253 rows=1.00 loops=1)
+        Filter: (provider_message_id = 'msg_provider_abc123'::text)
+        Rows Removed by Filter: 59999
+        Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=86
+Planning Time: 0.169 ms
+Execution Time: 3.452 ms
+=== W31 run 2 ===
+Update on campaign_recipients  (cost=0.00..2799.54 rows=0 width=0) (actual time=3.391..3.392 rows=0.00 loops=1)
+  Buffers: shared hit=1851
+  ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=1 width=72) (actual time=0.009..3.232 rows=1.00 loops=1)
+        Filter: (provider_message_id = 'msg_provider_abc123'::text)
+        Rows Removed by Filter: 59999
+        Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=86
+Planning Time: 0.164 ms
+Execution Time: 3.429 ms
+=== W31 run 3 ===
+Update on campaign_recipients  (cost=0.00..2799.54 rows=0 width=0) (actual time=3.381..3.381 rows=0.00 loops=1)
+  Buffers: shared hit=1851
+  ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=1 width=72) (actual time=0.009..3.209 rows=1.00 loops=1)
+        Filter: (provider_message_id = 'msg_provider_abc123'::text)
+        Rows Removed by Filter: 59999
+        Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=86
+Planning Time: 0.159 ms
+Execution Time: 3.418 ms

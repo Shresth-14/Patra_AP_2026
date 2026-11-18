@@ -1,0 +1,39 @@
+=== R19 run 1 ===
+Sort  (cost=79.33..81.33 rows=800 width=62) (actual time=0.118..0.132 rows=800.00 loops=1)
+  Sort Key: created_at DESC
+  Sort Method: quicksort  Memory: 90kB
+  Buffers: shared hit=25
+  ->  Seq Scan on suppressions  (cost=0.00..40.75 rows=800 width=62) (actual time=0.004..0.069 rows=800.00 loops=1)
+        Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+        Rows Removed by Filter: 700
+        Buffers: shared hit=22
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.174 ms
+Execution Time: 0.160 ms
+=== R19 run 2 ===
+Sort  (cost=79.33..81.33 rows=800 width=62) (actual time=0.115..0.128 rows=800.00 loops=1)
+  Sort Key: created_at DESC
+  Sort Method: quicksort  Memory: 90kB
+  Buffers: shared hit=25
+  ->  Seq Scan on suppressions  (cost=0.00..40.75 rows=800 width=62) (actual time=0.004..0.066 rows=800.00 loops=1)
+        Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+        Rows Removed by Filter: 700
+        Buffers: shared hit=22
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.169 ms
+Execution Time: 0.156 ms
+=== R19 run 3 ===
+Sort  (cost=79.33..81.33 rows=800 width=62) (actual time=0.118..0.131 rows=800.00 loops=1)
+  Sort Key: created_at DESC
+  Sort Method: quicksort  Memory: 90kB
+  Buffers: shared hit=25
+  ->  Seq Scan on suppressions  (cost=0.00..40.75 rows=800 width=62) (actual time=0.004..0.068 rows=800.00 loops=1)
+        Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+        Rows Removed by Filter: 700
+        Buffers: shared hit=22
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.174 ms
+Execution Time: 0.159 ms

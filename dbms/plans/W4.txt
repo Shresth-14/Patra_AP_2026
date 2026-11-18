@@ -1,0 +1,33 @@
+=== W4 run 1 ===
+Update on users  (cost=0.00..8.13 rows=0 width=0) (actual time=0.142..0.142 rows=0.00 loops=1)
+  Buffers: shared hit=43
+  ->  Seq Scan on users  (cost=0.00..8.13 rows=1 width=78) (actual time=0.005..0.012 rows=1.00 loops=1)
+        Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
+        Rows Removed by Filter: 249
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=81
+Planning Time: 0.146 ms
+Execution Time: 0.183 ms
+=== W4 run 2 ===
+Update on users  (cost=0.00..8.13 rows=0 width=0) (actual time=0.148..0.148 rows=0.00 loops=1)
+  Buffers: shared hit=45
+  ->  Seq Scan on users  (cost=0.00..8.13 rows=1 width=78) (actual time=0.007..0.015 rows=1.00 loops=1)
+        Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
+        Rows Removed by Filter: 249
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=81
+Planning Time: 0.147 ms
+Execution Time: 0.190 ms
+=== W4 run 3 ===
+Update on users  (cost=0.00..8.13 rows=0 width=0) (actual time=0.169..0.169 rows=0.00 loops=1)
+  Buffers: shared hit=45
+  ->  Seq Scan on users  (cost=0.00..8.13 rows=1 width=78) (actual time=0.008..0.017 rows=1.00 loops=1)
+        Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
+        Rows Removed by Filter: 249
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=81
+Planning Time: 0.168 ms
+Execution Time: 0.216 ms

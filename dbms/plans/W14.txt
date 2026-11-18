@@ -1,0 +1,27 @@
+=== W14 run 1 ===
+Insert on contacts  (cost=0.00..0.02 rows=0 width=0) (actual time=0.204..0.204 rows=0.00 loops=1)
+  Buffers: shared hit=93
+  ->  Result  (cost=0.00..0.02 rows=1 width=596) (actual time=0.009..0.009 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.043 ms
+Trigger for constraint contacts_organization_id_fkey: time=0.236 calls=1
+Execution Time: 0.454 ms
+=== W14 run 2 ===
+Insert on contacts  (cost=0.00..0.02 rows=0 width=0) (actual time=0.203..0.203 rows=0.00 loops=1)
+  Buffers: shared hit=93
+  ->  Result  (cost=0.00..0.02 rows=1 width=596) (actual time=0.007..0.007 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.038 ms
+Trigger for constraint contacts_organization_id_fkey: time=0.247 calls=1
+Execution Time: 0.463 ms
+=== W14 run 3 ===
+Insert on contacts  (cost=0.00..0.02 rows=0 width=0) (actual time=0.186..0.186 rows=0.00 loops=1)
+  Buffers: shared hit=93
+  ->  Result  (cost=0.00..0.02 rows=1 width=596) (actual time=0.009..0.009 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.038 ms
+Trigger for constraint contacts_organization_id_fkey: time=0.222 calls=1
+Execution Time: 0.420 ms

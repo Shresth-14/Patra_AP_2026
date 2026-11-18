@@ -1,0 +1,33 @@
+=== W12 run 1 ===
+Update on domains  (cost=0.00..1.44 rows=0 width=0) (actual time=0.113..0.114 rows=0.00 loops=1)
+  Buffers: shared hit=26
+  ->  Seq Scan on domains  (cost=0.00..1.44 rows=1 width=15) (actual time=0.006..0.008 rows=1.00 loops=1)
+        Filter: (domain_id = '00000000-0000-0000-0000-000000000007'::uuid)
+        Rows Removed by Filter: 34
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=99
+Planning Time: 0.202 ms
+Execution Time: 0.168 ms
+=== W12 run 2 ===
+Update on domains  (cost=0.00..1.44 rows=0 width=0) (actual time=0.099..0.099 rows=0.00 loops=1)
+  Buffers: shared hit=26
+  ->  Seq Scan on domains  (cost=0.00..1.44 rows=1 width=15) (actual time=0.006..0.007 rows=1.00 loops=1)
+        Filter: (domain_id = '00000000-0000-0000-0000-000000000007'::uuid)
+        Rows Removed by Filter: 34
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=99
+Planning Time: 0.177 ms
+Execution Time: 0.143 ms
+=== W12 run 3 ===
+Update on domains  (cost=0.00..1.44 rows=0 width=0) (actual time=0.098..0.098 rows=0.00 loops=1)
+  Buffers: shared hit=26
+  ->  Seq Scan on domains  (cost=0.00..1.44 rows=1 width=15) (actual time=0.005..0.006 rows=1.00 loops=1)
+        Filter: (domain_id = '00000000-0000-0000-0000-000000000007'::uuid)
+        Rows Removed by Filter: 34
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=99
+Planning Time: 0.185 ms
+Execution Time: 0.142 ms

@@ -1,0 +1,33 @@
+=== W24 run 1 ===
+Update on templates  (cost=0.00..1.50 rows=0 width=0) (actual time=0.058..0.058 rows=0.00 loops=1)
+  Buffers: shared hit=23
+  ->  Seq Scan on templates  (cost=0.00..1.50 rows=1 width=64) (actual time=0.004..0.005 rows=1.00 loops=1)
+        Filter: (template_id = '00000000-0000-0000-0000-000000000010'::uuid)
+        Rows Removed by Filter: 39
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=79
+Planning Time: 0.156 ms
+Execution Time: 0.092 ms
+=== W24 run 2 ===
+Update on templates  (cost=0.00..1.50 rows=0 width=0) (actual time=0.058..0.058 rows=0.00 loops=1)
+  Buffers: shared hit=23
+  ->  Seq Scan on templates  (cost=0.00..1.50 rows=1 width=64) (actual time=0.005..0.006 rows=1.00 loops=1)
+        Filter: (template_id = '00000000-0000-0000-0000-000000000010'::uuid)
+        Rows Removed by Filter: 39
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=79
+Planning Time: 0.174 ms
+Execution Time: 0.092 ms
+=== W24 run 3 ===
+Update on templates  (cost=0.00..1.50 rows=0 width=0) (actual time=0.062..0.062 rows=0.00 loops=1)
+  Buffers: shared hit=23
+  ->  Seq Scan on templates  (cost=0.00..1.50 rows=1 width=64) (actual time=0.006..0.007 rows=1.00 loops=1)
+        Filter: (template_id = '00000000-0000-0000-0000-000000000010'::uuid)
+        Rows Removed by Filter: 39
+        Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=79
+Planning Time: 0.169 ms
+Execution Time: 0.098 ms

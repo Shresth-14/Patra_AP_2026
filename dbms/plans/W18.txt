@@ -1,0 +1,24 @@
+=== W18 run 1 ===
+Insert on list_contacts  (cost=0.00..0.01 rows=0 width=0) (actual time=0.089..0.090 rows=0.00 loops=1)
+  Buffers: shared hit=41
+  ->  Result  (cost=0.00..0.01 rows=1 width=32) (actual time=0.000..0.000 rows=1.00 loops=1)
+Planning Time: 0.020 ms
+Trigger for constraint list_contacts_list_id_fkey: time=0.249 calls=1
+Trigger for constraint list_contacts_contact_id_fkey: time=0.144 calls=1
+Execution Time: 0.496 ms
+=== W18 run 2 ===
+Insert on list_contacts  (cost=0.00..0.01 rows=0 width=0) (actual time=0.084..0.084 rows=0.00 loops=1)
+  Buffers: shared hit=42
+  ->  Result  (cost=0.00..0.01 rows=1 width=32) (actual time=0.000..0.000 rows=1.00 loops=1)
+Planning Time: 0.020 ms
+Trigger for constraint list_contacts_list_id_fkey: time=0.276 calls=1
+Trigger for constraint list_contacts_contact_id_fkey: time=0.144 calls=1
+Execution Time: 0.519 ms
+=== W18 run 3 ===
+Insert on list_contacts  (cost=0.00..0.01 rows=0 width=0) (actual time=0.082..0.082 rows=0.00 loops=1)
+  Buffers: shared hit=42
+  ->  Result  (cost=0.00..0.01 rows=1 width=32) (actual time=0.000..0.000 rows=1.00 loops=1)
+Planning Time: 0.020 ms
+Trigger for constraint list_contacts_list_id_fkey: time=0.231 calls=1
+Trigger for constraint list_contacts_contact_id_fkey: time=0.127 calls=1
+Execution Time: 0.454 ms

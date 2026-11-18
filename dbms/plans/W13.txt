@@ -1,0 +1,30 @@
+=== W13 run 1 ===
+Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.168..0.168 rows=0.00 loops=1)
+  Buffers: shared hit=65
+  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.009..0.009 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.038 ms
+Trigger for constraint sender_identities_organization_id_fkey: time=0.228 calls=1
+Trigger for constraint fk_sender_identities_domain_org: time=0.126 calls=1
+Execution Time: 0.534 ms
+=== W13 run 2 ===
+Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.174..0.174 rows=0.00 loops=1)
+  Buffers: shared hit=65
+  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.012..0.012 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.053 ms
+Trigger for constraint sender_identities_organization_id_fkey: time=0.247 calls=1
+Trigger for constraint fk_sender_identities_domain_org: time=0.130 calls=1
+Execution Time: 0.566 ms
+=== W13 run 3 ===
+Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.161..0.161 rows=0.00 loops=1)
+  Buffers: shared hit=65
+  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.009..0.009 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.040 ms
+Trigger for constraint sender_identities_organization_id_fkey: time=0.232 calls=1
+Trigger for constraint fk_sender_identities_domain_org: time=0.126 calls=1
+Execution Time: 0.530 ms

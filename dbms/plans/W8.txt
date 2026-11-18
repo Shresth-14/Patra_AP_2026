@@ -1,0 +1,27 @@
+=== W8 run 1 ===
+Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.088..0.088 rows=0.00 loops=1)
+  Buffers: shared hit=61
+  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.007..0.007 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.036 ms
+Trigger for constraint roles_organization_id_fkey: time=0.204 calls=1
+Execution Time: 0.304 ms
+=== W8 run 2 ===
+Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.093..0.093 rows=0.00 loops=1)
+  Buffers: shared hit=61
+  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.007..0.007 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.036 ms
+Trigger for constraint roles_organization_id_fkey: time=0.207 calls=1
+Execution Time: 0.312 ms
+=== W8 run 3 ===
+Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.095..0.095 rows=0.00 loops=1)
+  Buffers: shared hit=61
+  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.008..0.008 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.040 ms
+Trigger for constraint roles_organization_id_fkey: time=0.217 calls=1
+Execution Time: 0.325 ms

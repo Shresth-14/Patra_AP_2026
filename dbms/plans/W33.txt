@@ -1,0 +1,33 @@
+=== W33 run 1 ===
+Update on campaign_recipients  (cost=0.00..3096.10 rows=0 width=0) (actual time=3.328..3.328 rows=0.00 loops=1)
+  Buffers: shared hit=1845
+  ->  Seq Scan on campaign_recipients  (cost=0.00..3096.10 rows=1 width=72) (actual time=0.010..3.188 rows=1.00 loops=1)
+        Filter: ((provider_message_id = 'msg_provider_abc123'::text) AND ((status)::text <> ALL ('{BOUNCED,FAILED,COMPLAINED}'::text[])))
+        Rows Removed by Filter: 59999
+        Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=142
+Planning Time: 0.209 ms
+Execution Time: 3.367 ms
+=== W33 run 2 ===
+Update on campaign_recipients  (cost=0.00..3096.10 rows=0 width=0) (actual time=3.307..3.307 rows=0.00 loops=1)
+  Buffers: shared hit=1845
+  ->  Seq Scan on campaign_recipients  (cost=0.00..3096.10 rows=1 width=72) (actual time=0.010..3.153 rows=1.00 loops=1)
+        Filter: ((provider_message_id = 'msg_provider_abc123'::text) AND ((status)::text <> ALL ('{BOUNCED,FAILED,COMPLAINED}'::text[])))
+        Rows Removed by Filter: 59999
+        Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=142
+Planning Time: 0.215 ms
+Execution Time: 3.348 ms
+=== W33 run 3 ===
+Update on campaign_recipients  (cost=0.00..3096.10 rows=0 width=0) (actual time=3.197..3.198 rows=0.00 loops=1)
+  Buffers: shared hit=1845
+  ->  Seq Scan on campaign_recipients  (cost=0.00..3096.10 rows=1 width=72) (actual time=0.011..3.044 rows=1.00 loops=1)
+        Filter: ((provider_message_id = 'msg_provider_abc123'::text) AND ((status)::text <> ALL ('{BOUNCED,FAILED,COMPLAINED}'::text[])))
+        Rows Removed by Filter: 59999
+        Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=142
+Planning Time: 0.216 ms
+Execution Time: 3.237 ms

@@ -84,11 +84,11 @@ WHERE m.user_id = '00000000-0000-0000-0000-000000000001'
 
 -- W5  -- WRITE  Create a new organization
 INSERT INTO organizations (name, slug, timezone)
-VALUES ('Acme Corp', 'acme-corp', 'Asia/Kolkata');
+VALUES ('Acme Corp', 'acme-corp-benchmark', 'Asia/Kolkata');
 
 -- W6  -- WRITE  Add a member to an organization with a role
 INSERT INTO memberships (user_id, organization_id, role_id)
-VALUES ('00000000-0000-0000-0000-000000000001',
+VALUES ('00000000-0000-0000-0000-000000000002',
         '00000000-0000-0000-0000-000000000003',
         '00000000-0000-0000-0000-000000000004');
 
@@ -211,7 +211,7 @@ ON CONFLICT (contact_id, field_key) DO UPDATE SET field_value = EXCLUDED.field_v
 
 -- W16  -- WRITE  Delete a contact (cascades to custom fields, list memberships, recipients)
 DELETE FROM contacts
-WHERE contact_id = '00000000-0000-0000-0000-000000000008';
+WHERE contact_id = '00000000-0000-0000-0000-000000000099';
 
 -- =====================================================================
 -- LISTS & LIST CONTACTS
@@ -240,12 +240,12 @@ VALUES ('00000000-0000-0000-0000-000000000003', 'Newsletter Subscribers');
 
 -- W18  -- WRITE  Add a contact to a list
 INSERT INTO list_contacts (list_id, contact_id)
-VALUES ('00000000-0000-0000-0000-000000000009', '00000000-0000-0000-0000-000000000008');
+VALUES ('00000000-0000-0000-0000-000000000009', '00000000-0000-0000-0000-000000000098');
 
 -- W19  -- WRITE  Remove a contact from a list
 DELETE FROM list_contacts
 WHERE list_id = '00000000-0000-0000-0000-000000000009'
-  AND contact_id = '00000000-0000-0000-0000-000000000008';
+  AND contact_id = '00000000-0000-0000-0000-000000000097';
 
 -- =====================================================================
 -- SUPPRESSIONS
@@ -265,7 +265,7 @@ ORDER BY created_at DESC;
 
 -- W20  -- WRITE  Add a suppression (e.g. from a bounce or unsubscribe)
 INSERT INTO suppressions (organization_id, email, reason)
-VALUES ('00000000-0000-0000-0000-000000000003', 'bounced@example.com', 'HARD_BOUNCE')
+VALUES ('00000000-0000-0000-0000-000000000003', 'suppress-bench@example.com', 'HARD_BOUNCE')
 ON CONFLICT (organization_id, email) DO NOTHING;
 
 -- =====================================================================
@@ -298,7 +298,7 @@ VALUES ('00000000-0000-0000-0000-000000000003', 'Weekly Digest', 'DRAFT');
 -- W22  -- WRITE  Publish a template version (creates an immutable snapshot)
 INSERT INTO template_versions
     (template_id, organization_id, version_number, subject, preview_text, blocks, html, plain_text)
-VALUES ('00000000-0000-0000-0000-000000000010',
+VALUES ('00000000-0000-0000-0000-000000000020',
         '00000000-0000-0000-0000-000000000003',
         1,
         'Your Weekly Digest',
@@ -385,7 +385,7 @@ JOIN list_contacts lc ON lc.list_id = c.list_id
 JOIN contacts ct      ON ct.contact_id = lc.contact_id
 LEFT JOIN suppressions s ON s.organization_id = c.organization_id
                         AND s.email = ct.email
-WHERE c.campaign_id = '00000000-0000-0000-0000-000000000012'
+WHERE c.campaign_id = '00000000-0000-0000-0000-000000000015'
   AND s.suppression_id IS NULL;
 
 -- W28  -- WRITE  Update campaign counters after sending

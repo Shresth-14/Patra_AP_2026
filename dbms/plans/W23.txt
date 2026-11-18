@@ -1,0 +1,21 @@
+=== W23 run 1 ===
+Insert on template_version_variables  (cost=0.00..0.03 rows=0 width=0) (actual time=0.114..0.114 rows=0.00 loops=1)
+  Buffers: shared hit=54
+  ->  Values Scan on "*VALUES*"  (cost=0.00..0.03 rows=2 width=334) (actual time=0.002..0.002 rows=2.00 loops=1)
+Planning Time: 0.038 ms
+Trigger for constraint template_version_variables_template_version_id_fkey: time=0.284 calls=2
+Execution Time: 0.407 ms
+=== W23 run 2 ===
+Insert on template_version_variables  (cost=0.00..0.03 rows=0 width=0) (actual time=0.104..0.104 rows=0.00 loops=1)
+  Buffers: shared hit=54
+  ->  Values Scan on "*VALUES*"  (cost=0.00..0.03 rows=2 width=334) (actual time=0.002..0.002 rows=2.00 loops=1)
+Planning Time: 0.036 ms
+Trigger for constraint template_version_variables_template_version_id_fkey: time=0.275 calls=2
+Execution Time: 0.388 ms
+=== W23 run 3 ===
+Insert on template_version_variables  (cost=0.00..0.03 rows=0 width=0) (actual time=0.101..0.102 rows=0.00 loops=1)
+  Buffers: shared hit=54
+  ->  Values Scan on "*VALUES*"  (cost=0.00..0.03 rows=2 width=334) (actual time=0.002..0.002 rows=2.00 loops=1)
+Planning Time: 0.035 ms
+Trigger for constraint template_version_variables_template_version_id_fkey: time=0.270 calls=2
+Execution Time: 0.380 ms

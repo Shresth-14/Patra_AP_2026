@@ -1,0 +1,27 @@
+=== R18 run 1 ===
+Index Scan using uq_suppressions_org_email on suppressions  (cost=0.28..8.30 rows=1 width=62) (actual time=0.007..0.007 rows=1.00 loops=1)
+  Index Cond: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) AND ((email)::text = 'bounced@example.com'::text))
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=101
+Planning Time: 0.182 ms
+Execution Time: 0.021 ms
+=== R18 run 2 ===
+Index Scan using uq_suppressions_org_email on suppressions  (cost=0.28..8.30 rows=1 width=62) (actual time=0.008..0.008 rows=1.00 loops=1)
+  Index Cond: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) AND ((email)::text = 'bounced@example.com'::text))
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=101
+Planning Time: 0.161 ms
+Execution Time: 0.022 ms
+=== R18 run 3 ===
+Index Scan using uq_suppressions_org_email on suppressions  (cost=0.28..8.30 rows=1 width=62) (actual time=0.006..0.007 rows=1.00 loops=1)
+  Index Cond: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) AND ((email)::text = 'bounced@example.com'::text))
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=101
+Planning Time: 0.158 ms
+Execution Time: 0.020 ms

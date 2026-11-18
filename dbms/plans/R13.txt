@@ -1,0 +1,45 @@
+=== R13 run 1 ===
+Limit  (cost=1101.13..1101.26 rows=50 width=71) (actual time=1.899..1.902 rows=50.00 loops=1)
+  Buffers: shared hit=393
+  ->  Sort  (cost=1101.13..1131.13 rows=12000 width=71) (actual time=1.899..1.900 rows=50.00 loops=1)
+        Sort Key: created_at DESC
+        Sort Method: top-N heapsort  Memory: 38kB
+        Buffers: shared hit=393
+        ->  Seq Scan on contacts c  (cost=0.00..702.50 rows=12000 width=71) (actual time=0.007..0.977 rows=12000.00 loops=1)
+              Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+              Rows Removed by Filter: 13000
+              Buffers: shared hit=390
+Planning:
+  Buffers: shared hit=139
+Planning Time: 0.234 ms
+Execution Time: 1.914 ms
+=== R13 run 2 ===
+Limit  (cost=1101.13..1101.26 rows=50 width=71) (actual time=1.825..1.828 rows=50.00 loops=1)
+  Buffers: shared hit=393
+  ->  Sort  (cost=1101.13..1131.13 rows=12000 width=71) (actual time=1.824..1.825 rows=50.00 loops=1)
+        Sort Key: created_at DESC
+        Sort Method: top-N heapsort  Memory: 38kB
+        Buffers: shared hit=393
+        ->  Seq Scan on contacts c  (cost=0.00..702.50 rows=12000 width=71) (actual time=0.005..0.950 rows=12000.00 loops=1)
+              Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+              Rows Removed by Filter: 13000
+              Buffers: shared hit=390
+Planning:
+  Buffers: shared hit=139
+Planning Time: 0.195 ms
+Execution Time: 1.839 ms
+=== R13 run 3 ===
+Limit  (cost=1101.13..1101.26 rows=50 width=71) (actual time=1.917..1.919 rows=50.00 loops=1)
+  Buffers: shared hit=393
+  ->  Sort  (cost=1101.13..1131.13 rows=12000 width=71) (actual time=1.916..1.917 rows=50.00 loops=1)
+        Sort Key: created_at DESC
+        Sort Method: top-N heapsort  Memory: 38kB
+        Buffers: shared hit=393
+        ->  Seq Scan on contacts c  (cost=0.00..702.50 rows=12000 width=71) (actual time=0.005..0.950 rows=12000.00 loops=1)
+              Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+              Rows Removed by Filter: 13000
+              Buffers: shared hit=390
+Planning:
+  Buffers: shared hit=139
+Planning Time: 0.190 ms
+Execution Time: 1.930 ms

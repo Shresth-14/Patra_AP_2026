@@ -1,0 +1,39 @@
+=== W25 run 1 ===
+Insert on campaigns  (cost=0.00..0.02 rows=0 width=0) (actual time=0.136..0.136 rows=0.00 loops=1)
+  Buffers: shared hit=66
+  ->  Result  (cost=0.00..0.02 rows=1 width=562) (actual time=0.007..0.007 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.039 ms
+Trigger for constraint campaigns_organization_id_fkey: time=0.217 calls=1
+Trigger for constraint campaigns_created_by_id_fkey: time=0.093 calls=1
+Trigger for constraint fk_campaigns_template_version_org: time=0.127 calls=1
+Trigger for constraint fk_campaigns_sender_org: time=0.099 calls=1
+Trigger for constraint fk_campaigns_list_org: time=0.093 calls=1
+Execution Time: 0.778 ms
+=== W25 run 2 ===
+Insert on campaigns  (cost=0.00..0.02 rows=0 width=0) (actual time=0.740..0.741 rows=0.00 loops=1)
+  Buffers: shared hit=67 read=1 dirtied=2 written=1
+  ->  Result  (cost=0.00..0.02 rows=1 width=562) (actual time=0.008..0.008 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.038 ms
+Trigger for constraint campaigns_organization_id_fkey: time=0.238 calls=1
+Trigger for constraint campaigns_created_by_id_fkey: time=0.092 calls=1
+Trigger for constraint fk_campaigns_template_version_org: time=0.126 calls=1
+Trigger for constraint fk_campaigns_sender_org: time=0.098 calls=1
+Trigger for constraint fk_campaigns_list_org: time=0.092 calls=1
+Execution Time: 1.400 ms
+=== W25 run 3 ===
+Insert on campaigns  (cost=0.00..0.02 rows=0 width=0) (actual time=0.139..0.139 rows=0.00 loops=1)
+  Buffers: shared hit=66
+  ->  Result  (cost=0.00..0.02 rows=1 width=562) (actual time=0.008..0.008 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.039 ms
+Trigger for constraint campaigns_organization_id_fkey: time=0.226 calls=1
+Trigger for constraint campaigns_created_by_id_fkey: time=0.116 calls=1
+Trigger for constraint fk_campaigns_template_version_org: time=0.192 calls=1
+Trigger for constraint fk_campaigns_sender_org: time=0.155 calls=1
+Trigger for constraint fk_campaigns_list_org: time=0.119 calls=1
+Execution Time: 0.962 ms

@@ -1,0 +1,111 @@
+=== R23 run 1 ===
+Sort  (cost=17.36..17.43 rows=30 width=193) (actual time=0.069..0.070 rows=30.00 loops=1)
+  Sort Key: c.created_at DESC
+  Sort Method: quicksort  Memory: 31kB
+  Buffers: shared hit=13
+  ->  Hash Join  (cost=10.50..16.62 rows=30 width=193) (actual time=0.043..0.058 rows=30.00 loops=1)
+        Hash Cond: (c.list_id = l.list_id)
+        Buffers: shared hit=10
+        ->  Hash Join  (cost=8.15..14.19 rows=30 width=193) (actual time=0.030..0.042 rows=30.00 loops=1)
+              Hash Cond: (c.template_version_id = tv.template_version_id)
+              Buffers: shared hit=9
+              ->  Hash Join  (cost=3.12..9.09 rows=30 width=182) (actual time=0.015..0.025 rows=30.00 loops=1)
+                    Hash Cond: (c.sender_identity_id = si.sender_identity_id)
+                    Buffers: shared hit=6
+                    ->  Seq Scan on campaigns c  (cost=0.00..5.88 rows=30 width=148) (actual time=0.002..0.009 rows=30.00 loops=1)
+                          Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                          Rows Removed by Filter: 120
+                          Buffers: shared hit=4
+                    ->  Hash  (cost=2.50..2.50 rows=50 width=66) (actual time=0.008..0.008 rows=50.00 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 13kB
+                          Buffers: shared hit=2
+                          ->  Seq Scan on sender_identities si  (cost=0.00..2.50 rows=50 width=66) (actual time=0.002..0.004 rows=50.00 loops=1)
+                                Buffers: shared hit=2
+              ->  Hash  (cost=3.90..3.90 rows=90 width=43) (actual time=0.012..0.012 rows=90.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 15kB
+                    Buffers: shared hit=3
+                    ->  Seq Scan on template_versions tv  (cost=0.00..3.90 rows=90 width=43) (actual time=0.002..0.007 rows=90.00 loops=1)
+                          Buffers: shared hit=3
+        ->  Hash  (cost=1.60..1.60 rows=60 width=32) (actual time=0.010..0.010 rows=60.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 12kB
+              Buffers: shared hit=1
+              ->  Seq Scan on lists l  (cost=0.00..1.60 rows=60 width=32) (actual time=0.003..0.005 rows=60.00 loops=1)
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=402
+Planning Time: 0.551 ms
+Execution Time: 0.107 ms
+=== R23 run 2 ===
+Sort  (cost=17.36..17.43 rows=30 width=193) (actual time=0.066..0.067 rows=30.00 loops=1)
+  Sort Key: c.created_at DESC
+  Sort Method: quicksort  Memory: 31kB
+  Buffers: shared hit=13
+  ->  Hash Join  (cost=10.50..16.62 rows=30 width=193) (actual time=0.041..0.056 rows=30.00 loops=1)
+        Hash Cond: (c.list_id = l.list_id)
+        Buffers: shared hit=10
+        ->  Hash Join  (cost=8.15..14.19 rows=30 width=193) (actual time=0.029..0.041 rows=30.00 loops=1)
+              Hash Cond: (c.template_version_id = tv.template_version_id)
+              Buffers: shared hit=9
+              ->  Hash Join  (cost=3.12..9.09 rows=30 width=182) (actual time=0.014..0.024 rows=30.00 loops=1)
+                    Hash Cond: (c.sender_identity_id = si.sender_identity_id)
+                    Buffers: shared hit=6
+                    ->  Seq Scan on campaigns c  (cost=0.00..5.88 rows=30 width=148) (actual time=0.002..0.008 rows=30.00 loops=1)
+                          Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                          Rows Removed by Filter: 120
+                          Buffers: shared hit=4
+                    ->  Hash  (cost=2.50..2.50 rows=50 width=66) (actual time=0.008..0.008 rows=50.00 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 13kB
+                          Buffers: shared hit=2
+                          ->  Seq Scan on sender_identities si  (cost=0.00..2.50 rows=50 width=66) (actual time=0.001..0.004 rows=50.00 loops=1)
+                                Buffers: shared hit=2
+              ->  Hash  (cost=3.90..3.90 rows=90 width=43) (actual time=0.012..0.012 rows=90.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 15kB
+                    Buffers: shared hit=3
+                    ->  Seq Scan on template_versions tv  (cost=0.00..3.90 rows=90 width=43) (actual time=0.002..0.007 rows=90.00 loops=1)
+                          Buffers: shared hit=3
+        ->  Hash  (cost=1.60..1.60 rows=60 width=32) (actual time=0.009..0.009 rows=60.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 12kB
+              Buffers: shared hit=1
+              ->  Seq Scan on lists l  (cost=0.00..1.60 rows=60 width=32) (actual time=0.003..0.005 rows=60.00 loops=1)
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=402
+Planning Time: 0.519 ms
+Execution Time: 0.098 ms
+=== R23 run 3 ===
+Sort  (cost=17.36..17.43 rows=30 width=193) (actual time=0.070..0.072 rows=30.00 loops=1)
+  Sort Key: c.created_at DESC
+  Sort Method: quicksort  Memory: 31kB
+  Buffers: shared hit=13
+  ->  Hash Join  (cost=10.50..16.62 rows=30 width=193) (actual time=0.042..0.059 rows=30.00 loops=1)
+        Hash Cond: (c.list_id = l.list_id)
+        Buffers: shared hit=10
+        ->  Hash Join  (cost=8.15..14.19 rows=30 width=193) (actual time=0.029..0.043 rows=30.00 loops=1)
+              Hash Cond: (c.template_version_id = tv.template_version_id)
+              Buffers: shared hit=9
+              ->  Hash Join  (cost=3.12..9.09 rows=30 width=182) (actual time=0.015..0.026 rows=30.00 loops=1)
+                    Hash Cond: (c.sender_identity_id = si.sender_identity_id)
+                    Buffers: shared hit=6
+                    ->  Seq Scan on campaigns c  (cost=0.00..5.88 rows=30 width=148) (actual time=0.002..0.010 rows=30.00 loops=1)
+                          Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
+                          Rows Removed by Filter: 120
+                          Buffers: shared hit=4
+                    ->  Hash  (cost=2.50..2.50 rows=50 width=66) (actual time=0.008..0.008 rows=50.00 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 13kB
+                          Buffers: shared hit=2
+                          ->  Seq Scan on sender_identities si  (cost=0.00..2.50 rows=50 width=66) (actual time=0.001..0.004 rows=50.00 loops=1)
+                                Buffers: shared hit=2
+              ->  Hash  (cost=3.90..3.90 rows=90 width=43) (actual time=0.012..0.012 rows=90.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 15kB
+                    Buffers: shared hit=3
+                    ->  Seq Scan on template_versions tv  (cost=0.00..3.90 rows=90 width=43) (actual time=0.002..0.006 rows=90.00 loops=1)
+                          Buffers: shared hit=3
+        ->  Hash  (cost=1.60..1.60 rows=60 width=32) (actual time=0.010..0.010 rows=60.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 12kB
+              Buffers: shared hit=1
+              ->  Seq Scan on lists l  (cost=0.00..1.60 rows=60 width=32) (actual time=0.003..0.005 rows=60.00 loops=1)
+                    Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=402
+Planning Time: 0.544 ms
+Execution Time: 0.107 ms

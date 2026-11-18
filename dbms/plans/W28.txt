@@ -1,0 +1,138 @@
+=== W28 run 1 ===
+Update on campaigns  (cost=0.00..15096.41 rows=0 width=0) (actual time=11.598..11.599 rows=0.00 loops=1)
+  Buffers: shared hit=9099
+  ->  Seq Scan on campaigns  (cost=0.00..15096.41 rows=1 width=34) (actual time=11.413..11.422 rows=1.00 loops=1)
+        Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
+        Rows Removed by Filter: 149
+        Buffers: shared hit=9060
+        SubPlan 1
+          ->  Aggregate  (cost=2800.86..2800.88 rows=1 width=8) (actual time=3.594..3.595 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=531 width=0) (actual time=0.003..3.392 rows=10000.00 loops=1)
+                      Filter: (campaign_id = campaigns.campaign_id)
+                      Rows Removed by Filter: 50000
+                      Buffers: shared hit=1811
+        SubPlan 2
+          ->  Aggregate  (cost=3196.25..3196.26 rows=1 width=8) (actual time=2.233..2.233 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_1  (cost=0.00..3194.95 rows=517 width=0) (actual time=0.007..2.067 rows=8500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = ANY ('{SENT,DELIVERED,OPENED,CLICKED}'::text[])))
+                      Rows Removed by Filter: 51500
+                      Buffers: shared hit=1811
+        SubPlan 3
+          ->  Aggregate  (cost=3097.37..3097.38 rows=1 width=8) (actual time=2.213..2.213 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_2  (cost=0.00..3096.10 rows=508 width=0) (actual time=0.086..2.072 rows=7500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = ANY ('{DELIVERED,OPENED,CLICKED}'::text[])))
+                      Rows Removed by Filter: 52500
+                      Buffers: shared hit=1811
+        SubPlan 4
+          ->  Aggregate  (cost=2997.26..2997.27 rows=1 width=8) (actual time=1.679..1.679 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_3  (cost=0.00..2997.24 rows=5 width=0) (actual time=0.292..1.667 rows=500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = 'BOUNCED'::text))
+                      Rows Removed by Filter: 59500
+                      Buffers: shared hit=1811
+        SubPlan 5
+          ->  Aggregate  (cost=2997.26..2997.27 rows=1 width=8) (actual time=1.673..1.674 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_4  (cost=0.00..2997.24 rows=5 width=0) (actual time=0.267..1.660 rows=500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = 'FAILED'::text))
+                      Rows Removed by Filter: 59500
+                      Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.368 ms
+Execution Time: 11.681 ms
+=== W28 run 2 ===
+Update on campaigns  (cost=0.00..15096.41 rows=0 width=0) (actual time=11.088..11.089 rows=0.00 loops=1)
+  Buffers: shared hit=9099
+  ->  Seq Scan on campaigns  (cost=0.00..15096.41 rows=1 width=34) (actual time=10.907..10.917 rows=1.00 loops=1)
+        Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
+        Rows Removed by Filter: 149
+        Buffers: shared hit=9060
+        SubPlan 1
+          ->  Aggregate  (cost=2800.86..2800.88 rows=1 width=8) (actual time=3.221..3.221 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=531 width=0) (actual time=0.002..3.043 rows=10000.00 loops=1)
+                      Filter: (campaign_id = campaigns.campaign_id)
+                      Rows Removed by Filter: 50000
+                      Buffers: shared hit=1811
+        SubPlan 2
+          ->  Aggregate  (cost=3196.25..3196.26 rows=1 width=8) (actual time=2.330..2.330 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_1  (cost=0.00..3194.95 rows=517 width=0) (actual time=0.004..2.170 rows=8500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = ANY ('{SENT,DELIVERED,OPENED,CLICKED}'::text[])))
+                      Rows Removed by Filter: 51500
+                      Buffers: shared hit=1811
+        SubPlan 3
+          ->  Aggregate  (cost=3097.37..3097.38 rows=1 width=8) (actual time=1.974..1.974 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_2  (cost=0.00..3096.10 rows=508 width=0) (actual time=0.078..1.836 rows=7500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = ANY ('{DELIVERED,OPENED,CLICKED}'::text[])))
+                      Rows Removed by Filter: 52500
+                      Buffers: shared hit=1811
+        SubPlan 4
+          ->  Aggregate  (cost=2997.26..2997.27 rows=1 width=8) (actual time=1.635..1.635 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_3  (cost=0.00..2997.24 rows=5 width=0) (actual time=0.250..1.625 rows=500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = 'BOUNCED'::text))
+                      Rows Removed by Filter: 59500
+                      Buffers: shared hit=1811
+        SubPlan 5
+          ->  Aggregate  (cost=2997.26..2997.27 rows=1 width=8) (actual time=1.728..1.728 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_4  (cost=0.00..2997.24 rows=5 width=0) (actual time=0.285..1.710 rows=500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = 'FAILED'::text))
+                      Rows Removed by Filter: 59500
+                      Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.339 ms
+Execution Time: 11.159 ms
+=== W28 run 3 ===
+Update on campaigns  (cost=0.00..15096.41 rows=0 width=0) (actual time=11.028..11.029 rows=0.00 loops=1)
+  Buffers: shared hit=9099
+  ->  Seq Scan on campaigns  (cost=0.00..15096.41 rows=1 width=34) (actual time=10.857..10.867 rows=1.00 loops=1)
+        Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
+        Rows Removed by Filter: 149
+        Buffers: shared hit=9060
+        SubPlan 1
+          ->  Aggregate  (cost=2800.86..2800.88 rows=1 width=8) (actual time=3.147..3.147 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=531 width=0) (actual time=0.003..2.936 rows=10000.00 loops=1)
+                      Filter: (campaign_id = campaigns.campaign_id)
+                      Rows Removed by Filter: 50000
+                      Buffers: shared hit=1811
+        SubPlan 2
+          ->  Aggregate  (cost=3196.25..3196.26 rows=1 width=8) (actual time=2.227..2.227 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_1  (cost=0.00..3194.95 rows=517 width=0) (actual time=0.004..2.065 rows=8500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = ANY ('{SENT,DELIVERED,OPENED,CLICKED}'::text[])))
+                      Rows Removed by Filter: 51500
+                      Buffers: shared hit=1811
+        SubPlan 3
+          ->  Aggregate  (cost=3097.37..3097.38 rows=1 width=8) (actual time=2.022..2.022 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_2  (cost=0.00..3096.10 rows=508 width=0) (actual time=0.077..1.887 rows=7500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = ANY ('{DELIVERED,OPENED,CLICKED}'::text[])))
+                      Rows Removed by Filter: 52500
+                      Buffers: shared hit=1811
+        SubPlan 4
+          ->  Aggregate  (cost=2997.26..2997.27 rows=1 width=8) (actual time=1.672..1.672 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_3  (cost=0.00..2997.24 rows=5 width=0) (actual time=0.260..1.663 rows=500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = 'BOUNCED'::text))
+                      Rows Removed by Filter: 59500
+                      Buffers: shared hit=1811
+        SubPlan 5
+          ->  Aggregate  (cost=2997.26..2997.27 rows=1 width=8) (actual time=1.774..1.774 rows=1.00 loops=1)
+                Buffers: shared hit=1811
+                ->  Seq Scan on campaign_recipients campaign_recipients_4  (cost=0.00..2997.24 rows=5 width=0) (actual time=0.282..1.761 rows=500.00 loops=1)
+                      Filter: ((campaign_id = campaigns.campaign_id) AND ((status)::text = 'FAILED'::text))
+                      Rows Removed by Filter: 59500
+                      Buffers: shared hit=1811
+Planning:
+  Buffers: shared hit=191
+Planning Time: 0.362 ms
+Execution Time: 11.105 ms

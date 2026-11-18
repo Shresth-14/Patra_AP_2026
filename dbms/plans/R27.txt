@@ -1,0 +1,27 @@
+=== R27 run 1 ===
+Seq Scan on campaign_recipients cr  (cost=0.00..2394.53 rows=1 width=82) (actual time=0.005..2.819 rows=1.00 loops=1)
+  Filter: (provider_message_id = 'msg_provider_abc123'::text)
+  Rows Removed by Filter: 59999
+  Buffers: shared hit=1549
+Planning:
+  Buffers: shared hit=98
+Planning Time: 0.165 ms
+Execution Time: 2.836 ms
+=== R27 run 2 ===
+Seq Scan on campaign_recipients cr  (cost=0.00..2394.53 rows=1 width=82) (actual time=0.004..2.590 rows=1.00 loops=1)
+  Filter: (provider_message_id = 'msg_provider_abc123'::text)
+  Rows Removed by Filter: 59999
+  Buffers: shared hit=1549
+Planning:
+  Buffers: shared hit=98
+Planning Time: 0.154 ms
+Execution Time: 2.605 ms
+=== R27 run 3 ===
+Seq Scan on campaign_recipients cr  (cost=0.00..2394.53 rows=1 width=82) (actual time=0.004..2.744 rows=1.00 loops=1)
+  Filter: (provider_message_id = 'msg_provider_abc123'::text)
+  Rows Removed by Filter: 59999
+  Buffers: shared hit=1549
+Planning:
+  Buffers: shared hit=98
+Planning Time: 0.153 ms
+Execution Time: 2.761 ms

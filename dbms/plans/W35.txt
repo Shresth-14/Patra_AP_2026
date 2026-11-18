@@ -1,0 +1,36 @@
+=== W35 run 1 ===
+Insert on webhook_events  (cost=0.00..0.01 rows=0 width=0) (actual time=0.078..0.079 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: uq_webhook_events_provider_event
+  Tuples Inserted: 0
+  Conflicting Tuples: 1
+  Buffers: shared hit=24
+  ->  Result  (cost=0.00..0.01 rows=1 width=888) (actual time=0.015..0.015 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=58
+Planning Time: 0.080 ms
+Execution Time: 0.095 ms
+=== W35 run 2 ===
+Insert on webhook_events  (cost=0.00..0.01 rows=0 width=0) (actual time=0.062..0.062 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: uq_webhook_events_provider_event
+  Tuples Inserted: 0
+  Conflicting Tuples: 1
+  Buffers: shared hit=24
+  ->  Result  (cost=0.00..0.01 rows=1 width=888) (actual time=0.010..0.011 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=58
+Planning Time: 0.071 ms
+Execution Time: 0.072 ms
+=== W35 run 3 ===
+Insert on webhook_events  (cost=0.00..0.01 rows=0 width=0) (actual time=0.061..0.061 rows=0.00 loops=1)
+  Conflict Resolution: NOTHING
+  Conflict Arbiter Indexes: uq_webhook_events_provider_event
+  Tuples Inserted: 0
+  Conflicting Tuples: 1
+  Buffers: shared hit=24
+  ->  Result  (cost=0.00..0.01 rows=1 width=888) (actual time=0.011..0.011 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=58
+Planning Time: 0.061 ms
+Execution Time: 0.072 ms

@@ -1,0 +1,27 @@
+=== R22 run 1 ===
+Seq Scan on template_version_variables tvv  (cost=0.00..4.75 rows=2 width=9) (actual time=0.004..0.009 rows=2.00 loops=1)
+  Filter: (template_version_id = '00000000-0000-0000-0000-000000000011'::uuid)
+  Rows Removed by Filter: 218
+  Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=72
+Planning Time: 0.148 ms
+Execution Time: 0.023 ms
+=== R22 run 2 ===
+Seq Scan on template_version_variables tvv  (cost=0.00..4.75 rows=2 width=9) (actual time=0.004..0.008 rows=2.00 loops=1)
+  Filter: (template_version_id = '00000000-0000-0000-0000-000000000011'::uuid)
+  Rows Removed by Filter: 218
+  Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=72
+Planning Time: 0.142 ms
+Execution Time: 0.022 ms
+=== R22 run 3 ===
+Seq Scan on template_version_variables tvv  (cost=0.00..4.75 rows=2 width=9) (actual time=0.003..0.007 rows=2.00 loops=1)
+  Filter: (template_version_id = '00000000-0000-0000-0000-000000000011'::uuid)
+  Rows Removed by Filter: 218
+  Buffers: shared hit=2
+Planning:
+  Buffers: shared hit=72
+Planning Time: 0.136 ms
+Execution Time: 0.021 ms

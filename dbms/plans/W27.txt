@@ -1,0 +1,108 @@
+=== W27 run 1 ===
+Insert on campaign_recipients  (cost=308.27..356.59 rows=0 width=0) (actual time=21.382..21.383 rows=0.00 loops=1)
+  Buffers: shared hit=54299 dirtied=109 written=108
+  ->  Hash Right Join  (cost=308.27..356.59 rows=1 width=261) (actual time=2.923..4.483 rows=4800.00 loops=1)
+        Hash Cond: ((s.organization_id = c.organization_id) AND ((s.email)::text = (ct.email)::text))
+        Filter: (s.suppression_id IS NULL)
+        Rows Removed by Filter: 200
+        Buffers: shared hit=15065
+        ->  Seq Scan on suppressions s  (cost=0.00..37.00 rows=1500 width=61) (actual time=0.007..0.047 rows=1500.00 loops=1)
+              Buffers: shared hit=22
+        ->  Hash  (cost=297.77..297.77 rows=700 width=75) (actual time=2.779..2.780 rows=5000.00 loops=1)
+              Buckets: 8192 (originally 1024)  Batches: 1 (originally 1)  Memory Usage: 561kB
+              Buffers: shared hit=15043
+              ->  Nested Loop  (cost=0.70..297.77 rows=700 width=75) (actual time=0.046..2.386 rows=5000.00 loops=1)
+                    Buffers: shared hit=15043
+                    ->  Nested Loop  (cost=0.41..50.11 rows=700 width=48) (actual time=0.039..0.405 rows=5000.00 loops=1)
+                          Buffers: shared hit=43
+                          ->  Seq Scan on campaigns c  (cost=0.00..7.35 rows=1 width=48) (actual time=0.008..0.020 rows=1.00 loops=1)
+                                Filter: (campaign_id = '00000000-0000-0000-0000-000000000015'::uuid)
+                                Rows Removed by Filter: 149
+                                Buffers: shared hit=5
+                          ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..36.09 rows=667 width=32) (actual time=0.030..0.211 rows=5000.00 loops=1)
+                                Index Cond: (list_id = c.list_id)
+                                Heap Fetches: 241
+                                Index Searches: 1
+                                Buffers: shared hit=38
+                    ->  Index Scan using contacts_pkey on contacts ct  (cost=0.29..0.35 rows=1 width=43) (actual time=0.000..0.000 rows=1.00 loops=5000)
+                          Index Cond: (contact_id = lc.contact_id)
+                          Index Searches: 5000
+                          Buffers: shared hit=15000
+Planning:
+  Buffers: shared hit=451
+Planning Time: 0.675 ms
+Trigger for constraint fk_campaign_recipients_campaign_org: time=9.249 calls=4800
+Trigger for constraint fk_campaign_recipients_contact_org: time=9.741 calls=4800
+Execution Time: 40.634 ms
+=== W27 run 2 ===
+Insert on campaign_recipients  (cost=308.27..356.59 rows=0 width=0) (actual time=21.683..21.685 rows=0.00 loops=1)
+  Buffers: shared hit=56979 dirtied=120 written=120
+  ->  Hash Right Join  (cost=308.27..356.59 rows=1 width=261) (actual time=2.800..4.398 rows=4800.00 loops=1)
+        Hash Cond: ((s.organization_id = c.organization_id) AND ((s.email)::text = (ct.email)::text))
+        Filter: (s.suppression_id IS NULL)
+        Rows Removed by Filter: 200
+        Buffers: shared hit=15063
+        ->  Seq Scan on suppressions s  (cost=0.00..37.00 rows=1500 width=61) (actual time=0.003..0.047 rows=1500.00 loops=1)
+              Buffers: shared hit=22
+        ->  Hash  (cost=297.77..297.77 rows=700 width=75) (actual time=2.651..2.652 rows=5000.00 loops=1)
+              Buckets: 8192 (originally 1024)  Batches: 1 (originally 1)  Memory Usage: 561kB
+              Buffers: shared hit=15041
+              ->  Nested Loop  (cost=0.70..297.77 rows=700 width=75) (actual time=0.037..2.264 rows=5000.00 loops=1)
+                    Buffers: shared hit=15041
+                    ->  Nested Loop  (cost=0.41..50.11 rows=700 width=48) (actual time=0.029..0.376 rows=5000.00 loops=1)
+                          Buffers: shared hit=41
+                          ->  Seq Scan on campaigns c  (cost=0.00..7.35 rows=1 width=48) (actual time=0.005..0.014 rows=1.00 loops=1)
+                                Filter: (campaign_id = '00000000-0000-0000-0000-000000000015'::uuid)
+                                Rows Removed by Filter: 149
+                                Buffers: shared hit=5
+                          ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..36.09 rows=667 width=32) (actual time=0.024..0.192 rows=5000.00 loops=1)
+                                Index Cond: (list_id = c.list_id)
+                                Heap Fetches: 240
+                                Index Searches: 1
+                                Buffers: shared hit=36
+                    ->  Index Scan using contacts_pkey on contacts ct  (cost=0.29..0.35 rows=1 width=43) (actual time=0.000..0.000 rows=1.00 loops=5000)
+                          Index Cond: (contact_id = lc.contact_id)
+                          Index Searches: 5000
+                          Buffers: shared hit=15000
+Planning:
+  Buffers: shared hit=451
+Planning Time: 0.701 ms
+Trigger for constraint fk_campaign_recipients_campaign_org: time=9.141 calls=4800
+Trigger for constraint fk_campaign_recipients_contact_org: time=9.754 calls=4800
+Execution Time: 40.832 ms
+=== W27 run 3 ===
+Insert on campaign_recipients  (cost=308.27..356.59 rows=0 width=0) (actual time=22.243..22.244 rows=0.00 loops=1)
+  Buffers: shared hit=58617 dirtied=107 written=107
+  ->  Hash Right Join  (cost=308.27..356.59 rows=1 width=261) (actual time=2.891..4.515 rows=4800.00 loops=1)
+        Hash Cond: ((s.organization_id = c.organization_id) AND ((s.email)::text = (ct.email)::text))
+        Filter: (s.suppression_id IS NULL)
+        Rows Removed by Filter: 200
+        Buffers: shared hit=15063
+        ->  Seq Scan on suppressions s  (cost=0.00..37.00 rows=1500 width=61) (actual time=0.004..0.046 rows=1500.00 loops=1)
+              Buffers: shared hit=22
+        ->  Hash  (cost=297.77..297.77 rows=700 width=75) (actual time=2.749..2.750 rows=5000.00 loops=1)
+              Buckets: 8192 (originally 1024)  Batches: 1 (originally 1)  Memory Usage: 561kB
+              Buffers: shared hit=15041
+              ->  Nested Loop  (cost=0.70..297.77 rows=700 width=75) (actual time=0.045..2.359 rows=5000.00 loops=1)
+                    Buffers: shared hit=15041
+                    ->  Nested Loop  (cost=0.41..50.11 rows=700 width=48) (actual time=0.036..0.403 rows=5000.00 loops=1)
+                          Buffers: shared hit=41
+                          ->  Seq Scan on campaigns c  (cost=0.00..7.35 rows=1 width=48) (actual time=0.005..0.015 rows=1.00 loops=1)
+                                Filter: (campaign_id = '00000000-0000-0000-0000-000000000015'::uuid)
+                                Rows Removed by Filter: 149
+                                Buffers: shared hit=5
+                          ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..36.09 rows=667 width=32) (actual time=0.029..0.212 rows=5000.00 loops=1)
+                                Index Cond: (list_id = c.list_id)
+                                Heap Fetches: 240
+                                Index Searches: 1
+                                Buffers: shared hit=36
+                    ->  Index Scan using contacts_pkey on contacts ct  (cost=0.29..0.35 rows=1 width=43) (actual time=0.000..0.000 rows=1.00 loops=5000)
+                          Index Cond: (contact_id = lc.contact_id)
+                          Index Searches: 5000
+                          Buffers: shared hit=15000
+Planning:
+  Buffers: shared hit=451
+Planning Time: 0.667 ms
+Trigger for constraint fk_campaign_recipients_campaign_org: time=9.572 calls=4800
+Trigger for constraint fk_campaign_recipients_contact_org: time=9.956 calls=4800
+Execution Time: 42.028 ms

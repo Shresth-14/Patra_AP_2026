@@ -1,0 +1,66 @@
+=== R32 run 1 ===
+Sort  (cost=2415.89..2415.91 rows=7 width=75) (actual time=2.578..2.578 rows=4.00 loops=1)
+  Sort Key: c.created_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1556
+  ->  Nested Loop  (cost=0.00..2415.79 rows=7 width=75) (actual time=0.008..2.571 rows=4.00 loops=1)
+        Join Filter: (c.campaign_id = ca.campaign_id)
+        Rows Removed by Join Filter: 596
+        Buffers: shared hit=1553
+        ->  Seq Scan on campaigns ca  (cost=0.00..5.50 rows=150 width=34) (actual time=0.002..0.008 rows=150.00 loops=1)
+              Buffers: shared hit=4
+        ->  Materialize  (cost=0.00..2394.56 rows=7 width=57) (actual time=0.000..0.017 rows=4.00 loops=150)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=1549
+              ->  Seq Scan on campaign_recipients c  (cost=0.00..2394.53 rows=7 width=57) (actual time=0.003..2.528 rows=4.00 loops=1)
+                    Filter: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
+                    Rows Removed by Filter: 59996
+                    Buffers: shared hit=1549
+Planning:
+  Buffers: shared hit=282
+Planning Time: 0.341 ms
+Execution Time: 2.601 ms
+=== R32 run 2 ===
+Sort  (cost=2415.89..2415.91 rows=7 width=75) (actual time=2.412..2.412 rows=4.00 loops=1)
+  Sort Key: c.created_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1556
+  ->  Nested Loop  (cost=0.00..2415.79 rows=7 width=75) (actual time=0.010..2.403 rows=4.00 loops=1)
+        Join Filter: (c.campaign_id = ca.campaign_id)
+        Rows Removed by Join Filter: 596
+        Buffers: shared hit=1553
+        ->  Seq Scan on campaigns ca  (cost=0.00..5.50 rows=150 width=34) (actual time=0.003..0.008 rows=150.00 loops=1)
+              Buffers: shared hit=4
+        ->  Materialize  (cost=0.00..2394.56 rows=7 width=57) (actual time=0.000..0.016 rows=4.00 loops=150)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=1549
+              ->  Seq Scan on campaign_recipients c  (cost=0.00..2394.53 rows=7 width=57) (actual time=0.005..2.360 rows=4.00 loops=1)
+                    Filter: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
+                    Rows Removed by Filter: 59996
+                    Buffers: shared hit=1549
+Planning:
+  Buffers: shared hit=282
+Planning Time: 0.362 ms
+Execution Time: 2.441 ms
+=== R32 run 3 ===
+Sort  (cost=2415.89..2415.91 rows=7 width=75) (actual time=2.400..2.400 rows=4.00 loops=1)
+  Sort Key: c.created_at DESC
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=1556
+  ->  Nested Loop  (cost=0.00..2415.79 rows=7 width=75) (actual time=0.008..2.393 rows=4.00 loops=1)
+        Join Filter: (c.campaign_id = ca.campaign_id)
+        Rows Removed by Join Filter: 596
+        Buffers: shared hit=1553
+        ->  Seq Scan on campaigns ca  (cost=0.00..5.50 rows=150 width=34) (actual time=0.002..0.007 rows=150.00 loops=1)
+              Buffers: shared hit=4
+        ->  Materialize  (cost=0.00..2394.56 rows=7 width=57) (actual time=0.000..0.016 rows=4.00 loops=150)
+              Storage: Memory  Maximum Storage: 17kB
+              Buffers: shared hit=1549
+              ->  Seq Scan on campaign_recipients c  (cost=0.00..2394.53 rows=7 width=57) (actual time=0.004..2.351 rows=4.00 loops=1)
+                    Filter: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
+                    Rows Removed by Filter: 59996
+                    Buffers: shared hit=1549
+Planning:
+  Buffers: shared hit=282
+Planning Time: 0.333 ms
+Execution Time: 2.422 ms

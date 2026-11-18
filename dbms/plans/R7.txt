@@ -1,0 +1,75 @@
+=== R7 run 1 ===
+Hash Join  (cost=9.98..14.19 rows=22 width=15) (actual time=0.022..0.031 rows=3.00 loops=1)
+  Hash Cond: ((rp.permission_code)::text = (p.permission_code)::text)
+  Buffers: shared hit=8
+  ->  Hash Join  (cost=8.30..12.44 rows=22 width=15) (actual time=0.012..0.020 rows=3.00 loops=1)
+        Hash Cond: (rp.role_id = m.role_id)
+        Buffers: shared hit=7
+        ->  Seq Scan on role_permissions rp  (cost=0.00..3.50 rows=150 width=31) (actual time=0.003..0.007 rows=150.00 loops=1)
+              Buffers: shared hit=2
+        ->  Hash  (cost=8.29..8.29 rows=1 width=16) (actual time=0.006..0.006 rows=1.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=5
+              ->  Index Scan using memberships_pkey on memberships m  (cost=0.27..8.29 rows=1 width=16) (actual time=0.004..0.005 rows=1.00 loops=1)
+                    Index Cond: ((user_id = '00000000-0000-0000-0000-000000000001'::uuid) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
+                    Index Searches: 1
+                    Buffers: shared hit=5
+  ->  Hash  (cost=1.30..1.30 rows=30 width=15) (actual time=0.007..0.007 rows=30.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=1
+        ->  Seq Scan on permissions p  (cost=0.00..1.30 rows=30 width=15) (actual time=0.001..0.002 rows=30.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=345
+Planning Time: 0.397 ms
+Execution Time: 0.051 ms
+=== R7 run 2 ===
+Hash Join  (cost=9.98..14.19 rows=22 width=15) (actual time=0.023..0.030 rows=3.00 loops=1)
+  Hash Cond: ((rp.permission_code)::text = (p.permission_code)::text)
+  Buffers: shared hit=6
+  ->  Hash Join  (cost=8.30..12.44 rows=22 width=15) (actual time=0.011..0.019 rows=3.00 loops=1)
+        Hash Cond: (rp.role_id = m.role_id)
+        Buffers: shared hit=5
+        ->  Seq Scan on role_permissions rp  (cost=0.00..3.50 rows=150 width=31) (actual time=0.003..0.004 rows=150.00 loops=1)
+              Buffers: shared hit=2
+        ->  Hash  (cost=8.29..8.29 rows=1 width=16) (actual time=0.006..0.006 rows=1.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=3
+              ->  Index Scan using memberships_pkey on memberships m  (cost=0.27..8.29 rows=1 width=16) (actual time=0.004..0.004 rows=1.00 loops=1)
+                    Index Cond: ((user_id = '00000000-0000-0000-0000-000000000001'::uuid) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
+                    Index Searches: 1
+                    Buffers: shared hit=3
+  ->  Hash  (cost=1.30..1.30 rows=30 width=15) (actual time=0.008..0.008 rows=30.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=1
+        ->  Seq Scan on permissions p  (cost=0.00..1.30 rows=30 width=15) (actual time=0.002..0.002 rows=30.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=345
+Planning Time: 0.383 ms
+Execution Time: 0.052 ms
+=== R7 run 3 ===
+Hash Join  (cost=9.98..14.19 rows=22 width=15) (actual time=0.022..0.030 rows=3.00 loops=1)
+  Hash Cond: ((rp.permission_code)::text = (p.permission_code)::text)
+  Buffers: shared hit=6
+  ->  Hash Join  (cost=8.30..12.44 rows=22 width=15) (actual time=0.011..0.018 rows=3.00 loops=1)
+        Hash Cond: (rp.role_id = m.role_id)
+        Buffers: shared hit=5
+        ->  Seq Scan on role_permissions rp  (cost=0.00..3.50 rows=150 width=31) (actual time=0.003..0.006 rows=150.00 loops=1)
+              Buffers: shared hit=2
+        ->  Hash  (cost=8.29..8.29 rows=1 width=16) (actual time=0.006..0.006 rows=1.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=3
+              ->  Index Scan using memberships_pkey on memberships m  (cost=0.27..8.29 rows=1 width=16) (actual time=0.005..0.005 rows=1.00 loops=1)
+                    Index Cond: ((user_id = '00000000-0000-0000-0000-000000000001'::uuid) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
+                    Index Searches: 1
+                    Buffers: shared hit=3
+  ->  Hash  (cost=1.30..1.30 rows=30 width=15) (actual time=0.007..0.007 rows=30.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 10kB
+        Buffers: shared hit=1
+        ->  Seq Scan on permissions p  (cost=0.00..1.30 rows=30 width=15) (actual time=0.001..0.002 rows=30.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=345
+Planning Time: 0.386 ms
+Execution Time: 0.053 ms

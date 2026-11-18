@@ -1,0 +1,30 @@
+=== W11 run 1 ===
+Insert on domains  (cost=0.00..0.02 rows=0 width=0) (actual time=0.138..0.138 rows=0.00 loops=1)
+  Buffers: shared hit=83
+  ->  Result  (cost=0.00..0.02 rows=1 width=645) (actual time=0.007..0.007 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.038 ms
+Trigger for constraint domains_organization_id_fkey: time=0.223 calls=1
+Trigger for constraint fk_domains_transport_org: time=0.111 calls=1
+Execution Time: 0.484 ms
+=== W11 run 2 ===
+Insert on domains  (cost=0.00..0.02 rows=0 width=0) (actual time=0.132..0.132 rows=0.00 loops=1)
+  Buffers: shared hit=83
+  ->  Result  (cost=0.00..0.02 rows=1 width=645) (actual time=0.008..0.008 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.036 ms
+Trigger for constraint domains_organization_id_fkey: time=0.211 calls=1
+Trigger for constraint fk_domains_transport_org: time=0.106 calls=1
+Execution Time: 0.461 ms
+=== W11 run 3 ===
+Insert on domains  (cost=0.00..0.02 rows=0 width=0) (actual time=0.216..0.217 rows=0.00 loops=1)
+  Buffers: shared hit=83
+  ->  Result  (cost=0.00..0.02 rows=1 width=645) (actual time=0.010..0.010 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=12
+Planning Time: 0.046 ms
+Trigger for constraint domains_organization_id_fkey: time=0.324 calls=1
+Trigger for constraint fk_domains_transport_org: time=0.151 calls=1
+Execution Time: 0.708 ms

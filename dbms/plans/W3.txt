@@ -1,0 +1,33 @@
+=== W3 run 1 ===
+Update on refresh_tokens  (cost=0.27..8.30 rows=0 width=0) (actual time=0.085..0.085 rows=0.00 loops=1)
+  Buffers: shared hit=27
+  ->  Index Scan using refresh_tokens_pkey on refresh_tokens  (cost=0.27..8.30 rows=1 width=22) (actual time=0.006..0.008 rows=1.00 loops=1)
+        Index Cond: (refresh_token_id = '00000000-0000-0000-0000-000000000002'::uuid)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=81
+Planning Time: 0.156 ms
+Execution Time: 0.137 ms
+=== W3 run 2 ===
+Update on refresh_tokens  (cost=0.27..8.30 rows=0 width=0) (actual time=0.080..0.080 rows=0.00 loops=1)
+  Buffers: shared hit=28
+  ->  Index Scan using refresh_tokens_pkey on refresh_tokens  (cost=0.27..8.30 rows=1 width=22) (actual time=0.008..0.009 rows=1.00 loops=1)
+        Index Cond: (refresh_token_id = '00000000-0000-0000-0000-000000000002'::uuid)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=81
+Planning Time: 0.150 ms
+Execution Time: 0.123 ms
+=== W3 run 3 ===
+Update on refresh_tokens  (cost=0.27..8.30 rows=0 width=0) (actual time=0.102..0.102 rows=0.00 loops=1)
+  Buffers: shared hit=28
+  ->  Index Scan using refresh_tokens_pkey on refresh_tokens  (cost=0.27..8.30 rows=1 width=22) (actual time=0.010..0.012 rows=1.00 loops=1)
+        Index Cond: (refresh_token_id = '00000000-0000-0000-0000-000000000002'::uuid)
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=81
+Planning Time: 0.173 ms
+Execution Time: 0.151 ms

@@ -1,0 +1,27 @@
+=== W17 run 1 ===
+Insert on lists  (cost=0.00..0.02 rows=0 width=0) (actual time=0.082..0.083 rows=0.00 loops=1)
+  Buffers: shared hit=55
+  ->  Result  (cost=0.00..0.02 rows=1 width=366) (actual time=0.009..0.009 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.034 ms
+Trigger for constraint lists_organization_id_fkey: time=0.211 calls=1
+Execution Time: 0.304 ms
+=== W17 run 2 ===
+Insert on lists  (cost=0.00..0.02 rows=0 width=0) (actual time=0.111..0.111 rows=0.00 loops=1)
+  Buffers: shared hit=55
+  ->  Result  (cost=0.00..0.02 rows=1 width=366) (actual time=0.013..0.014 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.044 ms
+Trigger for constraint lists_organization_id_fkey: time=0.283 calls=1
+Execution Time: 0.408 ms
+=== W17 run 3 ===
+Insert on lists  (cost=0.00..0.02 rows=0 width=0) (actual time=0.097..0.098 rows=0.00 loops=1)
+  Buffers: shared hit=55
+  ->  Result  (cost=0.00..0.02 rows=1 width=366) (actual time=0.012..0.012 rows=1.00 loops=1)
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.043 ms
+Trigger for constraint lists_organization_id_fkey: time=0.243 calls=1
+Execution Time: 0.354 ms

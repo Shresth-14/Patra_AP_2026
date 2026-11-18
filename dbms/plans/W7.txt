@@ -1,0 +1,36 @@
+=== W7 run 1 ===
+Update on memberships  (cost=0.27..8.29 rows=0 width=0) (actual time=0.061..0.061 rows=0.00 loops=1)
+  Buffers: shared hit=21
+  ->  Index Scan using memberships_pkey on memberships  (cost=0.27..8.29 rows=1 width=30) (actual time=0.005..0.005 rows=1.00 loops=1)
+        Index Cond: ((user_id = '00000000-0000-0000-0000-000000000001'::uuid) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
+        Index Searches: 1
+        Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=70
+Planning Time: 0.134 ms
+Trigger for constraint memberships_role_id_fkey: time=0.140 calls=1
+Execution Time: 0.245 ms
+=== W7 run 2 ===
+Update on memberships  (cost=0.27..8.29 rows=0 width=0) (actual time=0.065..0.065 rows=0.00 loops=1)
+  Buffers: shared hit=24
+  ->  Index Scan using memberships_pkey on memberships  (cost=0.27..8.29 rows=1 width=30) (actual time=0.008..0.009 rows=1.00 loops=1)
+        Index Cond: ((user_id = '00000000-0000-0000-0000-000000000001'::uuid) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=70
+Planning Time: 0.131 ms
+Trigger for constraint memberships_role_id_fkey: time=0.126 calls=1
+Execution Time: 0.235 ms
+=== W7 run 3 ===
+Update on memberships  (cost=0.27..8.29 rows=0 width=0) (actual time=0.059..0.059 rows=0.00 loops=1)
+  Buffers: shared hit=24
+  ->  Index Scan using memberships_pkey on memberships  (cost=0.27..8.29 rows=1 width=30) (actual time=0.007..0.009 rows=1.00 loops=1)
+        Index Cond: ((user_id = '00000000-0000-0000-0000-000000000001'::uuid) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
+        Index Searches: 1
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=70
+Planning Time: 0.126 ms
+Trigger for constraint memberships_role_id_fkey: time=0.125 calls=1
+Execution Time: 0.230 ms

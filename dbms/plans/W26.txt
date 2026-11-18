@@ -1,0 +1,33 @@
+=== W26 run 1 ===
+Update on campaigns  (cost=0.00..7.35 rows=0 width=0) (actual time=0.121..0.121 rows=0.00 loops=1)
+  Buffers: shared hit=50
+  ->  Seq Scan on campaigns  (cost=0.00..7.35 rows=1 width=72) (actual time=0.005..0.013 rows=1.00 loops=1)
+        Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
+        Rows Removed by Filter: 149
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=80
+Planning Time: 0.165 ms
+Execution Time: 0.159 ms
+=== W26 run 2 ===
+Update on campaigns  (cost=0.00..7.35 rows=0 width=0) (actual time=0.132..0.132 rows=0.00 loops=1)
+  Buffers: shared hit=50
+  ->  Seq Scan on campaigns  (cost=0.00..7.35 rows=1 width=72) (actual time=0.009..0.017 rows=1.00 loops=1)
+        Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
+        Rows Removed by Filter: 149
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=80
+Planning Time: 0.171 ms
+Execution Time: 0.178 ms
+=== W26 run 3 ===
+Update on campaigns  (cost=0.00..7.35 rows=0 width=0) (actual time=0.134..0.134 rows=0.00 loops=1)
+  Buffers: shared hit=50
+  ->  Seq Scan on campaigns  (cost=0.00..7.35 rows=1 width=72) (actual time=0.009..0.016 rows=1.00 loops=1)
+        Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
+        Rows Removed by Filter: 149
+        Buffers: shared hit=5
+Planning:
+  Buffers: shared hit=80
+Planning Time: 0.186 ms
+Execution Time: 0.176 ms

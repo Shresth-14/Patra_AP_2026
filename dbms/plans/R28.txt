@@ -1,0 +1,27 @@
+=== R28 run 1 ===
+Index Scan using uq_webhook_events_provider_event on webhook_events  (cost=0.29..8.30 rows=1 width=16) (actual time=0.008..0.008 rows=1.00 loops=1)
+  Index Cond: ((provider_event_id)::text = 'evt_resend_xyz789'::text)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=84
+Planning Time: 0.198 ms
+Execution Time: 0.022 ms
+=== R28 run 2 ===
+Index Scan using uq_webhook_events_provider_event on webhook_events  (cost=0.29..8.30 rows=1 width=16) (actual time=0.007..0.007 rows=1.00 loops=1)
+  Index Cond: ((provider_event_id)::text = 'evt_resend_xyz789'::text)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=84
+Planning Time: 0.159 ms
+Execution Time: 0.021 ms
+=== R28 run 3 ===
+Index Scan using uq_webhook_events_provider_event on webhook_events  (cost=0.29..8.30 rows=1 width=16) (actual time=0.008..0.008 rows=1.00 loops=1)
+  Index Cond: ((provider_event_id)::text = 'evt_resend_xyz789'::text)
+  Index Searches: 1
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=84
+Planning Time: 0.163 ms
+Execution Time: 0.023 ms

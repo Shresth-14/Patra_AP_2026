@@ -1,0 +1,75 @@
+=== R4 run 1 ===
+Hash Join  (cost=9.01..10.70 rows=3 width=76) (actual time=0.032..0.035 rows=3.00 loops=1)
+  Hash Cond: (m.organization_id = o.organization_id)
+  Buffers: shared hit=6
+  ->  Hash Join  (cost=7.79..9.47 rows=3 width=39) (actual time=0.020..0.023 rows=3.00 loops=1)
+        Hash Cond: (r.role_id = m.role_id)
+        Buffers: shared hit=5
+        ->  Seq Scan on roles r  (cost=0.00..1.40 rows=40 width=31) (actual time=0.001..0.002 rows=40.00 loops=1)
+              Buffers: shared hit=1
+        ->  Hash  (cost=7.75..7.75 rows=3 width=40) (actual time=0.016..0.016 rows=3.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=4
+              ->  Seq Scan on memberships m  (cost=0.00..7.75 rows=3 width=40) (actual time=0.005..0.015 rows=3.00 loops=1)
+                    Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
+                    Rows Removed by Filter: 297
+                    Buffers: shared hit=4
+  ->  Hash  (cost=1.10..1.10 rows=10 width=53) (actual time=0.007..0.007 rows=10.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 9kB
+        Buffers: shared hit=1
+        ->  Seq Scan on organizations o  (cost=0.00..1.10 rows=10 width=53) (actual time=0.003..0.004 rows=10.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=291
+Planning Time: 0.504 ms
+Execution Time: 0.062 ms
+=== R4 run 2 ===
+Hash Join  (cost=9.01..10.70 rows=3 width=76) (actual time=0.029..0.032 rows=3.00 loops=1)
+  Hash Cond: (m.organization_id = o.organization_id)
+  Buffers: shared hit=6
+  ->  Hash Join  (cost=7.79..9.47 rows=3 width=39) (actual time=0.018..0.020 rows=3.00 loops=1)
+        Hash Cond: (r.role_id = m.role_id)
+        Buffers: shared hit=5
+        ->  Seq Scan on roles r  (cost=0.00..1.40 rows=40 width=31) (actual time=0.001..0.002 rows=40.00 loops=1)
+              Buffers: shared hit=1
+        ->  Hash  (cost=7.75..7.75 rows=3 width=40) (actual time=0.013..0.013 rows=3.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=4
+              ->  Seq Scan on memberships m  (cost=0.00..7.75 rows=3 width=40) (actual time=0.003..0.011 rows=3.00 loops=1)
+                    Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
+                    Rows Removed by Filter: 297
+                    Buffers: shared hit=4
+  ->  Hash  (cost=1.10..1.10 rows=10 width=53) (actual time=0.007..0.007 rows=10.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 9kB
+        Buffers: shared hit=1
+        ->  Seq Scan on organizations o  (cost=0.00..1.10 rows=10 width=53) (actual time=0.003..0.004 rows=10.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=291
+Planning Time: 0.433 ms
+Execution Time: 0.059 ms
+=== R4 run 3 ===
+Hash Join  (cost=9.01..10.70 rows=3 width=76) (actual time=0.027..0.030 rows=3.00 loops=1)
+  Hash Cond: (m.organization_id = o.organization_id)
+  Buffers: shared hit=6
+  ->  Hash Join  (cost=7.79..9.47 rows=3 width=39) (actual time=0.016..0.019 rows=3.00 loops=1)
+        Hash Cond: (r.role_id = m.role_id)
+        Buffers: shared hit=5
+        ->  Seq Scan on roles r  (cost=0.00..1.40 rows=40 width=31) (actual time=0.001..0.002 rows=40.00 loops=1)
+              Buffers: shared hit=1
+        ->  Hash  (cost=7.75..7.75 rows=3 width=40) (actual time=0.012..0.012 rows=3.00 loops=1)
+              Buckets: 1024  Batches: 1  Memory Usage: 9kB
+              Buffers: shared hit=4
+              ->  Seq Scan on memberships m  (cost=0.00..7.75 rows=3 width=40) (actual time=0.002..0.011 rows=3.00 loops=1)
+                    Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
+                    Rows Removed by Filter: 297
+                    Buffers: shared hit=4
+  ->  Hash  (cost=1.10..1.10 rows=10 width=53) (actual time=0.006..0.006 rows=10.00 loops=1)
+        Buckets: 1024  Batches: 1  Memory Usage: 9kB
+        Buffers: shared hit=1
+        ->  Seq Scan on organizations o  (cost=0.00..1.10 rows=10 width=53) (actual time=0.003..0.003 rows=10.00 loops=1)
+              Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=291
+Planning Time: 0.420 ms
+Execution Time: 0.054 ms
