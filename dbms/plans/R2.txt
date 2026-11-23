@@ -1,27 +1,29 @@
 === R2 run 1 ===
-Seq Scan on users  (cost=0.00..8.12 rows=1 width=54) (actual time=0.005..0.015 rows=1.00 loops=1)
+Seq Scan on users  (cost=0.00..8.12 rows=1 width=54) (actual time=0.004..0.019 rows=1 loops=1)
   Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
   Rows Removed by Filter: 249
   Buffers: shared hit=5
 Planning:
-  Buffers: shared hit=93
-Planning Time: 0.234 ms
-Execution Time: 0.036 ms
+  Buffers: shared hit=94
+Planning Time: 0.247 ms
+Execution Time: 0.040 ms
+
 === R2 run 2 ===
-Seq Scan on users  (cost=0.00..8.12 rows=1 width=54) (actual time=0.004..0.013 rows=1.00 loops=1)
+Seq Scan on users  (cost=0.00..8.12 rows=1 width=54) (actual time=0.004..0.019 rows=1 loops=1)
   Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
   Rows Removed by Filter: 249
   Buffers: shared hit=5
 Planning:
-  Buffers: shared hit=93
-Planning Time: 0.204 ms
-Execution Time: 0.032 ms
+  Buffers: shared hit=94
+Planning Time: 0.263 ms
+Execution Time: 0.041 ms
+
 === R2 run 3 ===
-Seq Scan on users  (cost=0.00..8.12 rows=1 width=54) (actual time=0.004..0.012 rows=1.00 loops=1)
+Seq Scan on users  (cost=0.00..8.12 rows=1 width=54) (actual time=0.004..0.018 rows=1 loops=1)
   Filter: (user_id = '00000000-0000-0000-0000-000000000001'::uuid)
   Rows Removed by Filter: 249
   Buffers: shared hit=5
 Planning:
-  Buffers: shared hit=93
-Planning Time: 0.188 ms
-Execution Time: 0.030 ms
+  Buffers: shared hit=94
+Planning Time: 0.243 ms
+Execution Time: 0.039 ms

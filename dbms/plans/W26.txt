@@ -1,33 +1,35 @@
 === W26 run 1 ===
-Update on campaigns  (cost=0.00..7.35 rows=0 width=0) (actual time=0.121..0.121 rows=0.00 loops=1)
-  Buffers: shared hit=50
-  ->  Seq Scan on campaigns  (cost=0.00..7.35 rows=1 width=72) (actual time=0.005..0.013 rows=1.00 loops=1)
+Update on campaigns  (cost=0.00..5.88 rows=0 width=0) (actual time=0.203..0.203 rows=0 loops=1)
+  Buffers: shared hit=41
+  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=1 width=72) (actual time=0.006..0.023 rows=1 loops=1)
         Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
         Rows Removed by Filter: 149
-        Buffers: shared hit=5
+        Buffers: shared hit=4
 Planning:
-  Buffers: shared hit=80
-Planning Time: 0.165 ms
-Execution Time: 0.159 ms
+  Buffers: shared hit=79
+Planning Time: 0.303 ms
+Execution Time: 0.271 ms
+
 === W26 run 2 ===
-Update on campaigns  (cost=0.00..7.35 rows=0 width=0) (actual time=0.132..0.132 rows=0.00 loops=1)
-  Buffers: shared hit=50
-  ->  Seq Scan on campaigns  (cost=0.00..7.35 rows=1 width=72) (actual time=0.009..0.017 rows=1.00 loops=1)
+Update on campaigns  (cost=0.00..5.88 rows=0 width=0) (actual time=0.231..0.231 rows=0 loops=1)
+  Buffers: shared hit=43
+  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=1 width=72) (actual time=0.015..0.029 rows=1 loops=1)
         Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
         Rows Removed by Filter: 149
-        Buffers: shared hit=5
+        Buffers: shared hit=4
 Planning:
-  Buffers: shared hit=80
-Planning Time: 0.171 ms
-Execution Time: 0.178 ms
+  Buffers: shared hit=79
+Planning Time: 0.388 ms
+Execution Time: 0.317 ms
+
 === W26 run 3 ===
-Update on campaigns  (cost=0.00..7.35 rows=0 width=0) (actual time=0.134..0.134 rows=0.00 loops=1)
-  Buffers: shared hit=50
-  ->  Seq Scan on campaigns  (cost=0.00..7.35 rows=1 width=72) (actual time=0.009..0.016 rows=1.00 loops=1)
+Update on campaigns  (cost=0.00..5.88 rows=0 width=0) (actual time=0.212..0.213 rows=0 loops=1)
+  Buffers: shared hit=43
+  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=1 width=72) (actual time=0.012..0.024 rows=1 loops=1)
         Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
         Rows Removed by Filter: 149
-        Buffers: shared hit=5
+        Buffers: shared hit=4
 Planning:
-  Buffers: shared hit=80
-Planning Time: 0.186 ms
-Execution Time: 0.176 ms
+  Buffers: shared hit=79
+Planning Time: 0.346 ms
+Execution Time: 0.280 ms

@@ -1,27 +1,29 @@
 === R5 run 1 ===
-Seq Scan on organizations  (cost=0.00..1.12 rows=1 width=61) (actual time=0.004..0.004 rows=1.00 loops=1)
+Seq Scan on organizations  (cost=0.00..1.12 rows=1 width=61) (actual time=0.005..0.006 rows=1 loops=1)
   Filter: ((slug)::text = 'acme-corp'::text)
   Rows Removed by Filter: 9
   Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=93
-Planning Time: 0.162 ms
-Execution Time: 0.018 ms
+  Buffers: shared hit=94
+Planning Time: 0.256 ms
+Execution Time: 0.024 ms
+
 === R5 run 2 ===
-Seq Scan on organizations  (cost=0.00..1.12 rows=1 width=61) (actual time=0.004..0.004 rows=1.00 loops=1)
+Seq Scan on organizations  (cost=0.00..1.12 rows=1 width=61) (actual time=0.005..0.006 rows=1 loops=1)
   Filter: ((slug)::text = 'acme-corp'::text)
   Rows Removed by Filter: 9
   Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=93
-Planning Time: 0.151 ms
-Execution Time: 0.017 ms
+  Buffers: shared hit=94
+Planning Time: 0.291 ms
+Execution Time: 0.024 ms
+
 === R5 run 3 ===
-Seq Scan on organizations  (cost=0.00..1.12 rows=1 width=61) (actual time=0.004..0.004 rows=1.00 loops=1)
+Seq Scan on organizations  (cost=0.00..1.12 rows=1 width=61) (actual time=0.005..0.006 rows=1 loops=1)
   Filter: ((slug)::text = 'acme-corp'::text)
   Rows Removed by Filter: 9
   Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=93
-Planning Time: 0.162 ms
-Execution Time: 0.017 ms
+  Buffers: shared hit=94
+Planning Time: 0.304 ms
+Execution Time: 0.025 ms

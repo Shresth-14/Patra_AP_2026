@@ -1,39 +1,41 @@
 === R10 run 1 ===
-Sort  (cost=1.34..1.34 rows=3 width=65) (actual time=0.019..0.020 rows=3.00 loops=1)
+Sort  (cost=1.34..1.34 rows=3 width=65) (actual time=0.027..0.027 rows=3 loops=1)
   Sort Key: is_default DESC, name
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=9
-  ->  Seq Scan on mail_transports  (cost=0.00..1.31 rows=3 width=65) (actual time=0.004..0.005 rows=3.00 loops=1)
+  ->  Seq Scan on mail_transports  (cost=0.00..1.31 rows=3 width=65) (actual time=0.007..0.009 rows=3 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 22
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=129
-Planning Time: 0.201 ms
-Execution Time: 0.037 ms
+  Buffers: shared hit=122
+Planning Time: 0.380 ms
+Execution Time: 0.059 ms
+
 === R10 run 2 ===
-Sort  (cost=1.34..1.34 rows=3 width=65) (actual time=0.018..0.018 rows=3.00 loops=1)
+Sort  (cost=1.34..1.34 rows=3 width=65) (actual time=0.026..0.027 rows=3 loops=1)
   Sort Key: is_default DESC, name
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=9
-  ->  Seq Scan on mail_transports  (cost=0.00..1.31 rows=3 width=65) (actual time=0.003..0.004 rows=3.00 loops=1)
+  ->  Seq Scan on mail_transports  (cost=0.00..1.31 rows=3 width=65) (actual time=0.007..0.009 rows=3 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 22
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=129
-Planning Time: 0.166 ms
-Execution Time: 0.034 ms
+  Buffers: shared hit=122
+Planning Time: 0.350 ms
+Execution Time: 0.060 ms
+
 === R10 run 3 ===
-Sort  (cost=1.34..1.34 rows=3 width=65) (actual time=0.017..0.017 rows=3.00 loops=1)
+Sort  (cost=1.34..1.34 rows=3 width=65) (actual time=0.026..0.026 rows=3 loops=1)
   Sort Key: is_default DESC, name
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=9
-  ->  Seq Scan on mail_transports  (cost=0.00..1.31 rows=3 width=65) (actual time=0.003..0.004 rows=3.00 loops=1)
+  ->  Seq Scan on mail_transports  (cost=0.00..1.31 rows=3 width=65) (actual time=0.007..0.009 rows=3 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 22
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=129
-Planning Time: 0.175 ms
-Execution Time: 0.034 ms
+  Buffers: shared hit=122
+Planning Time: 0.337 ms
+Execution Time: 0.061 ms

@@ -1,63 +1,65 @@
 === R12 run 1 ===
-Sort  (cost=4.36..4.38 rows=6 width=139) (actual time=0.032..0.032 rows=6.00 loops=1)
+Sort  (cost=3.36..3.38 rows=6 width=104) (actual time=0.051..0.053 rows=6 loops=1)
   Sort Key: si.is_default DESC, si.display_name
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=11
-  ->  Hash Join  (cost=2.70..4.29 rows=6 width=139) (actual time=0.015..0.018 rows=6.00 loops=1)
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=1.70..3.29 rows=6 width=104) (actual time=0.029..0.035 rows=6 loops=1)
         Hash Cond: (d.domain_id = si.domain_id)
-        Buffers: shared hit=3
-        ->  Seq Scan on domains d  (cost=0.00..1.35 rows=35 width=48) (actual time=0.002..0.002 rows=35.00 loops=1)
+        Buffers: shared hit=2
+        ->  Seq Scan on domains d  (cost=0.00..1.35 rows=35 width=36) (actual time=0.003..0.005 rows=35 loops=1)
               Buffers: shared hit=1
-        ->  Hash  (cost=2.62..2.62 rows=6 width=123) (actual time=0.009..0.009 rows=6.00 loops=1)
+        ->  Hash  (cost=1.62..1.62 rows=6 width=100) (actual time=0.016..0.016 rows=6 loops=1)
               Buckets: 1024  Batches: 1  Memory Usage: 9kB
-              Buffers: shared hit=2
-              ->  Seq Scan on sender_identities si  (cost=0.00..2.62 rows=6 width=123) (actual time=0.004..0.007 rows=6.00 loops=1)
+              Buffers: shared hit=1
+              ->  Seq Scan on sender_identities si  (cost=0.00..1.62 rows=6 width=100) (actual time=0.008..0.011 rows=6 loops=1)
                     Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
                     Rows Removed by Filter: 44
-                    Buffers: shared hit=2
+                    Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=288
-Planning Time: 0.371 ms
-Execution Time: 0.056 ms
+  Buffers: shared hit=284
+Planning Time: 0.745 ms
+Execution Time: 0.096 ms
+
 === R12 run 2 ===
-Sort  (cost=4.36..4.38 rows=6 width=139) (actual time=0.031..0.031 rows=6.00 loops=1)
+Sort  (cost=3.36..3.38 rows=6 width=104) (actual time=0.045..0.046 rows=6 loops=1)
   Sort Key: si.is_default DESC, si.display_name
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=11
-  ->  Hash Join  (cost=2.70..4.29 rows=6 width=139) (actual time=0.015..0.017 rows=6.00 loops=1)
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=1.70..3.29 rows=6 width=104) (actual time=0.026..0.031 rows=6 loops=1)
         Hash Cond: (d.domain_id = si.domain_id)
-        Buffers: shared hit=3
-        ->  Seq Scan on domains d  (cost=0.00..1.35 rows=35 width=48) (actual time=0.002..0.003 rows=35.00 loops=1)
+        Buffers: shared hit=2
+        ->  Seq Scan on domains d  (cost=0.00..1.35 rows=35 width=36) (actual time=0.003..0.005 rows=35 loops=1)
               Buffers: shared hit=1
-        ->  Hash  (cost=2.62..2.62 rows=6 width=123) (actual time=0.009..0.009 rows=6.00 loops=1)
+        ->  Hash  (cost=1.62..1.62 rows=6 width=100) (actual time=0.014..0.015 rows=6 loops=1)
               Buckets: 1024  Batches: 1  Memory Usage: 9kB
-              Buffers: shared hit=2
-              ->  Seq Scan on sender_identities si  (cost=0.00..2.62 rows=6 width=123) (actual time=0.003..0.006 rows=6.00 loops=1)
+              Buffers: shared hit=1
+              ->  Seq Scan on sender_identities si  (cost=0.00..1.62 rows=6 width=100) (actual time=0.006..0.010 rows=6 loops=1)
                     Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
                     Rows Removed by Filter: 44
-                    Buffers: shared hit=2
+                    Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=288
-Planning Time: 0.345 ms
-Execution Time: 0.053 ms
+  Buffers: shared hit=284
+Planning Time: 0.620 ms
+Execution Time: 0.085 ms
+
 === R12 run 3 ===
-Sort  (cost=4.36..4.38 rows=6 width=139) (actual time=0.031..0.032 rows=6.00 loops=1)
+Sort  (cost=3.36..3.38 rows=6 width=104) (actual time=0.045..0.046 rows=6 loops=1)
   Sort Key: si.is_default DESC, si.display_name
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=11
-  ->  Hash Join  (cost=2.70..4.29 rows=6 width=139) (actual time=0.015..0.018 rows=6.00 loops=1)
+  Buffers: shared hit=10
+  ->  Hash Join  (cost=1.70..3.29 rows=6 width=104) (actual time=0.024..0.030 rows=6 loops=1)
         Hash Cond: (d.domain_id = si.domain_id)
-        Buffers: shared hit=3
-        ->  Seq Scan on domains d  (cost=0.00..1.35 rows=35 width=48) (actual time=0.002..0.002 rows=35.00 loops=1)
+        Buffers: shared hit=2
+        ->  Seq Scan on domains d  (cost=0.00..1.35 rows=35 width=36) (actual time=0.003..0.004 rows=35 loops=1)
               Buffers: shared hit=1
-        ->  Hash  (cost=2.62..2.62 rows=6 width=123) (actual time=0.009..0.009 rows=6.00 loops=1)
+        ->  Hash  (cost=1.62..1.62 rows=6 width=100) (actual time=0.013..0.013 rows=6 loops=1)
               Buckets: 1024  Batches: 1  Memory Usage: 9kB
-              Buffers: shared hit=2
-              ->  Seq Scan on sender_identities si  (cost=0.00..2.62 rows=6 width=123) (actual time=0.004..0.007 rows=6.00 loops=1)
+              Buffers: shared hit=1
+              ->  Seq Scan on sender_identities si  (cost=0.00..1.62 rows=6 width=100) (actual time=0.006..0.009 rows=6 loops=1)
                     Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
                     Rows Removed by Filter: 44
-                    Buffers: shared hit=2
+                    Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=288
-Planning Time: 0.330 ms
-Execution Time: 0.055 ms
+  Buffers: shared hit=284
+Planning Time: 0.602 ms
+Execution Time: 0.085 ms

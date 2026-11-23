@@ -1,72 +1,71 @@
 === R16 run 1 ===
-Sort  (cost=442.93..442.95 rows=10 width=48) (actual time=2.264..2.264 rows=10.00 loops=1)
+Sort  (cost=442.93..442.95 rows=10 width=48) (actual time=4.886..4.886 rows=10 loops=1)
   Sort Key: l.name
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=224
-  ->  HashAggregate  (cost=442.66..442.76 rows=10 width=48) (actual time=2.249..2.249 rows=10.00 loops=1)
+  Buffers: shared hit=197
+  ->  HashAggregate  (cost=442.66..442.76 rows=10 width=48) (actual time=4.868..4.869 rows=10 loops=1)
         Group Key: l.list_id
-        Batches: 1  Memory Usage: 32kB
-        Buffers: shared hit=221
-        ->  Nested Loop Left Join  (cost=0.41..409.32 rows=6667 width=56) (actual time=0.037..1.375 rows=20000.00 loops=1)
-              Buffers: shared hit=221
-              ->  Seq Scan on lists l  (cost=0.00..1.75 rows=10 width=40) (actual time=0.003..0.005 rows=10.00 loops=1)
+        Batches: 1  Memory Usage: 24kB
+        Buffers: shared hit=194
+        ->  Nested Loop Left Join  (cost=0.41..409.32 rows=6667 width=56) (actual time=0.069..3.047 rows=20000 loops=1)
+              Buffers: shared hit=194
+              ->  Seq Scan on lists l  (cost=0.00..1.75 rows=10 width=40) (actual time=0.004..0.008 rows=10 loops=1)
                     Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
                     Rows Removed by Filter: 50
                     Buffers: shared hit=1
-              ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..34.09 rows=667 width=32) (actual time=0.005..0.071 rows=2000.00 loops=10)
+              ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..34.09 rows=667 width=32) (actual time=0.011..0.175 rows=2000 loops=10)
                     Index Cond: (list_id = l.list_id)
-                    Heap Fetches: 272
-                    Index Searches: 10
-                    Buffers: shared hit=220
+                    Heap Fetches: 0
+                    Buffers: shared hit=193
 Planning:
-  Buffers: shared hit=159
-Planning Time: 0.302 ms
-Execution Time: 2.294 ms
+  Buffers: shared hit=151
+Planning Time: 0.623 ms
+Execution Time: 4.937 ms
+
 === R16 run 2 ===
-Sort  (cost=442.93..442.95 rows=10 width=48) (actual time=2.350..2.350 rows=10.00 loops=1)
+Sort  (cost=442.93..442.95 rows=10 width=48) (actual time=4.638..4.638 rows=10 loops=1)
   Sort Key: l.name
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=224
-  ->  HashAggregate  (cost=442.66..442.76 rows=10 width=48) (actual time=2.334..2.335 rows=10.00 loops=1)
+  Buffers: shared hit=197
+  ->  HashAggregate  (cost=442.66..442.76 rows=10 width=48) (actual time=4.621..4.622 rows=10 loops=1)
         Group Key: l.list_id
-        Batches: 1  Memory Usage: 32kB
-        Buffers: shared hit=221
-        ->  Nested Loop Left Join  (cost=0.41..409.32 rows=6667 width=56) (actual time=0.032..1.418 rows=20000.00 loops=1)
-              Buffers: shared hit=221
-              ->  Seq Scan on lists l  (cost=0.00..1.75 rows=10 width=40) (actual time=0.003..0.004 rows=10.00 loops=1)
+        Batches: 1  Memory Usage: 24kB
+        Buffers: shared hit=194
+        ->  Nested Loop Left Join  (cost=0.41..409.32 rows=6667 width=56) (actual time=0.051..2.733 rows=20000 loops=1)
+              Buffers: shared hit=194
+              ->  Seq Scan on lists l  (cost=0.00..1.75 rows=10 width=40) (actual time=0.005..0.008 rows=10 loops=1)
                     Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
                     Rows Removed by Filter: 50
                     Buffers: shared hit=1
-              ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..34.09 rows=667 width=32) (actual time=0.004..0.073 rows=2000.00 loops=10)
+              ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..34.09 rows=667 width=32) (actual time=0.008..0.145 rows=2000 loops=10)
                     Index Cond: (list_id = l.list_id)
-                    Heap Fetches: 272
-                    Index Searches: 10
-                    Buffers: shared hit=220
+                    Heap Fetches: 0
+                    Buffers: shared hit=193
 Planning:
-  Buffers: shared hit=159
-Planning Time: 0.292 ms
-Execution Time: 2.385 ms
+  Buffers: shared hit=151
+Planning Time: 0.477 ms
+Execution Time: 4.685 ms
+
 === R16 run 3 ===
-Sort  (cost=442.93..442.95 rows=10 width=48) (actual time=2.258..2.259 rows=10.00 loops=1)
+Sort  (cost=442.93..442.95 rows=10 width=48) (actual time=4.971..4.972 rows=10 loops=1)
   Sort Key: l.name
   Sort Method: quicksort  Memory: 25kB
-  Buffers: shared hit=224
-  ->  HashAggregate  (cost=442.66..442.76 rows=10 width=48) (actual time=2.244..2.245 rows=10.00 loops=1)
+  Buffers: shared hit=197
+  ->  HashAggregate  (cost=442.66..442.76 rows=10 width=48) (actual time=4.957..4.959 rows=10 loops=1)
         Group Key: l.list_id
-        Batches: 1  Memory Usage: 32kB
-        Buffers: shared hit=221
-        ->  Nested Loop Left Join  (cost=0.41..409.32 rows=6667 width=56) (actual time=0.027..1.366 rows=20000.00 loops=1)
-              Buffers: shared hit=221
-              ->  Seq Scan on lists l  (cost=0.00..1.75 rows=10 width=40) (actual time=0.003..0.004 rows=10.00 loops=1)
+        Batches: 1  Memory Usage: 24kB
+        Buffers: shared hit=194
+        ->  Nested Loop Left Join  (cost=0.41..409.32 rows=6667 width=56) (actual time=0.048..3.057 rows=20000 loops=1)
+              Buffers: shared hit=194
+              ->  Seq Scan on lists l  (cost=0.00..1.75 rows=10 width=40) (actual time=0.003..0.007 rows=10 loops=1)
                     Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
                     Rows Removed by Filter: 50
                     Buffers: shared hit=1
-              ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..34.09 rows=667 width=32) (actual time=0.004..0.070 rows=2000.00 loops=10)
+              ->  Index Only Scan using list_contacts_pkey on list_contacts lc  (cost=0.41..34.09 rows=667 width=32) (actual time=0.008..0.176 rows=2000 loops=10)
                     Index Cond: (list_id = l.list_id)
-                    Heap Fetches: 272
-                    Index Searches: 10
-                    Buffers: shared hit=220
+                    Heap Fetches: 0
+                    Buffers: shared hit=193
 Planning:
-  Buffers: shared hit=159
-Planning Time: 0.262 ms
-Execution Time: 2.288 ms
+  Buffers: shared hit=151
+Planning Time: 0.432 ms
+Execution Time: 5.013 ms

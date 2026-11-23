@@ -1,27 +1,29 @@
 === W2 run 1 ===
-Insert on refresh_tokens  (cost=0.00..0.02 rows=0 width=0) (actual time=0.121..0.121 rows=0.00 loops=1)
-  Buffers: shared hit=61
-  ->  Result  (cost=0.00..0.02 rows=1 width=96) (actual time=0.013..0.013 rows=1.00 loops=1)
+Insert on refresh_tokens  (cost=0.00..0.02 rows=0 width=0) (actual time=0.233..0.233 rows=0 loops=1)
+  Buffers: shared hit=60
+  ->  Result  (cost=0.00..0.02 rows=1 width=96) (actual time=0.012..0.012 rows=1 loops=1)
 Planning:
   Buffers: shared hit=3
-Planning Time: 0.027 ms
-Trigger for constraint refresh_tokens_user_id_fkey: time=0.201 calls=1
-Execution Time: 0.339 ms
+Planning Time: 0.051 ms
+Trigger for constraint refresh_tokens_user_id_fkey: time=0.426 calls=1
+Execution Time: 0.688 ms
+
 === W2 run 2 ===
-Insert on refresh_tokens  (cost=0.00..0.02 rows=0 width=0) (actual time=0.098..0.099 rows=0.00 loops=1)
+Insert on refresh_tokens  (cost=0.00..0.02 rows=0 width=0) (actual time=0.170..0.170 rows=0 loops=1)
   Buffers: shared hit=61
-  ->  Result  (cost=0.00..0.02 rows=1 width=96) (actual time=0.010..0.010 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=96) (actual time=0.010..0.010 rows=1 loops=1)
 Planning:
   Buffers: shared hit=3
-Planning Time: 0.026 ms
-Trigger for constraint refresh_tokens_user_id_fkey: time=0.191 calls=1
-Execution Time: 0.305 ms
+Planning Time: 0.041 ms
+Trigger for constraint refresh_tokens_user_id_fkey: time=0.329 calls=1
+Execution Time: 0.528 ms
+
 === W2 run 3 ===
-Insert on refresh_tokens  (cost=0.00..0.02 rows=0 width=0) (actual time=0.106..0.106 rows=0.00 loops=1)
+Insert on refresh_tokens  (cost=0.00..0.02 rows=0 width=0) (actual time=0.156..0.156 rows=0 loops=1)
   Buffers: shared hit=61
-  ->  Result  (cost=0.00..0.02 rows=1 width=96) (actual time=0.009..0.009 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=96) (actual time=0.008..0.008 rows=1 loops=1)
 Planning:
   Buffers: shared hit=3
-Planning Time: 0.024 ms
-Trigger for constraint refresh_tokens_user_id_fkey: time=0.191 calls=1
-Execution Time: 0.311 ms
+Planning Time: 0.041 ms
+Trigger for constraint refresh_tokens_user_id_fkey: time=0.310 calls=1
+Execution Time: 0.490 ms

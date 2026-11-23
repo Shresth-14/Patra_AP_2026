@@ -1,45 +1,35 @@
 === R15 run 1 ===
-Limit  (cost=765.01..765.01 rows=1 width=63) (actual time=0.859..0.861 rows=20.00 loops=1)
-  Buffers: shared hit=393
-  ->  Sort  (cost=765.01..765.01 rows=1 width=63) (actual time=0.859..0.859 rows=20.00 loops=1)
-        Sort Key: email
-        Sort Method: top-N heapsort  Memory: 28kB
-        Buffers: shared hit=393
-        ->  Seq Scan on contacts  (cost=0.00..765.00 rows=1 width=63) (actual time=0.004..0.830 rows=146.00 loops=1)
-              Filter: (((email)::text ~~ 'john%'::text) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
-              Rows Removed by Filter: 24854
-              Buffers: shared hit=390
+Limit  (cost=0.41..8.44 rows=1 width=63) (actual time=0.025..0.030 rows=20 loops=1)
+  Buffers: shared hit=6
+  ->  Index Scan using uq_contacts_org_email on contacts  (cost=0.41..8.44 rows=1 width=63) (actual time=0.022..0.025 rows=20 loops=1)
+        Index Cond: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) AND ((email)::text >= 'john'::text) AND ((email)::text < 'joho'::text))
+        Filter: ((email)::text ~~ 'john%'::text)
+        Buffers: shared hit=6
 Planning:
-  Buffers: shared hit=131
-Planning Time: 0.220 ms
-Execution Time: 0.871 ms
+  Buffers: shared hit=144
+Planning Time: 0.421 ms
+Execution Time: 0.044 ms
+
 === R15 run 2 ===
-Limit  (cost=765.01..765.01 rows=1 width=63) (actual time=0.884..0.886 rows=20.00 loops=1)
-  Buffers: shared hit=393
-  ->  Sort  (cost=765.01..765.01 rows=1 width=63) (actual time=0.884..0.884 rows=20.00 loops=1)
-        Sort Key: email
-        Sort Method: top-N heapsort  Memory: 28kB
-        Buffers: shared hit=393
-        ->  Seq Scan on contacts  (cost=0.00..765.00 rows=1 width=63) (actual time=0.005..0.854 rows=146.00 loops=1)
-              Filter: (((email)::text ~~ 'john%'::text) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
-              Rows Removed by Filter: 24854
-              Buffers: shared hit=390
+Limit  (cost=0.41..8.44 rows=1 width=63) (actual time=0.019..0.024 rows=20 loops=1)
+  Buffers: shared hit=6
+  ->  Index Scan using uq_contacts_org_email on contacts  (cost=0.41..8.44 rows=1 width=63) (actual time=0.017..0.020 rows=20 loops=1)
+        Index Cond: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) AND ((email)::text >= 'john'::text) AND ((email)::text < 'joho'::text))
+        Filter: ((email)::text ~~ 'john%'::text)
+        Buffers: shared hit=6
 Planning:
-  Buffers: shared hit=131
-Planning Time: 0.219 ms
-Execution Time: 0.896 ms
+  Buffers: shared hit=144
+Planning Time: 0.439 ms
+Execution Time: 0.041 ms
+
 === R15 run 3 ===
-Limit  (cost=765.01..765.01 rows=1 width=63) (actual time=0.864..0.865 rows=20.00 loops=1)
-  Buffers: shared hit=393
-  ->  Sort  (cost=765.01..765.01 rows=1 width=63) (actual time=0.864..0.864 rows=20.00 loops=1)
-        Sort Key: email
-        Sort Method: top-N heapsort  Memory: 28kB
-        Buffers: shared hit=393
-        ->  Seq Scan on contacts  (cost=0.00..765.00 rows=1 width=63) (actual time=0.004..0.834 rows=146.00 loops=1)
-              Filter: (((email)::text ~~ 'john%'::text) AND (organization_id = '00000000-0000-0000-0000-000000000003'::uuid))
-              Rows Removed by Filter: 24854
-              Buffers: shared hit=390
+Limit  (cost=0.41..8.44 rows=1 width=63) (actual time=0.015..0.020 rows=20 loops=1)
+  Buffers: shared hit=6
+  ->  Index Scan using uq_contacts_org_email on contacts  (cost=0.41..8.44 rows=1 width=63) (actual time=0.013..0.016 rows=20 loops=1)
+        Index Cond: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) AND ((email)::text >= 'john'::text) AND ((email)::text < 'joho'::text))
+        Filter: ((email)::text ~~ 'john%'::text)
+        Buffers: shared hit=6
 Planning:
-  Buffers: shared hit=131
-Planning Time: 0.217 ms
-Execution Time: 0.876 ms
+  Buffers: shared hit=144
+Planning Time: 0.362 ms
+Execution Time: 0.034 ms

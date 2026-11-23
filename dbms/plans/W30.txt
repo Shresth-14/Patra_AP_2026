@@ -1,33 +1,32 @@
 === W30 run 1 ===
-Update on campaign_recipients  (cost=0.42..8.44 rows=0 width=0) (actual time=0.182..0.182 rows=0.00 loops=1)
-  Buffers: shared hit=46
-  ->  Index Scan using campaign_recipients_pkey on campaign_recipients  (cost=0.42..8.44 rows=1 width=104) (actual time=0.016..0.019 rows=1.00 loops=1)
+Update on campaign_recipients  (cost=0.42..8.44 rows=0 width=0) (actual time=0.347..0.348 rows=0 loops=1)
+  Buffers: shared hit=41
+  ->  Index Scan using campaign_recipients_pkey on campaign_recipients  (cost=0.42..8.44 rows=1 width=104) (actual time=0.017..0.018 rows=1 loops=1)
         Index Cond: (recipient_id = '00000000-0000-0000-0000-000000000014'::uuid)
-        Index Searches: 1
-        Buffers: shared hit=6
+        Buffers: shared hit=4
 Planning:
   Buffers: shared hit=87
-Planning Time: 0.176 ms
-Execution Time: 0.232 ms
+Planning Time: 0.298 ms
+Execution Time: 0.405 ms
+
 === W30 run 2 ===
-Update on campaign_recipients  (cost=0.42..8.44 rows=0 width=0) (actual time=0.164..0.164 rows=0.00 loops=1)
-  Buffers: shared hit=46
-  ->  Index Scan using campaign_recipients_pkey on campaign_recipients  (cost=0.42..8.44 rows=1 width=104) (actual time=0.017..0.020 rows=1.00 loops=1)
+Update on campaign_recipients  (cost=0.42..8.44 rows=0 width=0) (actual time=0.265..0.265 rows=0 loops=1)
+  Buffers: shared hit=44
+  ->  Index Scan using campaign_recipients_pkey on campaign_recipients  (cost=0.42..8.44 rows=1 width=104) (actual time=0.014..0.017 rows=1 loops=1)
         Index Cond: (recipient_id = '00000000-0000-0000-0000-000000000014'::uuid)
-        Index Searches: 1
         Buffers: shared hit=6
 Planning:
   Buffers: shared hit=87
-Planning Time: 0.169 ms
-Execution Time: 0.203 ms
+Planning Time: 0.299 ms
+Execution Time: 0.325 ms
+
 === W30 run 3 ===
-Update on campaign_recipients  (cost=0.42..8.44 rows=0 width=0) (actual time=0.166..0.166 rows=0.00 loops=1)
-  Buffers: shared hit=46
-  ->  Index Scan using campaign_recipients_pkey on campaign_recipients  (cost=0.42..8.44 rows=1 width=104) (actual time=0.017..0.020 rows=1.00 loops=1)
+Update on campaign_recipients  (cost=0.42..8.44 rows=0 width=0) (actual time=0.252..0.253 rows=0 loops=1)
+  Buffers: shared hit=44
+  ->  Index Scan using campaign_recipients_pkey on campaign_recipients  (cost=0.42..8.44 rows=1 width=104) (actual time=0.016..0.018 rows=1 loops=1)
         Index Cond: (recipient_id = '00000000-0000-0000-0000-000000000014'::uuid)
-        Index Searches: 1
         Buffers: shared hit=6
 Planning:
   Buffers: shared hit=87
-Planning Time: 0.161 ms
-Execution Time: 0.205 ms
+Planning Time: 0.270 ms
+Execution Time: 0.308 ms

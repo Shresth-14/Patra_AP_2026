@@ -1,39 +1,41 @@
 === R8 run 1 ===
-Sort  (cost=1.64..1.67 rows=9 width=68) (actual time=0.018..0.019 rows=9.00 loops=1)
+Sort  (cost=1.64..1.67 rows=9 width=68) (actual time=0.029..0.030 rows=9 loops=1)
   Sort Key: is_system DESC, name
-  Sort Method: quicksort  Memory: 25kB
+  Sort Method: quicksort  Memory: 26kB
   Buffers: shared hit=9
-  ->  Seq Scan on roles  (cost=0.00..1.50 rows=9 width=68) (actual time=0.003..0.005 rows=9.00 loops=1)
+  ->  Seq Scan on roles  (cost=0.00..1.50 rows=9 width=68) (actual time=0.008..0.011 rows=9 loops=1)
         Filter: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) OR (organization_id IS NULL))
         Rows Removed by Filter: 31
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=125
-Planning Time: 0.164 ms
-Execution Time: 0.032 ms
+  Buffers: shared hit=115
+Planning Time: 0.303 ms
+Execution Time: 0.054 ms
+
 === R8 run 2 ===
-Sort  (cost=1.64..1.67 rows=9 width=68) (actual time=0.020..0.021 rows=9.00 loops=1)
+Sort  (cost=1.64..1.67 rows=9 width=68) (actual time=0.029..0.029 rows=9 loops=1)
   Sort Key: is_system DESC, name
-  Sort Method: quicksort  Memory: 25kB
+  Sort Method: quicksort  Memory: 26kB
   Buffers: shared hit=9
-  ->  Seq Scan on roles  (cost=0.00..1.50 rows=9 width=68) (actual time=0.004..0.005 rows=9.00 loops=1)
+  ->  Seq Scan on roles  (cost=0.00..1.50 rows=9 width=68) (actual time=0.008..0.011 rows=9 loops=1)
         Filter: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) OR (organization_id IS NULL))
         Rows Removed by Filter: 31
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=125
-Planning Time: 0.174 ms
-Execution Time: 0.035 ms
+  Buffers: shared hit=115
+Planning Time: 0.306 ms
+Execution Time: 0.053 ms
+
 === R8 run 3 ===
-Sort  (cost=1.64..1.67 rows=9 width=68) (actual time=0.022..0.022 rows=9.00 loops=1)
+Sort  (cost=1.64..1.67 rows=9 width=68) (actual time=0.031..0.031 rows=9 loops=1)
   Sort Key: is_system DESC, name
-  Sort Method: quicksort  Memory: 25kB
+  Sort Method: quicksort  Memory: 26kB
   Buffers: shared hit=9
-  ->  Seq Scan on roles  (cost=0.00..1.50 rows=9 width=68) (actual time=0.004..0.006 rows=9.00 loops=1)
+  ->  Seq Scan on roles  (cost=0.00..1.50 rows=9 width=68) (actual time=0.009..0.013 rows=9 loops=1)
         Filter: ((organization_id = '00000000-0000-0000-0000-000000000003'::uuid) OR (organization_id IS NULL))
         Rows Removed by Filter: 31
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=125
-Planning Time: 0.178 ms
-Execution Time: 0.038 ms
+  Buffers: shared hit=115
+Planning Time: 0.368 ms
+Execution Time: 0.060 ms

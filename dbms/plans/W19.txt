@@ -1,33 +1,32 @@
 === W19 run 1 ===
-Delete on list_contacts  (cost=0.41..8.43 rows=0 width=0) (actual time=0.018..0.018 rows=0.00 loops=1)
+Delete on list_contacts  (cost=0.41..8.43 rows=0 width=0) (actual time=0.047..0.048 rows=0 loops=1)
   Buffers: shared hit=5
-  ->  Index Scan using list_contacts_pkey on list_contacts  (cost=0.41..8.43 rows=1 width=6) (actual time=0.009..0.009 rows=1.00 loops=1)
+  ->  Index Scan using list_contacts_pkey on list_contacts  (cost=0.41..8.43 rows=1 width=6) (actual time=0.027..0.028 rows=1 loops=1)
         Index Cond: ((list_id = '00000000-0000-0000-0000-000000000009'::uuid) AND (contact_id = '00000000-0000-0000-0000-000000000097'::uuid))
-        Index Searches: 1
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=70
-Planning Time: 0.174 ms
-Execution Time: 0.063 ms
+Planning Time: 0.302 ms
+Execution Time: 0.134 ms
+
 === W19 run 2 ===
-Delete on list_contacts  (cost=0.41..8.43 rows=0 width=0) (actual time=0.021..0.021 rows=0.00 loops=1)
+Delete on list_contacts  (cost=0.41..8.43 rows=0 width=0) (actual time=0.041..0.041 rows=0 loops=1)
   Buffers: shared hit=5
-  ->  Index Scan using list_contacts_pkey on list_contacts  (cost=0.41..8.43 rows=1 width=6) (actual time=0.009..0.010 rows=1.00 loops=1)
+  ->  Index Scan using list_contacts_pkey on list_contacts  (cost=0.41..8.43 rows=1 width=6) (actual time=0.025..0.026 rows=1 loops=1)
         Index Cond: ((list_id = '00000000-0000-0000-0000-000000000009'::uuid) AND (contact_id = '00000000-0000-0000-0000-000000000097'::uuid))
-        Index Searches: 1
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=70
-Planning Time: 0.138 ms
-Execution Time: 0.065 ms
+Planning Time: 0.334 ms
+Execution Time: 0.134 ms
+
 === W19 run 3 ===
-Delete on list_contacts  (cost=0.41..8.43 rows=0 width=0) (actual time=0.021..0.021 rows=0.00 loops=1)
+Delete on list_contacts  (cost=0.41..8.43 rows=0 width=0) (actual time=0.029..0.029 rows=0 loops=1)
   Buffers: shared hit=5
-  ->  Index Scan using list_contacts_pkey on list_contacts  (cost=0.41..8.43 rows=1 width=6) (actual time=0.010..0.010 rows=1.00 loops=1)
+  ->  Index Scan using list_contacts_pkey on list_contacts  (cost=0.41..8.43 rows=1 width=6) (actual time=0.017..0.017 rows=1 loops=1)
         Index Cond: ((list_id = '00000000-0000-0000-0000-000000000009'::uuid) AND (contact_id = '00000000-0000-0000-0000-000000000097'::uuid))
-        Index Searches: 1
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=70
-Planning Time: 0.149 ms
-Execution Time: 0.067 ms
+Planning Time: 0.240 ms
+Execution Time: 0.099 ms

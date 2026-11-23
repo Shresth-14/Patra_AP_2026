@@ -1,42 +1,41 @@
 === W16 run 1 ===
-Delete on contacts  (cost=0.29..8.30 rows=0 width=0) (actual time=0.036..0.036 rows=0.00 loops=1)
-  Buffers: shared hit=15
-  ->  Index Scan using uq_contacts_id_org on contacts  (cost=0.29..8.30 rows=1 width=6) (actual time=0.006..0.006 rows=1.00 loops=1)
+Delete on contacts  (cost=0.29..8.30 rows=0 width=0) (actual time=0.098..0.098 rows=0 loops=1)
+  Buffers: shared hit=13
+  ->  Index Scan using uq_contacts_id_org on contacts  (cost=0.29..8.30 rows=1 width=6) (actual time=0.011..0.011 rows=1 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000099'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
 Planning:
   Buffers: shared hit=99
-Planning Time: 0.196 ms
-Trigger for constraint contact_custom_fields_contact_id_fkey: time=0.117 calls=1
-Trigger for constraint list_contacts_contact_id_fkey: time=0.176 calls=1
-Trigger for constraint fk_campaign_recipients_contact_org: time=2.730 calls=1
-Execution Time: 3.106 ms
+Planning Time: 0.418 ms
+Trigger for constraint contact_custom_fields_contact_id_fkey: time=0.202 calls=1
+Trigger for constraint list_contacts_contact_id_fkey: time=2.270 calls=1
+Trigger for constraint fk_campaign_recipients_contact_org: time=5.792 calls=1
+Execution Time: 8.434 ms
+
 === W16 run 2 ===
-Delete on contacts  (cost=0.29..8.30 rows=0 width=0) (actual time=0.035..0.035 rows=0.00 loops=1)
-  Buffers: shared hit=15
-  ->  Index Scan using uq_contacts_id_org on contacts  (cost=0.29..8.30 rows=1 width=6) (actual time=0.008..0.008 rows=1.00 loops=1)
+Delete on contacts  (cost=0.29..8.30 rows=0 width=0) (actual time=0.057..0.058 rows=0 loops=1)
+  Buffers: shared hit=12
+  ->  Index Scan using uq_contacts_id_org on contacts  (cost=0.29..8.30 rows=1 width=6) (actual time=0.013..0.013 rows=1 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000099'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
 Planning:
   Buffers: shared hit=99
-Planning Time: 0.184 ms
-Trigger for constraint contact_custom_fields_contact_id_fkey: time=0.109 calls=1
-Trigger for constraint list_contacts_contact_id_fkey: time=0.176 calls=1
-Trigger for constraint fk_campaign_recipients_contact_org: time=2.601 calls=1
-Execution Time: 2.967 ms
+Planning Time: 0.327 ms
+Trigger for constraint contact_custom_fields_contact_id_fkey: time=0.176 calls=1
+Trigger for constraint list_contacts_contact_id_fkey: time=2.047 calls=1
+Trigger for constraint fk_campaign_recipients_contact_org: time=5.623 calls=1
+Execution Time: 7.976 ms
+
 === W16 run 3 ===
-Delete on contacts  (cost=0.29..8.30 rows=0 width=0) (actual time=0.037..0.037 rows=0.00 loops=1)
-  Buffers: shared hit=15
-  ->  Index Scan using uq_contacts_id_org on contacts  (cost=0.29..8.30 rows=1 width=6) (actual time=0.008..0.008 rows=1.00 loops=1)
+Delete on contacts  (cost=0.29..8.30 rows=0 width=0) (actual time=0.062..0.062 rows=0 loops=1)
+  Buffers: shared hit=12
+  ->  Index Scan using uq_contacts_id_org on contacts  (cost=0.29..8.30 rows=1 width=6) (actual time=0.014..0.014 rows=1 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000099'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
 Planning:
   Buffers: shared hit=99
-Planning Time: 0.180 ms
-Trigger for constraint contact_custom_fields_contact_id_fkey: time=0.100 calls=1
-Trigger for constraint list_contacts_contact_id_fkey: time=0.175 calls=1
-Trigger for constraint fk_campaign_recipients_contact_org: time=2.958 calls=1
-Execution Time: 3.314 ms
+Planning Time: 0.323 ms
+Trigger for constraint contact_custom_fields_contact_id_fkey: time=0.164 calls=1
+Trigger for constraint list_contacts_contact_id_fkey: time=2.035 calls=1
+Trigger for constraint fk_campaign_recipients_contact_org: time=5.350 calls=1
+Execution Time: 7.683 ms

@@ -100,7 +100,7 @@ SELECT
     CASE WHEN i % 3 = 0 THEN 'RESEND' WHEN i % 3 = 1 THEN 'SES' ELSE 'SMTP' END,
     'evt_synthetic_' || i,
     CASE WHEN i % 4 = 0 THEN 'email.delivered' WHEN i % 4 = 1 THEN 'email.opened' WHEN i % 4 = 2 THEN 'email.clicked' ELSE 'email.bounced' END,
-    '{"id": ' || i || ', "status": "processed"}'::jsonb,
+    ('{"id": ' || i || ', "status": "processed"}')::jsonb,
     TIMESTAMPTZ '2026-01-01 00:00:00Z' + (i * INTERVAL '1 minute')
 FROM generate_series(2, 15000) AS s(i);
 
@@ -214,7 +214,7 @@ VALUES
 -- Remaining 50 lists across other orgs
 INSERT INTO lists (list_id, organization_id, name, created_at, updated_at)
 SELECT
-    CAST('00000000-0000-0000-0009-' || lpad(to_hex(i + 10), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0009-' || lpad(to_hex(i + 16), 12, '0') AS uuid),
     CAST('00000000-0000-0000-0001-' || lpad(to_hex(((i - 1) % 8) + 1), 12, '0') AS uuid),
     'Mailing List ' || (i + 10),
     TIMESTAMPTZ '2026-01-01 00:00:00Z',
@@ -292,8 +292,8 @@ FROM generate_series(1, 32) AS s(i);
 -- Dedicated transport for W11: Transport 6 (00000000-0000-0000-0000-000000000006) in Org 3
 INSERT INTO mail_transports (transport_id, organization_id, name, transport_type, credentials_encrypted, rate_per_second, daily_limit, is_default, status, last_tested_at, created_at, updated_at)
 VALUES
-    ('00000000-0000-0000-0000-000000000006', '00000000-0000-0000-0000-000000000003', 'Acme Primary SES', 'SES', 'enc_key_prod_ses_001', 14.000, 50000, true, 'VERIFIED', TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z'),
-    ('00000000-0000-0000-000c-000000000002', '00000000-0000-0000-0000-000000000003', 'Acme Backup Resend', 'RESEND', 'enc_key_backup_resend_002', 5.000, 10000, false, 'VERIFIED', TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z'),
+    ('00000000-0000-0000-0000-000000000006', '00000000-0000-0000-0000-000000000003', 'Acme Primary SES', 'SES', 'enc_key_prod_ses_001', 14.000, 50000, true, 'VERIFIED', TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z'),
+    ('00000000-0000-0000-000c-000000000002', '00000000-0000-0000-0000-000000000003', 'Acme Backup Resend', 'RESEND', 'enc_key_backup_resend_002', 5.000, 10000, false, 'VERIFIED', TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z'),
     ('00000000-0000-0000-000c-000000000003', '00000000-0000-0000-0000-000000000003', 'Acme Staging SMTP', 'SMTP', 'enc_key_staging_smtp_003', 2.000, 2000, false, 'UNVERIFIED', NULL, TIMESTAMPTZ '2026-01-01 00:00:00Z', TIMESTAMPTZ '2026-01-01 00:00:00Z');
 
 -- Remaining 22 transports across other orgs
@@ -323,7 +323,7 @@ SELECT
     CASE WHEN i % 4 = 0 THEN 'campaign.created' WHEN i % 4 = 1 THEN 'contact.imported' WHEN i % 4 = 2 THEN 'template.published' ELSE 'member.role_changed' END,
     'campaign',
     '00000000-0000-0000-0000-000000000012',
-    '{"batch": ' || i || '}'::jsonb,
+    ('{"batch": ' || i || '}')::jsonb,
     TIMESTAMPTZ '2026-01-01 00:00:00Z' + (i * INTERVAL '1 minute'),
     TIMESTAMPTZ '2026-01-01 00:00:00Z' + (i * INTERVAL '1 minute')
 FROM generate_series(1, 13000) AS s(i);
@@ -362,15 +362,15 @@ FROM permissions p;
 -- Additional role-permission mappings to total 150 rows
 INSERT INTO role_permissions (role_id, permission_code)
 SELECT
-    CAST('00000000-0000-0000-0004-' || lpad(to_hex(r_idx), 12, '0') AS uuid),
+    r.role_id,
     p.permission_code
-FROM (
-    SELECT ((i % 35) + 2) AS r_idx, p_code AS permission_code
-    FROM generate_series(1, 117) AS s(i)
-    CROSS JOIN LATERAL (
-        SELECT permission_code FROM permissions ORDER BY permission_code LIMIT 1 OFFSET (s.i % 25)
-    ) AS p(p_code)
-) AS sub
+FROM generate_series(1, 121) AS s(i)
+CROSS JOIN LATERAL (
+    SELECT role_id FROM roles ORDER BY role_id LIMIT 1 OFFSET (s.i % 35)
+) AS r
+CROSS JOIN LATERAL (
+    SELECT permission_code FROM permissions ORDER BY permission_code LIMIT 1 OFFSET (s.i % 25)
+) AS p
 ON CONFLICT (role_id, permission_code) DO NOTHING;
 
 -- 14. MEMBERSHIPS (300 total)
@@ -396,8 +396,8 @@ FROM generate_series(3, 16) AS s(i);
 -- Remaining memberships across other users and orgs to reach 300 total
 INSERT INTO memberships (user_id, organization_id, role_id, created_at, updated_at)
 SELECT
-    CAST('00000000-0000-0000-0002-' || lpad(to_hex(i), 12, '0') AS uuid),
-    CAST('00000000-0000-0000-0001-' || lpad(to_hex(((i - 17) % 8) + 1), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0002-' || lpad(to_hex(((i - 17) % 234) + 17), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0001-' || lpad(to_hex((((i - 17) / 234) % 8) + 1), 12, '0') AS uuid),
     '00000000-0000-0000-0004-000000000004',
     TIMESTAMPTZ '2026-01-01 00:00:00Z',
     TIMESTAMPTZ '2026-01-01 00:00:00Z'
@@ -450,7 +450,7 @@ INSERT INTO list_contacts (list_id, contact_id)
 VALUES
     ('00000000-0000-0000-0000-000000000009', '00000000-0000-0000-0000-000000000008'),
     ('00000000-0000-0000-0000-000000000009', '00000000-0000-0000-0000-000000000097'),
-    ('00000000-0000-0009-000000000002', '00000000-0000-0000-0000-000000000099');
+    ('00000000-0000-0000-0009-000000000002', '00000000-0000-0000-0000-000000000099');
 
 -- Remaining 4,998 contacts into List 9 (Total in List 9 = exactly 5,000)
 INSERT INTO list_contacts (list_id, contact_id)
@@ -462,7 +462,7 @@ FROM generate_series(5, 5002) AS s(i);
 -- Remaining contacts in Org 3 lists (Total Org 3 list memberships = 20,000)
 INSERT INTO list_contacts (list_id, contact_id)
 SELECT
-    CAST('00000000-0000-0009-' || lpad(to_hex(((i % 9) + 2)), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0009-' || lpad(to_hex(((i % 8) + 2)), 12, '0') AS uuid),
     CAST('00000000-0000-0000-0007-' || lpad(to_hex(i), 12, '0') AS uuid)
 FROM generate_series(5, 12000) AS s(i)
 ON CONFLICT (list_id, contact_id) DO NOTHING;
@@ -470,22 +470,22 @@ ON CONFLICT (list_id, contact_id) DO NOTHING;
 -- Further list contacts across Org 3
 INSERT INTO list_contacts (list_id, contact_id)
 SELECT
-    CAST('00000000-0000-0009-' || lpad(to_hex(((i % 8) + 3)), 12, '0') AS uuid),
+    '00000000-0000-0000-0009-000000000010',
     CAST('00000000-0000-0000-0007-' || lpad(to_hex(i), 12, '0') AS uuid)
-FROM generate_series(5, 8003) AS s(i)
+FROM generate_series(5, 3007) AS s(i)
 ON CONFLICT (list_id, contact_id) DO NOTHING;
 
 -- List memberships across external orgs (20,000 rows across lists 11..60)
 INSERT INTO list_contacts (list_id, contact_id)
 SELECT
-    CAST('00000000-0000-0009-' || lpad(to_hex(((i % 50) + 11)), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0009-' || lpad(to_hex(((i % 50) + 17)), 12, '0') AS uuid),
     CAST('00000000-0000-0000-0008-' || lpad(to_hex(i), 12, '0') AS uuid)
 FROM generate_series(1, 13000) AS s(i)
 ON CONFLICT (list_id, contact_id) DO NOTHING;
 
 INSERT INTO list_contacts (list_id, contact_id)
 SELECT
-    CAST('00000000-0000-0009-' || lpad(to_hex(((i % 50) + 11)), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0009-' || lpad(to_hex((((i + 12) % 50) + 17)), 12, '0') AS uuid),
     CAST('00000000-0000-0000-0008-' || lpad(to_hex(i + 3000), 12, '0') AS uuid)
 FROM generate_series(1, 7000) AS s(i)
 ON CONFLICT (list_id, contact_id) DO NOTHING;
@@ -504,7 +504,7 @@ INSERT INTO domains (domain_id, organization_id, transport_id, domain_name, is_v
 SELECT
     CAST('00000000-0000-0000-000f-' || lpad(to_hex(i + 3), 12, '0') AS uuid),
     CAST('00000000-0000-0000-0001-' || lpad(to_hex(((i - 1) % 8) + 1), 12, '0') AS uuid),
-    CAST('00000000-0000-0000-000c-' || lpad(to_hex(((i - 1) % 22) + 4), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-000c-' || lpad(to_hex(((i - 1) % 8) + 4), 12, '0') AS uuid),
     'domain' || i || '.tenant' || (((i - 1) % 8) + 1) || '.org',
     (i % 2 = 0),
     'prov_dom_' || i,
@@ -540,9 +540,14 @@ FROM generate_series(1, 87) AS s(i)
 JOIN LATERAL (
     SELECT template_id, organization_id
     FROM templates
-    WHERE template_id NOT IN ('00000000-0000-0000-0000-000000000010', '00000000-0000-0000-0000-000000000020')
+    WHERE template_id NOT IN (
+        '00000000-0000-0000-000b-000000000003',
+        '00000000-0000-0000-000b-000000000004',
+        '00000000-0000-0000-0000-000000000010',
+        '00000000-0000-0000-0000-000000000020'
+    )
     ORDER BY template_id
-    OFFSET (s.i % 38)
+    OFFSET (s.i % 36)
     LIMIT 1
 ) AS t ON true;
 
@@ -625,7 +630,7 @@ SELECT
     CASE WHEN i % 4 = 0 THEN 'URGENT' ELSE 'NORMAL' END,
     '00000000-0000-0000-0000-000000000011',
     '00000000-0000-0000-0000-000000000013',
-    CAST('00000000-0000-0009-' || lpad(to_hex(((i % 9) + 2)), 12, '0') AS uuid),
+    CAST('00000000-0000-0000-0009-' || lpad(to_hex(((i % 8) + 2)), 12, '0') AS uuid),
     '00000000-0000-0000-0000-000000000001',
     TIMESTAMPTZ '2026-11-20 09:00:00Z',
     TIMESTAMPTZ '2026-11-20 09:05:00Z',
@@ -639,7 +644,7 @@ FROM generate_series(1, 28) AS s(i);
 INSERT INTO campaigns (campaign_id, organization_id, name, status, priority, template_version_id, sender_identity_id, list_id, created_by_id, scheduled_at, started_at, completed_at, total_recipients, sent_count, delivered_count, bounced_count, failed_count, created_at, updated_at)
 SELECT
     CAST('00000000-0000-0000-0013-' || lpad(to_hex(i), 12, '0') AS uuid),
-    tv.organization_id,
+    org.organization_id,
     'Tenant Campaign ' || i,
     CASE WHEN i % 4 = 0 THEN 'COMPLETED' WHEN i % 4 = 1 THEN 'DRAFT' ELSE 'QUEUED' END,
     'NORMAL',
@@ -653,23 +658,33 @@ SELECT
     TIMESTAMPTZ '2026-01-01 00:00:00Z'
 FROM generate_series(1, 120) AS s(i)
 JOIN LATERAL (
+    SELECT organization_id
+    FROM organizations
+    WHERE organization_id = CAST(
+        '00000000-0000-0000-0001-' || lpad(to_hex(((s.i - 1) % 8) + 1), 12, '0')
+        AS uuid
+    )
+) AS org ON true
+JOIN LATERAL (
     SELECT template_version_id, organization_id
     FROM template_versions
-    WHERE organization_id <> '00000000-0000-0000-0000-000000000003'
+    WHERE organization_id = org.organization_id
     ORDER BY template_version_id
-    OFFSET (s.i % 80)
+    OFFSET ((s.i - 1) / 8) % (
+        SELECT count(*) FROM template_versions WHERE organization_id = org.organization_id
+    )
     LIMIT 1
 ) AS tv ON true
 JOIN LATERAL (
     SELECT sender_identity_id
     FROM sender_identities
-    WHERE organization_id = tv.organization_id
+    WHERE organization_id = org.organization_id
     LIMIT 1
 ) AS si ON true
 JOIN LATERAL (
     SELECT list_id
     FROM lists
-    WHERE organization_id = tv.organization_id
+    WHERE organization_id = org.organization_id
     LIMIT 1
 ) AS l ON true;
 
@@ -814,9 +829,39 @@ JOIN LATERAL (
     SELECT campaign_id
     FROM campaigns
     WHERE organization_id = c.organization_id
+    ORDER BY campaign_id
+    OFFSET ((i - 1) / 12900) % (
+        SELECT count(*) FROM campaigns WHERE organization_id = c.organization_id
+    )
     LIMIT 1
 ) AS cmp ON true
 ON CONFLICT (organization_id, email, campaign_id) DO NOTHING;
+
+-- One final external recipient fills the last unique-key conflict in the
+-- generated batch so the declared fixture total is exactly 60,000 rows.
+INSERT INTO campaign_recipients (recipient_id, organization_id, campaign_id, contact_id, email, status, provider_message_id, sent_at, delivered_at, created_at, updated_at)
+SELECT
+    '00000000-0000-0000-0017-0000000061a9',
+    c.organization_id,
+    cmp.campaign_id,
+    c.contact_id,
+    c.email,
+    'DELIVERED',
+    'msg_ext_final',
+    TIMESTAMPTZ '2026-11-20 09:10:00Z',
+    TIMESTAMPTZ '2026-11-20 09:12:00Z',
+    TIMESTAMPTZ '2026-01-01 00:00:00Z',
+    TIMESTAMPTZ '2026-01-01 00:00:00Z'
+FROM contacts c
+JOIN campaigns cmp ON cmp.organization_id = c.organization_id
+LEFT JOIN campaign_recipients cr
+  ON cr.organization_id = c.organization_id
+ AND cr.email = c.email
+ AND cr.campaign_id = cmp.campaign_id
+WHERE c.organization_id <> '00000000-0000-0000-0000-000000000003'
+  AND cr.recipient_id IS NULL
+ORDER BY c.contact_id, cmp.campaign_id
+LIMIT 1;
 
 COMMIT;
 

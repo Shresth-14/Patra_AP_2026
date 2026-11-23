@@ -1,30 +1,32 @@
 === W13 run 1 ===
-Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.168..0.168 rows=0.00 loops=1)
-  Buffers: shared hit=65
-  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.009..0.009 rows=1.00 loops=1)
+Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=1.127..1.127 rows=0 loops=1)
+  Buffers: shared hit=64 read=2 dirtied=1 written=1
+  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.004..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=12
-Planning Time: 0.038 ms
-Trigger for constraint sender_identities_organization_id_fkey: time=0.228 calls=1
-Trigger for constraint fk_sender_identities_domain_org: time=0.126 calls=1
-Execution Time: 0.534 ms
+Planning Time: 0.068 ms
+Trigger for constraint sender_identities_organization_id_fkey: time=0.383 calls=1
+Trigger for constraint fk_sender_identities_domain_org: time=0.237 calls=1
+Execution Time: 1.762 ms
+
 === W13 run 2 ===
-Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.174..0.174 rows=0.00 loops=1)
+Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.267..0.267 rows=0 loops=1)
   Buffers: shared hit=65
-  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.012..0.012 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.004..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=12
-Planning Time: 0.053 ms
-Trigger for constraint sender_identities_organization_id_fkey: time=0.247 calls=1
-Trigger for constraint fk_sender_identities_domain_org: time=0.130 calls=1
-Execution Time: 0.566 ms
+Planning Time: 0.061 ms
+Trigger for constraint sender_identities_organization_id_fkey: time=0.378 calls=1
+Trigger for constraint fk_sender_identities_domain_org: time=0.230 calls=1
+Execution Time: 0.888 ms
+
 === W13 run 3 ===
-Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.161..0.161 rows=0.00 loops=1)
+Insert on sender_identities  (cost=0.00..0.02 rows=0 width=0) (actual time=0.285..0.285 rows=0 loops=1)
   Buffers: shared hit=65
-  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.009..0.009 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=1415) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=12
-Planning Time: 0.040 ms
-Trigger for constraint sender_identities_organization_id_fkey: time=0.232 calls=1
-Trigger for constraint fk_sender_identities_domain_org: time=0.126 calls=1
-Execution Time: 0.530 ms
+Planning Time: 0.072 ms
+Trigger for constraint sender_identities_organization_id_fkey: time=0.396 calls=1
+Trigger for constraint fk_sender_identities_domain_org: time=0.241 calls=1
+Execution Time: 0.939 ms

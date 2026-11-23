@@ -1,39 +1,41 @@
 === R20 run 1 ===
-Sort  (cost=1.62..1.64 rows=8 width=60) (actual time=0.012..0.013 rows=8.00 loops=1)
+Sort  (cost=1.62..1.64 rows=8 width=60) (actual time=0.017..0.018 rows=8 loops=1)
   Sort Key: updated_at DESC
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=4
-  ->  Seq Scan on templates  (cost=0.00..1.50 rows=8 width=60) (actual time=0.005..0.006 rows=8.00 loops=1)
+  ->  Seq Scan on templates  (cost=0.00..1.50 rows=8 width=60) (actual time=0.004..0.007 rows=8 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 32
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=109
-Planning Time: 0.180 ms
-Execution Time: 0.027 ms
+  Buffers: shared hit=104
+Planning Time: 0.334 ms
+Execution Time: 0.044 ms
+
 === R20 run 2 ===
-Sort  (cost=1.62..1.64 rows=8 width=60) (actual time=0.011..0.011 rows=8.00 loops=1)
+Sort  (cost=1.62..1.64 rows=8 width=60) (actual time=0.018..0.019 rows=8 loops=1)
   Sort Key: updated_at DESC
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=4
-  ->  Seq Scan on templates  (cost=0.00..1.50 rows=8 width=60) (actual time=0.003..0.004 rows=8.00 loops=1)
+  ->  Seq Scan on templates  (cost=0.00..1.50 rows=8 width=60) (actual time=0.008..0.010 rows=8 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 32
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=109
-Planning Time: 0.164 ms
-Execution Time: 0.027 ms
+  Buffers: shared hit=104
+Planning Time: 0.236 ms
+Execution Time: 0.042 ms
+
 === R20 run 3 ===
-Sort  (cost=1.62..1.64 rows=8 width=60) (actual time=0.010..0.010 rows=8.00 loops=1)
+Sort  (cost=1.62..1.64 rows=8 width=60) (actual time=0.016..0.016 rows=8 loops=1)
   Sort Key: updated_at DESC
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=4
-  ->  Seq Scan on templates  (cost=0.00..1.50 rows=8 width=60) (actual time=0.003..0.004 rows=8.00 loops=1)
+  ->  Seq Scan on templates  (cost=0.00..1.50 rows=8 width=60) (actual time=0.004..0.006 rows=8 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 32
         Buffers: shared hit=1
 Planning:
-  Buffers: shared hit=109
-Planning Time: 0.159 ms
-Execution Time: 0.024 ms
+  Buffers: shared hit=104
+Planning Time: 0.251 ms
+Execution Time: 0.041 ms

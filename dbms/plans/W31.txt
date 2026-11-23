@@ -1,33 +1,35 @@
 === W31 run 1 ===
-Update on campaign_recipients  (cost=0.00..2799.54 rows=0 width=0) (actual time=3.415..3.415 rows=0.00 loops=1)
-  Buffers: shared hit=1851
-  ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=1 width=72) (actual time=0.009..3.253 rows=1.00 loops=1)
+Update on campaign_recipients  (cost=0.00..2535.29 rows=0 width=0) (actual time=7.904..7.904 rows=0 loops=1)
+  Buffers: shared hit=1681
+  ->  Seq Scan on campaign_recipients  (cost=0.00..2535.29 rows=1 width=72) (actual time=0.009..7.655 rows=1 loops=1)
         Filter: (provider_message_id = 'msg_provider_abc123'::text)
         Rows Removed by Filter: 59999
-        Buffers: shared hit=1811
+        Buffers: shared hit=1643
 Planning:
   Buffers: shared hit=86
-Planning Time: 0.169 ms
-Execution Time: 3.452 ms
+Planning Time: 0.294 ms
+Execution Time: 7.965 ms
+
 === W31 run 2 ===
-Update on campaign_recipients  (cost=0.00..2799.54 rows=0 width=0) (actual time=3.391..3.392 rows=0.00 loops=1)
-  Buffers: shared hit=1851
-  ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=1 width=72) (actual time=0.009..3.232 rows=1.00 loops=1)
+Update on campaign_recipients  (cost=0.00..2535.29 rows=0 width=0) (actual time=7.614..7.615 rows=0 loops=1)
+  Buffers: shared hit=1681
+  ->  Seq Scan on campaign_recipients  (cost=0.00..2535.29 rows=1 width=72) (actual time=0.011..7.340 rows=1 loops=1)
         Filter: (provider_message_id = 'msg_provider_abc123'::text)
         Rows Removed by Filter: 59999
-        Buffers: shared hit=1811
+        Buffers: shared hit=1643
 Planning:
   Buffers: shared hit=86
-Planning Time: 0.164 ms
-Execution Time: 3.429 ms
+Planning Time: 0.330 ms
+Execution Time: 7.683 ms
+
 === W31 run 3 ===
-Update on campaign_recipients  (cost=0.00..2799.54 rows=0 width=0) (actual time=3.381..3.381 rows=0.00 loops=1)
-  Buffers: shared hit=1851
-  ->  Seq Scan on campaign_recipients  (cost=0.00..2799.54 rows=1 width=72) (actual time=0.009..3.209 rows=1.00 loops=1)
+Update on campaign_recipients  (cost=0.00..2535.29 rows=0 width=0) (actual time=7.315..7.315 rows=0 loops=1)
+  Buffers: shared hit=1681
+  ->  Seq Scan on campaign_recipients  (cost=0.00..2535.29 rows=1 width=72) (actual time=0.009..7.053 rows=1 loops=1)
         Filter: (provider_message_id = 'msg_provider_abc123'::text)
         Rows Removed by Filter: 59999
-        Buffers: shared hit=1811
+        Buffers: shared hit=1643
 Planning:
   Buffers: shared hit=86
-Planning Time: 0.159 ms
-Execution Time: 3.418 ms
+Planning Time: 0.289 ms
+Execution Time: 7.379 ms

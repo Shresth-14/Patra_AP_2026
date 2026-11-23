@@ -1,39 +1,41 @@
 === W20 run 1 ===
-Insert on suppressions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.191..0.192 rows=0.00 loops=1)
+Insert on suppressions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.416..0.416 rows=0 loops=1)
   Conflict Resolution: NOTHING
   Conflict Arbiter Indexes: uq_suppressions_org_email
   Tuples Inserted: 1
   Conflicting Tuples: 0
   Buffers: shared hit=46
-  ->  Result  (cost=0.00..0.02 rows=1 width=622) (actual time=0.009..0.009 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=622) (actual time=0.004..0.005 rows=1 loops=1)
 Planning:
   Buffers: shared hit=58
-Planning Time: 0.062 ms
-Trigger for constraint suppressions_organization_id_fkey: time=0.226 calls=1
-Execution Time: 0.430 ms
+Planning Time: 0.109 ms
+Trigger for constraint suppressions_organization_id_fkey: time=0.375 calls=1
+Execution Time: 0.807 ms
+
 === W20 run 2 ===
-Insert on suppressions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.205..0.205 rows=0.00 loops=1)
+Insert on suppressions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.283..0.283 rows=0 loops=1)
   Conflict Resolution: NOTHING
   Conflict Arbiter Indexes: uq_suppressions_org_email
   Tuples Inserted: 1
   Conflicting Tuples: 0
   Buffers: shared hit=46
-  ->  Result  (cost=0.00..0.02 rows=1 width=622) (actual time=0.012..0.012 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=622) (actual time=0.004..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=58
-Planning Time: 0.067 ms
-Trigger for constraint suppressions_organization_id_fkey: time=0.216 calls=1
-Execution Time: 0.434 ms
+Planning Time: 0.103 ms
+Trigger for constraint suppressions_organization_id_fkey: time=0.323 calls=1
+Execution Time: 0.621 ms
+
 === W20 run 3 ===
-Insert on suppressions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.187..0.187 rows=0.00 loops=1)
+Insert on suppressions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.339..0.339 rows=0 loops=1)
   Conflict Resolution: NOTHING
   Conflict Arbiter Indexes: uq_suppressions_org_email
   Tuples Inserted: 1
   Conflicting Tuples: 0
   Buffers: shared hit=46
-  ->  Result  (cost=0.00..0.02 rows=1 width=622) (actual time=0.009..0.009 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=622) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=58
-Planning Time: 0.063 ms
-Trigger for constraint suppressions_organization_id_fkey: time=0.246 calls=1
-Execution Time: 0.445 ms
+Planning Time: 0.128 ms
+Trigger for constraint suppressions_organization_id_fkey: time=0.410 calls=1
+Execution Time: 0.769 ms

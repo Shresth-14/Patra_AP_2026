@@ -1,45 +1,47 @@
 === R26 run 1 ===
-Limit  (cost=2566.75..2566.99 rows=95 width=65) (actual time=4.009..4.014 rows=100.00 loops=1)
-  Buffers: shared hit=1552
-  ->  Sort  (cost=2566.75..2566.99 rows=95 width=65) (actual time=4.008..4.010 rows=100.00 loops=1)
+Limit  (cost=2283.88..2284.10 rows=89 width=66) (actual time=5.658..5.668 rows=100 loops=1)
+  Buffers: shared hit=1384
+  ->  Sort  (cost=2283.88..2284.10 rows=89 width=66) (actual time=5.655..5.659 rows=100 loops=1)
         Sort Key: created_at
-        Sort Method: top-N heapsort  Memory: 38kB
-        Buffers: shared hit=1552
-        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2563.63 rows=95 width=65) (actual time=0.006..3.974 rows=500.00 loops=1)
+        Sort Method: top-N heapsort  Memory: 39kB
+        Buffers: shared hit=1384
+        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2281.00 rows=89 width=66) (actual time=0.005..5.581 rows=500 loops=1)
               Filter: ((campaign_id = '00000000-0000-0000-0000-000000000012'::uuid) AND ((status)::text = 'QUEUED'::text))
               Rows Removed by Filter: 59500
-              Buffers: shared hit=1549
+              Buffers: shared hit=1381
 Planning:
-  Buffers: shared hit=128
-Planning Time: 0.190 ms
-Execution Time: 4.031 ms
+  Buffers: shared hit=123
+Planning Time: 0.389 ms
+Execution Time: 5.691 ms
+
 === R26 run 2 ===
-Limit  (cost=2566.75..2566.99 rows=95 width=65) (actual time=2.678..2.682 rows=100.00 loops=1)
-  Buffers: shared hit=1552
-  ->  Sort  (cost=2566.75..2566.99 rows=95 width=65) (actual time=2.677..2.679 rows=100.00 loops=1)
+Limit  (cost=2283.88..2284.10 rows=89 width=66) (actual time=5.295..5.304 rows=100 loops=1)
+  Buffers: shared hit=1384
+  ->  Sort  (cost=2283.88..2284.10 rows=89 width=66) (actual time=5.293..5.296 rows=100 loops=1)
         Sort Key: created_at
-        Sort Method: top-N heapsort  Memory: 38kB
-        Buffers: shared hit=1552
-        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2563.63 rows=95 width=65) (actual time=0.006..2.644 rows=500.00 loops=1)
+        Sort Method: top-N heapsort  Memory: 39kB
+        Buffers: shared hit=1384
+        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2281.00 rows=89 width=66) (actual time=0.004..5.223 rows=500 loops=1)
               Filter: ((campaign_id = '00000000-0000-0000-0000-000000000012'::uuid) AND ((status)::text = 'QUEUED'::text))
               Rows Removed by Filter: 59500
-              Buffers: shared hit=1549
+              Buffers: shared hit=1381
 Planning:
-  Buffers: shared hit=128
-Planning Time: 0.218 ms
-Execution Time: 2.697 ms
+  Buffers: shared hit=123
+Planning Time: 0.349 ms
+Execution Time: 5.324 ms
+
 === R26 run 3 ===
-Limit  (cost=2566.75..2566.99 rows=95 width=65) (actual time=2.554..2.559 rows=100.00 loops=1)
-  Buffers: shared hit=1552
-  ->  Sort  (cost=2566.75..2566.99 rows=95 width=65) (actual time=2.553..2.555 rows=100.00 loops=1)
+Limit  (cost=2283.88..2284.10 rows=89 width=66) (actual time=5.653..5.663 rows=100 loops=1)
+  Buffers: shared hit=1384
+  ->  Sort  (cost=2283.88..2284.10 rows=89 width=66) (actual time=5.651..5.654 rows=100 loops=1)
         Sort Key: created_at
-        Sort Method: top-N heapsort  Memory: 38kB
-        Buffers: shared hit=1552
-        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2563.63 rows=95 width=65) (actual time=0.005..2.518 rows=500.00 loops=1)
+        Sort Method: top-N heapsort  Memory: 39kB
+        Buffers: shared hit=1384
+        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2281.00 rows=89 width=66) (actual time=0.004..5.582 rows=500 loops=1)
               Filter: ((campaign_id = '00000000-0000-0000-0000-000000000012'::uuid) AND ((status)::text = 'QUEUED'::text))
               Rows Removed by Filter: 59500
-              Buffers: shared hit=1549
+              Buffers: shared hit=1381
 Planning:
-  Buffers: shared hit=128
-Planning Time: 0.184 ms
-Execution Time: 2.573 ms
+  Buffers: shared hit=123
+Planning Time: 0.349 ms
+Execution Time: 5.684 ms

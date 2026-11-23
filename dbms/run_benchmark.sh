@@ -11,4 +11,4 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-python3 "$ROOT/dbms/generate_timings.py"
+python3 "$ROOT/dbms/run_benchmark.py" "$@"

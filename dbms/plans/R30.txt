@@ -1,33 +1,35 @@
 === R30 run 1 ===
-Aggregate  (cost=6.62..6.63 rows=1 width=56) (actual time=0.018..0.018 rows=1.00 loops=1)
+Aggregate  (cost=6.62..6.63 rows=1 width=56) (actual time=0.041..0.041 rows=1 loops=1)
   Buffers: shared hit=4
-  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=30 width=19) (actual time=0.003..0.011 rows=30.00 loops=1)
+  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=30 width=19) (actual time=0.005..0.022 rows=30 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 120
         Buffers: shared hit=4
 Planning:
-  Buffers: shared hit=98
-Planning Time: 0.174 ms
-Execution Time: 0.041 ms
+  Buffers: shared hit=97
+Planning Time: 0.336 ms
+Execution Time: 0.078 ms
+
 === R30 run 2 ===
-Aggregate  (cost=6.62..6.63 rows=1 width=56) (actual time=0.020..0.020 rows=1.00 loops=1)
+Aggregate  (cost=6.62..6.63 rows=1 width=56) (actual time=0.034..0.035 rows=1 loops=1)
   Buffers: shared hit=4
-  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=30 width=19) (actual time=0.005..0.013 rows=30.00 loops=1)
+  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=30 width=19) (actual time=0.005..0.018 rows=30 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 120
         Buffers: shared hit=4
 Planning:
-  Buffers: shared hit=98
-Planning Time: 0.197 ms
-Execution Time: 0.067 ms
+  Buffers: shared hit=97
+Planning Time: 0.339 ms
+Execution Time: 0.071 ms
+
 === R30 run 3 ===
-Aggregate  (cost=6.62..6.63 rows=1 width=56) (actual time=0.017..0.017 rows=1.00 loops=1)
+Aggregate  (cost=6.62..6.63 rows=1 width=56) (actual time=0.038..0.038 rows=1 loops=1)
   Buffers: shared hit=4
-  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=30 width=19) (actual time=0.004..0.011 rows=30.00 loops=1)
+  ->  Seq Scan on campaigns  (cost=0.00..5.88 rows=30 width=19) (actual time=0.005..0.021 rows=30 loops=1)
         Filter: (organization_id = '00000000-0000-0000-0000-000000000003'::uuid)
         Rows Removed by Filter: 120
         Buffers: shared hit=4
 Planning:
-  Buffers: shared hit=98
-Planning Time: 0.178 ms
-Execution Time: 0.040 ms
+  Buffers: shared hit=97
+Planning Time: 0.343 ms
+Execution Time: 0.079 ms

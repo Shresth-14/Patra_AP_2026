@@ -1,30 +1,29 @@
 === R3 run 1 ===
-Index Scan using uq_refresh_tokens_hash on refresh_tokens rt  (cost=0.27..8.30 rows=1 width=48) (actual time=0.013..0.018 rows=1.00 loops=1)
+Index Scan using uq_refresh_tokens_hash on refresh_tokens rt  (cost=0.27..8.30 rows=1 width=48) (actual time=0.007..0.007 rows=1 loops=1)
   Index Cond: (token_hash = 'hashed_token_value'::text)
   Filter: ((revoked_at IS NULL) AND (expires_at > now()))
-  Index Searches: 1
-  Buffers: shared hit=5
+  Buffers: shared hit=3
 Planning:
   Buffers: shared hit=93
-Planning Time: 0.232 ms
-Execution Time: 0.029 ms
+Planning Time: 0.341 ms
+Execution Time: 0.021 ms
+
 === R3 run 2 ===
-Index Scan using uq_refresh_tokens_hash on refresh_tokens rt  (cost=0.27..8.30 rows=1 width=48) (actual time=0.008..0.009 rows=1.00 loops=1)
+Index Scan using uq_refresh_tokens_hash on refresh_tokens rt  (cost=0.27..8.30 rows=1 width=48) (actual time=0.007..0.007 rows=1 loops=1)
   Index Cond: (token_hash = 'hashed_token_value'::text)
   Filter: ((revoked_at IS NULL) AND (expires_at > now()))
-  Index Searches: 1
   Buffers: shared hit=3
 Planning:
   Buffers: shared hit=93
-Planning Time: 0.211 ms
-Execution Time: 0.020 ms
+Planning Time: 0.296 ms
+Execution Time: 0.021 ms
+
 === R3 run 3 ===
-Index Scan using uq_refresh_tokens_hash on refresh_tokens rt  (cost=0.27..8.30 rows=1 width=48) (actual time=0.008..0.008 rows=1.00 loops=1)
+Index Scan using uq_refresh_tokens_hash on refresh_tokens rt  (cost=0.27..8.30 rows=1 width=48) (actual time=0.005..0.006 rows=1 loops=1)
   Index Cond: (token_hash = 'hashed_token_value'::text)
   Filter: ((revoked_at IS NULL) AND (expires_at > now()))
-  Index Searches: 1
   Buffers: shared hit=3
 Planning:
   Buffers: shared hit=93
-Planning Time: 0.194 ms
-Execution Time: 0.019 ms
+Planning Time: 0.277 ms
+Execution Time: 0.020 ms

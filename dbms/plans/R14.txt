@@ -1,45 +1,44 @@
 === R14 run 1 ===
-Nested Loop Left Join  (cost=0.58..16.62 rows=1 width=90) (actual time=0.011..0.016 rows=3.00 loops=1)
-  Buffers: shared hit=9
-  ->  Index Scan using uq_contacts_id_org on contacts c  (cost=0.29..8.30 rows=1 width=71) (actual time=0.004..0.004 rows=1.00 loops=1)
+Nested Loop Left Join  (cost=0.58..16.62 rows=1 width=90) (actual time=0.020..0.021 rows=3 loops=1)
+  Join Filter: (cf.contact_id = c.contact_id)
+  Buffers: shared hit=6
+  ->  Index Scan using uq_contacts_id_org on contacts c  (cost=0.29..8.30 rows=1 width=71) (actual time=0.008..0.009 rows=1 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
-  ->  Index Scan using contact_custom_fields_pkey on contact_custom_fields cf  (cost=0.29..8.31 rows=1 width=35) (actual time=0.007..0.010 rows=3.00 loops=1)
+  ->  Index Scan using contact_custom_fields_pkey on contact_custom_fields cf  (cost=0.29..8.31 rows=1 width=35) (actual time=0.009..0.010 rows=3 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
-        Index Searches: 1
-        Buffers: shared hit=6
+        Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=246
-Planning Time: 0.332 ms
-Execution Time: 0.035 ms
+  Buffers: shared hit=237
+Planning Time: 0.575 ms
+Execution Time: 0.053 ms
+
 === R14 run 2 ===
-Nested Loop Left Join  (cost=0.58..16.62 rows=1 width=90) (actual time=0.008..0.009 rows=3.00 loops=1)
+Nested Loop Left Join  (cost=0.58..16.62 rows=1 width=90) (actual time=0.016..0.018 rows=3 loops=1)
+  Join Filter: (cf.contact_id = c.contact_id)
   Buffers: shared hit=6
-  ->  Index Scan using uq_contacts_id_org on contacts c  (cost=0.29..8.30 rows=1 width=71) (actual time=0.004..0.004 rows=1.00 loops=1)
+  ->  Index Scan using uq_contacts_id_org on contacts c  (cost=0.29..8.30 rows=1 width=71) (actual time=0.007..0.007 rows=1 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
-  ->  Index Scan using contact_custom_fields_pkey on contact_custom_fields cf  (cost=0.29..8.31 rows=1 width=35) (actual time=0.003..0.003 rows=3.00 loops=1)
+  ->  Index Scan using contact_custom_fields_pkey on contact_custom_fields cf  (cost=0.29..8.31 rows=1 width=35) (actual time=0.007..0.007 rows=3 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=246
-Planning Time: 0.310 ms
-Execution Time: 0.028 ms
+  Buffers: shared hit=237
+Planning Time: 0.538 ms
+Execution Time: 0.048 ms
+
 === R14 run 3 ===
-Nested Loop Left Join  (cost=0.58..16.62 rows=1 width=90) (actual time=0.008..0.008 rows=3.00 loops=1)
+Nested Loop Left Join  (cost=0.58..16.62 rows=1 width=90) (actual time=0.014..0.015 rows=3 loops=1)
+  Join Filter: (cf.contact_id = c.contact_id)
   Buffers: shared hit=6
-  ->  Index Scan using uq_contacts_id_org on contacts c  (cost=0.29..8.30 rows=1 width=71) (actual time=0.004..0.004 rows=1.00 loops=1)
+  ->  Index Scan using uq_contacts_id_org on contacts c  (cost=0.29..8.30 rows=1 width=71) (actual time=0.005..0.005 rows=1 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
-  ->  Index Scan using contact_custom_fields_pkey on contact_custom_fields cf  (cost=0.29..8.31 rows=1 width=35) (actual time=0.003..0.003 rows=3.00 loops=1)
+  ->  Index Scan using contact_custom_fields_pkey on contact_custom_fields cf  (cost=0.29..8.31 rows=1 width=35) (actual time=0.007..0.008 rows=3 loops=1)
         Index Cond: (contact_id = '00000000-0000-0000-0000-000000000008'::uuid)
-        Index Searches: 1
         Buffers: shared hit=3
 Planning:
-  Buffers: shared hit=246
-Planning Time: 0.316 ms
-Execution Time: 0.028 ms
+  Buffers: shared hit=237
+Planning Time: 0.558 ms
+Execution Time: 0.047 ms

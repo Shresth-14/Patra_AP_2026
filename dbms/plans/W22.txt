@@ -1,27 +1,29 @@
 === W22 run 1 ===
-Insert on template_versions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.116..0.116 rows=0.00 loops=1)
-  Buffers: shared hit=81
-  ->  Result  (cost=0.00..0.02 rows=1 width=228) (actual time=0.007..0.007 rows=1.00 loops=1)
+Insert on template_versions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.207..0.207 rows=0 loops=1)
+  Buffers: shared hit=80
+  ->  Result  (cost=0.00..0.02 rows=1 width=228) (actual time=0.004..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=13
-Planning Time: 0.032 ms
-Trigger for constraint fk_template_versions_template_org: time=0.215 calls=1
-Execution Time: 0.350 ms
+Planning Time: 0.050 ms
+Trigger for constraint fk_template_versions_template_org: time=0.379 calls=1
+Execution Time: 0.614 ms
+
 === W22 run 2 ===
-Insert on template_versions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.113..0.113 rows=0.00 loops=1)
+Insert on template_versions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.163..0.163 rows=0 loops=1)
   Buffers: shared hit=81
-  ->  Result  (cost=0.00..0.02 rows=1 width=228) (actual time=0.008..0.008 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=228) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=13
-Planning Time: 0.033 ms
-Trigger for constraint fk_template_versions_template_org: time=0.219 calls=1
-Execution Time: 0.350 ms
+Planning Time: 0.047 ms
+Trigger for constraint fk_template_versions_template_org: time=0.307 calls=1
+Execution Time: 0.494 ms
+
 === W22 run 3 ===
-Insert on template_versions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.129..0.129 rows=0.00 loops=1)
+Insert on template_versions  (cost=0.00..0.02 rows=0 width=0) (actual time=0.166..0.166 rows=0 loops=1)
   Buffers: shared hit=81
-  ->  Result  (cost=0.00..0.02 rows=1 width=228) (actual time=0.010..0.010 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=228) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=13
-Planning Time: 0.034 ms
-Trigger for constraint fk_template_versions_template_org: time=0.257 calls=1
-Execution Time: 0.405 ms
+Planning Time: 0.049 ms
+Trigger for constraint fk_template_versions_template_org: time=0.305 calls=1
+Execution Time: 0.494 ms

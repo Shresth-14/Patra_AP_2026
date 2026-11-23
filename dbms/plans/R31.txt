@@ -1,45 +1,47 @@
 === R31 run 1 ===
-Limit  (cost=2724.02..2724.07 rows=20 width=82) (actual time=3.715..3.717 rows=20.00 loops=1)
-  Buffers: shared hit=1552
-  ->  Sort  (cost=2724.02..2752.31 rows=11319 width=82) (actual time=3.715..3.716 rows=20.00 loops=1)
+Limit  (cost=2423.03..2423.08 rows=20 width=83) (actual time=7.808..7.810 rows=20 loops=1)
+  Buffers: shared hit=1384
+  ->  Sort  (cost=2423.03..2448.11 rows=10032 width=83) (actual time=7.805..7.806 rows=20 loops=1)
         Sort Key: (GREATEST(sent_at, delivered_at, opened_at, clicked_at, bounced_at)) DESC NULLS LAST
         Sort Method: top-N heapsort  Memory: 27kB
-        Buffers: shared hit=1552
-        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2422.82 rows=11319 width=82) (actual time=0.005..2.820 rows=10000.00 loops=1)
+        Buffers: shared hit=1384
+        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2156.08 rows=10032 width=83) (actual time=0.004..5.944 rows=10000 loops=1)
               Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
               Rows Removed by Filter: 50000
-              Buffers: shared hit=1549
+              Buffers: shared hit=1381
 Planning:
-  Buffers: shared hit=126
-Planning Time: 0.176 ms
-Execution Time: 3.733 ms
+  Buffers: shared hit=121
+Planning Time: 0.311 ms
+Execution Time: 7.836 ms
+
 === R31 run 2 ===
-Limit  (cost=2724.02..2724.07 rows=20 width=82) (actual time=3.632..3.634 rows=20.00 loops=1)
-  Buffers: shared hit=1552
-  ->  Sort  (cost=2724.02..2752.31 rows=11319 width=82) (actual time=3.632..3.633 rows=20.00 loops=1)
+Limit  (cost=2423.03..2423.08 rows=20 width=83) (actual time=7.701..7.703 rows=20 loops=1)
+  Buffers: shared hit=1384
+  ->  Sort  (cost=2423.03..2448.11 rows=10032 width=83) (actual time=7.698..7.700 rows=20 loops=1)
         Sort Key: (GREATEST(sent_at, delivered_at, opened_at, clicked_at, bounced_at)) DESC NULLS LAST
         Sort Method: top-N heapsort  Memory: 27kB
-        Buffers: shared hit=1552
-        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2422.82 rows=11319 width=82) (actual time=0.006..2.763 rows=10000.00 loops=1)
+        Buffers: shared hit=1384
+        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2156.08 rows=10032 width=83) (actual time=0.004..5.980 rows=10000 loops=1)
               Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
               Rows Removed by Filter: 50000
-              Buffers: shared hit=1549
+              Buffers: shared hit=1381
 Planning:
-  Buffers: shared hit=126
-Planning Time: 0.190 ms
-Execution Time: 3.650 ms
+  Buffers: shared hit=121
+Planning Time: 0.343 ms
+Execution Time: 7.734 ms
+
 === R31 run 3 ===
-Limit  (cost=2724.02..2724.07 rows=20 width=82) (actual time=3.738..3.739 rows=20.00 loops=1)
-  Buffers: shared hit=1552
-  ->  Sort  (cost=2724.02..2752.31 rows=11319 width=82) (actual time=3.737..3.738 rows=20.00 loops=1)
+Limit  (cost=2423.03..2423.08 rows=20 width=83) (actual time=7.676..7.679 rows=20 loops=1)
+  Buffers: shared hit=1384
+  ->  Sort  (cost=2423.03..2448.11 rows=10032 width=83) (actual time=7.674..7.676 rows=20 loops=1)
         Sort Key: (GREATEST(sent_at, delivered_at, opened_at, clicked_at, bounced_at)) DESC NULLS LAST
         Sort Method: top-N heapsort  Memory: 27kB
-        Buffers: shared hit=1552
-        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2422.82 rows=11319 width=82) (actual time=0.006..2.882 rows=10000.00 loops=1)
+        Buffers: shared hit=1384
+        ->  Seq Scan on campaign_recipients cr  (cost=0.00..2156.08 rows=10032 width=83) (actual time=0.003..5.931 rows=10000 loops=1)
               Filter: (campaign_id = '00000000-0000-0000-0000-000000000012'::uuid)
               Rows Removed by Filter: 50000
-              Buffers: shared hit=1549
+              Buffers: shared hit=1381
 Planning:
-  Buffers: shared hit=126
-Planning Time: 0.192 ms
-Execution Time: 3.759 ms
+  Buffers: shared hit=121
+Planning Time: 0.322 ms
+Execution Time: 7.704 ms

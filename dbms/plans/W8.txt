@@ -1,27 +1,29 @@
 === W8 run 1 ===
-Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.088..0.088 rows=0.00 loops=1)
-  Buffers: shared hit=61
-  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.007..0.007 rows=1.00 loops=1)
+Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.151..0.151 rows=0 loops=1)
+  Buffers: shared hit=60
+  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.003..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=12
-Planning Time: 0.036 ms
-Trigger for constraint roles_organization_id_fkey: time=0.204 calls=1
-Execution Time: 0.304 ms
+Planning Time: 0.071 ms
+Trigger for constraint roles_organization_id_fkey: time=0.370 calls=1
+Execution Time: 0.538 ms
+
 === W8 run 2 ===
-Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.093..0.093 rows=0.00 loops=1)
+Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.129..0.129 rows=0 loops=1)
   Buffers: shared hit=61
-  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.007..0.007 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=12
-Planning Time: 0.036 ms
-Trigger for constraint roles_organization_id_fkey: time=0.207 calls=1
-Execution Time: 0.312 ms
+Planning Time: 0.061 ms
+Trigger for constraint roles_organization_id_fkey: time=0.320 calls=1
+Execution Time: 0.464 ms
+
 === W8 run 3 ===
-Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.095..0.095 rows=0.00 loops=1)
+Insert on roles  (cost=0.00..0.02 rows=0 width=0) (actual time=0.125..0.125 rows=0 loops=1)
   Buffers: shared hit=61
-  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.008..0.008 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=259) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=12
-Planning Time: 0.040 ms
-Trigger for constraint roles_organization_id_fkey: time=0.217 calls=1
-Execution Time: 0.325 ms
+Planning Time: 0.060 ms
+Trigger for constraint roles_organization_id_fkey: time=0.332 calls=1
+Execution Time: 0.471 ms

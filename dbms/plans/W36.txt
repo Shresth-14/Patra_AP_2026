@@ -1,30 +1,32 @@
 === W36 run 1 ===
-Insert on audit_logs  (cost=0.00..0.02 rows=0 width=0) (actual time=0.113..0.114 rows=0.00 loops=1)
-  Buffers: shared hit=43
-  ->  Result  (cost=0.00..0.02 rows=1 width=564) (actual time=0.009..0.009 rows=1.00 loops=1)
+Insert on audit_logs  (cost=0.00..0.02 rows=0 width=0) (actual time=0.217..0.217 rows=0 loops=1)
+  Buffers: shared hit=44
+  ->  Result  (cost=0.00..0.02 rows=1 width=564) (actual time=0.003..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=9
-Planning Time: 0.044 ms
-Trigger for constraint audit_logs_organization_id_fkey: time=0.278 calls=1
-Trigger for constraint audit_logs_user_id_fkey: time=0.127 calls=1
-Execution Time: 0.532 ms
+Planning Time: 0.065 ms
+Trigger for constraint audit_logs_organization_id_fkey: time=0.387 calls=1
+Trigger for constraint audit_logs_user_id_fkey: time=0.181 calls=1
+Execution Time: 0.801 ms
+
 === W36 run 2 ===
-Insert on audit_logs  (cost=0.00..0.02 rows=0 width=0) (actual time=0.104..0.104 rows=0.00 loops=1)
+Insert on audit_logs  (cost=0.00..0.02 rows=0 width=0) (actual time=0.147..0.148 rows=0 loops=1)
   Buffers: shared hit=43
-  ->  Result  (cost=0.00..0.02 rows=1 width=564) (actual time=0.009..0.009 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=564) (actual time=0.003..0.004 rows=1 loops=1)
 Planning:
   Buffers: shared hit=9
-Planning Time: 0.040 ms
-Trigger for constraint audit_logs_organization_id_fkey: time=0.244 calls=1
-Trigger for constraint audit_logs_user_id_fkey: time=0.100 calls=1
-Execution Time: 0.461 ms
+Planning Time: 0.061 ms
+Trigger for constraint audit_logs_organization_id_fkey: time=0.356 calls=1
+Trigger for constraint audit_logs_user_id_fkey: time=0.172 calls=1
+Execution Time: 0.692 ms
+
 === W36 run 3 ===
-Insert on audit_logs  (cost=0.00..0.02 rows=0 width=0) (actual time=0.105..0.106 rows=0.00 loops=1)
+Insert on audit_logs  (cost=0.00..0.02 rows=0 width=0) (actual time=0.158..0.158 rows=0 loops=1)
   Buffers: shared hit=43
-  ->  Result  (cost=0.00..0.02 rows=1 width=564) (actual time=0.010..0.010 rows=1.00 loops=1)
+  ->  Result  (cost=0.00..0.02 rows=1 width=564) (actual time=0.003..0.003 rows=1 loops=1)
 Planning:
   Buffers: shared hit=9
-Planning Time: 0.038 ms
-Trigger for constraint audit_logs_organization_id_fkey: time=0.255 calls=1
-Trigger for constraint audit_logs_user_id_fkey: time=0.119 calls=1
-Execution Time: 0.492 ms
+Planning Time: 0.063 ms
+Trigger for constraint audit_logs_organization_id_fkey: time=0.359 calls=1
+Trigger for constraint audit_logs_user_id_fkey: time=0.175 calls=1
+Execution Time: 0.708 ms
